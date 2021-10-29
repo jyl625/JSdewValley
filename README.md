@@ -1,6 +1,6 @@
 # Background
 
-JSdewValley is a lite clone of Stardew Valley. The original Stardew Valley is a simulation role-playing video where players can grow crops, raise livestock, craft goods, and engage in other activities around the town of Stardew Valley. This game, JSdewValley, will feature a simple farming simulation where players can manage their own farm by planting and sell harvested crops to collect as much profit as possible. 
+JSdewValley is a lite clone of Stardew Valley. The original Stardew Valley is a simulation role-playing video where players can grow crops, raise livestock, craft goods, and engage in other activities around the town of Stardew Valley. This game, JSdewValley, will feature a simple farming simulation where players can plant seeds, water plants, harvest crops, and sell produce to collect as much profit as possible.
 
 ---
 
@@ -8,11 +8,12 @@ JSdewValley is a lite clone of Stardew Valley. The original Stardew Valley is a 
 
 In JSdewValley, users will be able to: 
 - Take the role of a farmer and manage your own farm
-- Move around the farm to interact with variety of game objects:
+- Move around the farm to interact with a variety of game objects:
   - Buy seeds from the store tab
   - Till the ground using a hoe
-  - Plant seeds and water the plants
+  - Plant seeds and water the plants (Bonus)
   - Harvest crops to sell for profit in the store tab
+- See the total profit collected
 
 ---
 
@@ -36,7 +37,7 @@ In JSdewValley, users will be able to:
 
 # Implementation Timeline
 
-- **Friday Afternoon & Weekend**: Setup project. Create index.html page with canvas, and other empty webpage elements like title and nav links. Learn how to render and animate character sprites on canvas. Implement character movement. Create basic world, character, tool, and plant classes. Also on canvas, render the farm and other game objects like plants. 
+- **Friday Afternoon & Weekend**: Setup project. Create index.html page with canvas, and other empty webpage elements like title and nav links. Learn how to render and animate character sprites on canvas. Create basic world, character, tool, and plant classes. Implement character movement/action animation. Also on canvas, render the farm and other game objects like plants. 
 - **Monday**: Implement game logic for character activity like planting, harvesting, buying seeds, selling crops. Make sure the game can progress to the next in-game day so the plants grow/wither properly. Add additional plant classes.
 - **Tuesday**: Flush out any issues from previous days. Implement menu/splash/instructions screen.
 - **Wednesday**: Finish up other features of the webpage not related to the game (i.e. nav links, etc.)
@@ -45,5 +46,6 @@ In JSdewValley, users will be able to:
 ---
 
 # Bonus Features
+- Add ability to water plants and include corresponding animations
 - Randomly increase/decrease crop prices every in-game day
 - Add more crop varieties 
