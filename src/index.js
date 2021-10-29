@@ -1,19 +1,12 @@
-const Game = require("./js/game");
-const GameView = require("./js/game_view");
+const Game = require("./scripts/game.js");
+// // const GameView = require("./scripts/game_view");
 
 
 
-
-
-console.log("testing testing");
 
 document.addEventListener("DOMContentLoaded", function () {
-  const canvasEle = document.querySelector(".game-canvas");
 
-  const ctx = canvasEle.getContext("2d");
-  const game = new Game();
-  new GameView(game, ctx).start();
-  console.log(game);
+  const game = new Game(document.querySelector(".game-container"));
+  game.start();
+
 });
-
-console.log("loading done");
