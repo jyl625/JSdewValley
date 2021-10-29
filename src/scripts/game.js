@@ -5,21 +5,26 @@ function Game(element) {
 }
 
 Game.prototype.start = function start() {
-  const img = new Image();
+
   console.log("hello");
 
-  // Set line width
-  this.ctx.lineWidth = 10;
-
-  // Wall
-  this.ctx.strokeRect(75, 140, 150, 110);
-
-
-
-  img.onload = () => {
-    this.ctx.drawImage(img, 0, 0, 32, 32, 0, 0, 32, 32);
+  //load farm map
+  const farm = new Image();
+  farm.onload = () => {
+    this.ctx.drawImage(farm, 0, 0);
   };
-  img.src = '././dist/assets/character.png';
+  farm.src = '././dist/assets/farm_dev.png';
+
+
+  //load character
+  const tile_pos_x = 1; // 14 tiles total
+  const tile_pos_y = 1; //10 tiles total
+  const character = new Image();
+  character.onload = () => {
+    this.ctx.drawImage(character, 0, 0, 32, 32, 
+      tile_pos_x * 16 - 8, tile_pos_y * 16 - 20, 32, 32);
+  };
+  character.src = '././dist/assets/character.png';
 };
 
 module.exports = Game;
