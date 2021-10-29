@@ -17,7 +17,7 @@ In JSdewValley, users will be able to:
 ---
 
 # Wireframes
-![file structure](https://i.postimg.cc/SNDMvWDc/Screen-Shot-2021-10-28-at-7-46-08-PM.png)
+![Wireframes](https://i.postimg.cc/vmFcqgmT/JS-Proj-Wireframes.png)
 
 ---
 
