@@ -7,22 +7,33 @@ function Game(element) {
   this.ctx = this.canvasEle.getContext("2d");
 }
 
+Game.prototype.gameLoop = function gameLoop() {
+  const step = () => {
+
+    //load farm map
+    const farm = new Image();
+    farm.onload = () => {
+      this.ctx.drawImage(farm, 0, 0);
+    };
+    farm.src = '././dist/assets/farm_dev.png';
+
+
+    requestAnimationFrame(() => {
+      step();
+    });
+  };
+
+  step();
+}
+
 Game.prototype.start = function start() {
 
-  console.log("hello");
-
-  //load farm map
-  const farm = new Image();
-  farm.onload = () => {
-    this.ctx.drawImage(farm, 0, 0);
-  };
-  farm.src = '././dist/assets/farm_dev.png';
-
-
+  // start game loop
+  this.gameLoop();
 
   //place player
   const player = new GameObject({
-    x: 1, y: 1, src: '././dist/assets/character.png'
+    x: 5, y: 4, src: '././dist/assets/character.png'
   });
 
 
@@ -36,9 +47,12 @@ Game.prototype.start = function start() {
   });
 
 
-  potato.sprite.draw(this.ctx);
-  tomato.sprite.draw(this.ctx);
-  player.sprite.draw(this.ctx);
+  setTimeout (() => {
+    potato.sprite.draw(this.ctx);
+    tomato.sprite.draw(this.ctx);
+    player.sprite.draw(this.ctx);
+    console.log("setTimeout");
+  }, 200);
 
 
 };

@@ -1,19 +1,18 @@
 function PlantSprite (option) {
   this.img = new Image();
   this.img.src = option.src;
-  // this.img.onload = () => {
-  //   this.isLoaded = true;
-  // };
+  this.img.onload = () => {
+    this.isLoaded = true;
+  };
   this.plantObject = option.plantObject;
 }
 
 PlantSprite.prototype.draw = function (ctx) {
   const x = this.plantObject.x * 16;
   const y = this.plantObject.y * 16;
-  const stage = 16 * 5;
-  this.img.onload = () => {
-    ctx.drawImage(this.img, stage, 0, 16, 16, x, y, 16, 16);
-  };
+  const stage = 16 * 6;
+  
+  if (this.isLoaded) ctx.drawImage(this.img, stage, 0, 16, 16, x, y, 16, 16);
 };
 
 //load character

@@ -8,8 +8,6 @@ function PlantObject (option) {
     src: option.src,
   });
 
-  console.log(this.x);
-  console.log(this.y);
 }
 
 module.exports = PlantObject;
