@@ -1,18 +1,18 @@
-function Sprite (option) {
+function PlantSprite (option) {
   this.img = new Image();
   this.img.src = option.src;
   // this.img.onload = () => {
   //   this.isLoaded = true;
   // };
-  this.gameObject = option.gameObject;
+  this.plantObject = option.plantObject;
 }
 
-Sprite.prototype.draw = function (ctx) {
-  const x = this.gameObject.x * 16 - 8;
-  const y = this.gameObject.y * 16 - 20;
-
+PlantSprite.prototype.draw = function (ctx) {
+  const x = this.plantObject.x * 16;
+  const y = this.plantObject.y * 16;
+  const stage = 16 * 5;
   this.img.onload = () => {
-    ctx.drawImage(this.img, 0, 0, 32, 32, x, y, 32, 32);
+    ctx.drawImage(this.img, stage, 0, 16, 16, x, y, 16, 16);
   };
 };
 
@@ -26,4 +26,4 @@ Sprite.prototype.draw = function (ctx) {
 // };
 // character.src = '././dist/assets/character.png';
 
-module.exports = Sprite;
+module.exports = PlantSprite;

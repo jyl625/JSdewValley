@@ -1,4 +1,5 @@
 const GameObject = require ("./game_object")
+const PlantObject = require ("./plant_object")
 
 function Game(element) {
   this.element = element;
@@ -23,17 +24,23 @@ Game.prototype.start = function start() {
   const player = new GameObject({
     x: 1, y: 1, src: '././dist/assets/character.png'
   });
+
+
+  const potato = new PlantObject({
+    x: 2, y: 2, src: '././dist/assets/crops/potato.png'
+  });
+
+
+  const tomato = new PlantObject({
+    x: 3, y: 3, src: '././dist/assets/crops/tomato.png'
+  });
+
+
+  potato.sprite.draw(this.ctx);
+  tomato.sprite.draw(this.ctx);
   player.sprite.draw(this.ctx);
 
-  // //load character
-  // const tile_pos_x = 1; // 14 tiles total
-  // const tile_pos_y = 1; //10 tiles total
-  // const character = new Image();
-  // character.onload = () => {
-  //   this.ctx.drawImage(character, 0, 0, 32, 32, 
-  //     tile_pos_x * 16 - 8, tile_pos_y * 16 - 20, 32, 32);
-  // };
-  // character.src = '././dist/assets/character.png';
+
 };
 
 module.exports = Game;
