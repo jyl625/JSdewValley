@@ -9,8 +9,8 @@ class PlantSprite {
   }
 
   draw(ctx) {
-    const x = this.plantObject.x * 16;
-    const y = this.plantObject.y * 16;
+    const x = this.plantObject.x;
+    const y = this.plantObject.y;
     const stage = 16 * 6;
 
     if (this.isLoaded) ctx.drawImage(this.img, stage, 0, 16, 16, x, y, 16, 16);

@@ -1,9 +1,9 @@
 import PlantSprite from "./plant_sprite";
+import GameObject from "./game_object";
 
-class PlantObject {
+class PlantObject extends GameObject {
   constructor(option) {
-    this.x = option.x;
-    this.y = option.y;
+    super(option);
     this.sprite = new PlantSprite({
       plantObject: this,
       src: option.src,

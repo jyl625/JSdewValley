@@ -1,6 +1,7 @@
-import GameObject from "./game_object";
-import PlantObject from "./plant_object";
+// import GameObject from "./game_object";
+// import PlantObject from "./plant_object";
 import GameWorld from "./game_world";
+import DirInput from "./dir_input";
 
 class Game {
   constructor(element) {
@@ -13,11 +14,17 @@ class Game {
   gameLoop() {
     const step = () => {
 
+      //clear cavas
+      this.ctx.clearRect(0,0, this.canvasEle.width, this.canvasEle.height);
+
       //draw map
       this.gameWorld.draw(this.ctx);
 
+      //draw game objects
       Object.values(this.gameWorld.gameObjects).forEach(object => {
-        object.x += 0.01;
+        object.update({
+          direction: this.dirInput.direction
+        });
         object.sprite.draw(this.ctx);
       })
 
@@ -33,6 +40,11 @@ class Game {
     //create new instance of GameWorld
     this.gameWorld = new GameWorld(window.GameWorldMaps.FarmDefault);
     
+    // Look for keyboard input
+    this.dirInput = new DirInput();
+    this.dirInput.initialize();
+
+
     // start game loop
     this.gameLoop();
 
