@@ -1,20 +1,21 @@
-function PlantSprite (option) {
-  this.img = new Image();
-  this.img.src = option.src;
-  this.img.onload = () => {
-    this.isLoaded = true;
-  };
-  this.plantObject = option.plantObject;
+class PlantSprite {
+  constructor(option) {
+    this.img = new Image();
+    this.img.src = option.src;
+    this.img.onload = () => {
+      this.isLoaded = true;
+    };
+    this.plantObject = option.plantObject;
+  }
+
+  draw(ctx) {
+    const x = this.plantObject.x * 16;
+    const y = this.plantObject.y * 16;
+    const stage = 16 * 6;
+
+    if (this.isLoaded) ctx.drawImage(this.img, stage, 0, 16, 16, x, y, 16, 16);
+  }
 }
-
-PlantSprite.prototype.draw = function (ctx) {
-  const x = this.plantObject.x * 16;
-  const y = this.plantObject.y * 16;
-  const stage = 16 * 6;
-  
-  if (this.isLoaded) ctx.drawImage(this.img, stage, 0, 16, 16, x, y, 16, 16);
-};
-
 //load character
 // const tile_pos_x = 1; // 14 tiles total
 // const tile_pos_y = 1; //10 tiles total
@@ -25,4 +26,4 @@ PlantSprite.prototype.draw = function (ctx) {
 // };
 // character.src = '././dist/assets/character.png';
 
-module.exports = PlantSprite;
+export default PlantSprite;
