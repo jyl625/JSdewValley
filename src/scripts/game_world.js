@@ -20,18 +20,19 @@ window.GameWorldMaps = {
   FarmDefault: {
     src: '././dist/assets/farm_dev.png',
     gameObjects: {
-      player: new Player({
-        x: utils.gridVal(5), y: utils.gridVal(4), src: '././dist/assets/character.png'
-      }),
-
-
+      // create play 1
       potato: new PlantObject({
         x: utils.gridVal(2), y: utils.gridVal(2), src: '././dist/assets/crops/potato.png'
       }),
-
-
+      
+      // create plant 2
       tomato: new PlantObject({
         x: utils.gridVal(3), y: utils.gridVal(3), src: '././dist/assets/crops/tomato.png'
+      }),
+
+      // create player
+      player: new Player({
+        x: utils.gridVal(5), y: utils.gridVal(4), src: '././dist/assets/player_1.png'
       })
     }
   }

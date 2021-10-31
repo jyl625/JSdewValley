@@ -4,7 +4,7 @@ import GameObject from "./game_object";
 class Player extends GameObject{
   constructor(option) {
     super(option);
-    this.movementRemaining = 0;
+    this.movementPxRemaining = 0;
 
     this.directionMap = {
       "up": ["y", -1],
@@ -17,18 +17,18 @@ class Player extends GameObject{
   update(state) {
     this.updatePosition();
 
-    if (this.movementRemaining === 0 && state.direction) {
+    if (this.movementPxRemaining === 0 && state.direction) {
       this.dir = state.direction;
-      this.movementRemaining = 16;
+      this.movementPxRemaining = 16;
     }
   }
 
   updatePosition() {
-    if (this.movementRemaining > 0) {
+    if (this.movementPxRemaining > 0) {
       const [direction, delta] = this.directionMap[this.dir];
       if (direction === "y") this.y += delta;
       if (direction === "x") this.x += delta;
-      this.movementRemaining -=1;
+      this.movementPxRemaining -=1;
     }
   }
 }
