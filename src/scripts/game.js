@@ -17,7 +17,7 @@ class Game {
       this.gameWorld.draw(this.ctx);
 
       Object.values(this.gameWorld.gameObjects).forEach(object => {
-        object.x += 0.02;
+        object.x += 0.01;
         object.sprite.draw(this.ctx);
       })
 
