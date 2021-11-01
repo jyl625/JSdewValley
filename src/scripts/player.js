@@ -5,6 +5,7 @@ import utils from "./utils";
 //testing only
 import Tomato from "./tomato";
 import Potato from "./potato";
+import Tool from "./tool";
 
 class Player extends GameObject{
   constructor(option) {
@@ -21,7 +22,8 @@ class Player extends GameObject{
       "left": ["x", -1],
       "right": ["x", 1]
     };
-    this.inventory = [Potato, Tomato];
+    this.inventory = [Potato, Tomato, Tool];
+    this.cropsToSell = [];
   }
 
   updatePosition() {
@@ -72,13 +74,25 @@ class Player extends GameObject{
 
     if (option.gameWorld.isEmptyPlot(this.nearestPos())) {
 
-      const newCrop = this.inventory[option.inventorySelection].create({
+      const newCrop = option.plantObject.create({
         x: this.nearestPos()[0], y: this.nearestPos()[1],
         dayPlanted: option.gameWorld.gameDays
       });
 
       option.gameWorld.plantObjects.push(newCrop);
     }
+  }
+
+  harvest(option) {
+    option.gameWorld.plantObjects.forEach((plantObject, idx) => {
+      if (plantObject.x === this.nearestPos()[0] && plantObject.y === this.nearestPos()[1] && 
+      plantObject.isRipe) {
+        this.cropsToSell.push(option.gameWorld.plantObjects[idx]);
+        console.log(this.cropsToSell);
+        option.gameWorld.plantObjects.splice(idx,1);
+        console.log(option.gameWorld.plantObjects);
+      }
+    });
   }
 
 

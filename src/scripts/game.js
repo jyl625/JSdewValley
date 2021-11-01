@@ -5,7 +5,8 @@ import DirInput from "./dir_input";
 import utils from "./utils";
 
 //testing only
-import Tomato from "./tomato";
+import Tool from "./tool";
+import PlantObject from "./plant_object";
 
 class Game {
   constructor(element) {
@@ -21,7 +22,7 @@ class Game {
   gameLoop() {
     const step = () => {
 
-      //clear cavas
+      //clear canvas
       this.ctx.clearRect(0,0, this.canvasEle.width, this.canvasEle.height);
 
       //draw map
@@ -42,18 +43,27 @@ class Game {
         // object.sprite.draw(this.ctx);
       });
 
-      // player actions
+      // player movement
       this.player.update({
         direction: this.dirInput.direction,
       });
       this.player.sprite.draw(this.ctx);
 
-      //plant seeds
+      //plant action
       if (this.dirInput.action) {
-        this.player.plantSeed({
-          gameWorld: this.gameWorld,
-          inventorySelection: this.dirInput.inventorySelection,
-        });
+        const currentItem = this.player.inventory[this.dirInput.inventorySelection];
+ 
+        if (currentItem === Tool) {
+          console.log("action tool");
+          this.player.harvest({
+            gameWorld: this.gameWorld
+          });
+        } else {
+          this.player.plantSeed({
+            gameWorld: this.gameWorld,
+            plantObject: currentItem
+          });
+        }  
       }
 
       // in between day logic
@@ -64,9 +74,8 @@ class Game {
         this.gameWorld.plantObjects.forEach(plantObject => {
           plantObject.update();
           plantObject.sprite.draw(this.ctx);
-          console.log(`${plantObject.constructor.name}'s Age: ${plantObject.age} Days`);
-          console.log(`${plantObject.constructor.name}'s current stage: ${plantObject.currentStage}`);
-          console.log(`${plantObject.sprite.stageFrame}`);
+          // console.log(`${plantObject.constructor.name}'s Age: ${plantObject.age} Days`);
+          // console.log(`${plantObject.constructor.name}'s current stage: ${plantObject.currentStage}`);
         });
       }
 

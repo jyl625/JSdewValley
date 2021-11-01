@@ -7,21 +7,28 @@ class PlantObject extends GameObject {
     // this.dayPlanted = option.dayPlanted || 0;
     this.age = 0; //in days
     this.currentStage = 1;
+    this.updateSprite();
     this.isRipe = false;
-    console.log(this.age);
   }
 
   static create(option) {
     return new PlantObject(option);
   }
 
+
   update() {
     this.age++;
     if (this.growthStages.includes(this.age)) {
       this.currentStage++;
     }
+    if (this.age === this.growthStages[this.growthStages.length - 1]) {
+      this.isRipe = true;
+    }
     this.updateSprite();
   }
+
+
+
 }
 
 export default PlantObject;

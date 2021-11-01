@@ -6,7 +6,7 @@ class PlantSprite {
       this.isLoaded = true;
     };
     this.plantObject = option.plantObject;
-    this.stageFrame = option.currentStage * 16;
+    this.stageFrame = this.plantObject.currentStage * 16;
   }
 
   draw(ctx) {

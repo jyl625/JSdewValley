@@ -4,12 +4,7 @@ import PlantObject from "./plant_object";
 class Potato extends PlantObject {
   constructor(option) {
     super(option);
-    this.growthStages = [1, 2, 3, 4, 6];
-    this.sprite = new PlantSprite({
-      plantObject: this,
-      src: '././dist/assets/crops/potato.png',
-      currentStage: this.currentStage
-    });
+    this.growthStages = [1, 2, 3, 4, 6]; //days when they grow
   }
 
   static create(option) {
@@ -19,8 +14,7 @@ class Potato extends PlantObject {
   updateSprite() {
     this.sprite = new PlantSprite({
       plantObject: this,
-      src: '././dist/assets/crops/potato.png',
-      currentStage: this.currentStage
+      src: '././dist/assets/crops/potato.png'
     });
   }
 }

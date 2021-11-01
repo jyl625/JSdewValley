@@ -10,9 +10,12 @@ class GameWorld {
     this.gameObjects = option.gameObjects;
     this.player = option.player;
 
+    this.gameSpeed = 2; //how many seconds per day
+
     this.steps = 0;
     this.seconds = 0;
     this.gameDays = 0;
+    
     
     console.log(`Day: ${this.gameDays}`);
     
@@ -29,7 +32,7 @@ class GameWorld {
     if (this.steps === 60) {
       this.steps = 0;
       this.seconds++;
-      if (this.seconds === 3) {
+      if (this.seconds === this.gameSpeed) {
         this.seconds = 0;
         this.gameDays++;
         return this.gameDays;
