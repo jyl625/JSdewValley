@@ -12,17 +12,23 @@ class ToolBelt {
     console.log(this.toolBeltEle);
     for (let idx = 0; idx < 10; idx++) {
       let invSlot = document.createElement("div");
+      invSlot.id = `invSlot-${idx}`;
       invSlot.innerHTML = idx;
 
       let invCanvas = document.createElement("canvas");
       invCanvas.width = 16;
       invCanvas.height = 16;
-      invCanvas.class = "invSlot";
-      invCanvas.id = `invSlot-${idx}`;
+      invCanvas.class = "invCanvas";
+      invCanvas.id = `invCanvas-${idx}`;
       invSlot.append(invCanvas);
 
       this.toolBeltEle.append(invSlot);
     }
+  }
+
+  highlight(slotEle) {
+    slotEle.style.backgroundColor = "yellow";
+
   }
 }
 

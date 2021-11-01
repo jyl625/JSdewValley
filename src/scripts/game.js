@@ -16,7 +16,7 @@ class Game {
     this.ctx = this.canvasEle.getContext("2d");
 
     this.toolBeltEle = this.element.querySelector(".tool-belt");
-    // this.ctxToolBelt = this.toolBeltEle.getContext("2d");
+
 
     this.hudEleLeft = this.element.querySelector(".hud-left");
     this.hudEleRight = this.element.querySelector(".hud-right");
@@ -24,8 +24,6 @@ class Game {
     this.gameWorld = null;
     this.player = null;
     this.dirInput = new DirInput();
-
-    // this.toolBelt = new ToolBelt(this.element);
 
   }
 
@@ -43,6 +41,10 @@ class Game {
       this.hudEleLeft.innerHTML = `Day: ${this.gameWorld.gameDays}`;
       this.hudEleRight.innerHTML = `$: ${this.player.money}`;
 
+      //Draw Toolbelt
+      //select the toggled toolbelt 
+      this.currentToolSlotEle = this.toolBeltEle.querySelector(`#invSlot-${this.dirInput.inventorySelection}`);
+      this.player.toolBelt.highlight(this.currentToolSlotEle);
 
       //draw map
       this.gameWorld.draw(this.ctx);
