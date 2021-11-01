@@ -17,8 +17,6 @@ class GameWorld {
     this.gameDays = 0;
     
     
-    console.log(`Day: ${this.gameDays}`);
-    
     this.farmMap = new Image();
     this.farmMap.src = option.src;
   }

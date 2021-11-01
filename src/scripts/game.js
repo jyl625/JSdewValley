@@ -7,6 +7,7 @@ import utils from "./utils";
 //testing only
 import Tool from "./tool";
 import PlantObject from "./plant_object";
+import ToolBelt from "./tool_belt";
 
 class Game {
   constructor(element) {
@@ -20,26 +21,11 @@ class Game {
     this.hudEleLeft = this.element.querySelector(".hud-left");
     this.hudEleRight = this.element.querySelector(".hud-right");
 
-    console.log(this.toolBeltEle);
-    for (let idx = 0; idx < 10; idx++) {
-      let invSlot = document.createElement("div");
-      invSlot.innerHTML = idx;
-
-      let invCanvas = document.createElement("canvas");
-      invCanvas.width = 16;
-      invCanvas.height = 16;
-      invCanvas.class = "invSlot";
-      invCanvas.id = `invSlot-${idx}`;
-      invSlot.append(invCanvas);
-
-      this.toolBeltEle.append(invSlot);
-    };
-
-
-
     this.gameWorld = null;
     this.player = null;
     this.dirInput = new DirInput();
+
+    this.toolBelt = new ToolBelt(this.element);
 
   }
 
@@ -57,9 +43,6 @@ class Game {
       this.hudEleLeft.innerHTML = `Day: ${this.gameWorld.gameDays}`;
       this.hudEleRight.innerHTML = `$: ${this.player.money}`;
 
-
-      //tool belt
-      // this.toolBeltEle.childNodes.forEach( div => console.log(div));
 
       //draw map
       this.gameWorld.draw(this.ctx);
@@ -104,14 +87,11 @@ class Game {
 
       // in between day logic
       if (this.gameWorld.updateDay()) {
-        console.log(`Day: ${this.gameWorld.gameDays}`);
 
         //update plants age
         this.gameWorld.plantObjects.forEach(plantObject => {
           plantObject.update();
           plantObject.sprite.draw(this.ctx);
-          // console.log(`${plantObject.constructor.name}'s Age: ${plantObject.age} Days`);
-          // console.log(`${plantObject.constructor.name}'s current stage: ${plantObject.currentStage}`);
         });
       }
 

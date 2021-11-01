@@ -6,6 +6,7 @@ import utils from "./utils";
 import Tomato from "./tomato";
 import Potato from "./potato";
 import Tool from "./tool";
+import ToolBelt from "./tool_belt"
 
 class Player extends GameObject{
   constructor(option) {
@@ -23,6 +24,8 @@ class Player extends GameObject{
       "right": ["x", 1]
     };
     this.money = 100;
+    // this.toolBelt = new ToolBelt();
+    // this.inventory = this.toolBelt.inventory;
     this.inventory = [Potato, Tomato, Tool];
     this.cropsToSell = [];
   }
