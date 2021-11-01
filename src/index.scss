@@ -3,25 +3,69 @@
 .title-header {
   position: relative;
   margin: 0 auto;
-  margin-top: 75px;
+  margin-top: 60px;
   text-align: center;
   font-family: 'Press Start 2P', cursive;
-  font-size: larger;
+  font-size: x-large;
 }
 
 .game-container {
   position: relative;
   width: 224px;
-  height: 160px;
+  height: 184px; //160+8+16
   // width: 672px;
   // height: 480px;
   margin: 0 auto;
-  margin-top: 150px;
-  outline: 2px solid black;
-
+  margin-top: 100px;
   transform: scale(3) translateY(20%);
 }
 
 .canvas {
+  outline: 2px solid black;
+  image-rendering: pixelated;
+}
+
+.hud-container {
+  display:flex;
+  justify-content: space-between;
+  position: relative;
+  width: 224px;
+  height: 10px;
+  margin:0 auto;
+
+  font-family: 'Press Start 2P', cursive;
+  font-size: 5px;
+}
+
+.hud { //not using this for now
+  image-rendering: pixelated;
+  outline: 1px solid black; //will be invisible later
+
+}
+
+.tool-belt {
+  display:flex;
+  justify-content: center;
+  width: 170px;
+  height: 17px;
+  margin:0 auto;
+  margin-top: 4px;
+  outline: 2px solid black;
+  outline-offset: 1px;
+}
+
+.tool-belt div {
+  margin-right:1px;
+  width:16px;
+  height:17px;
+  vertical-align: text-top;
+  text-align: left;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3px;
+  image-rendering: pixelated;
+}
+
+.invSlot {
+  margin: 0 auto;
   image-rendering: pixelated;
 }

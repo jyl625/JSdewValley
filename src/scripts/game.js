@@ -11,10 +11,30 @@ import PlantObject from "./plant_object";
 class Game {
   constructor(element) {
     this.element = element;
-    this.canvasEle = this.element.querySelector("canvas");
+    this.canvasEle = this.element.querySelector(".canvas");
     this.ctx = this.canvasEle.getContext("2d");
 
-    
+    this.toolBeltEle = this.element.querySelector(".tool-belt");
+    // this.ctxToolBelt = this.toolBeltEle.getContext("2d");
+
+    this.hudEleLeft = this.element.querySelector(".hud-left");
+    this.hudEleRight = this.element.querySelector(".hud-right");
+
+    console.log(this.toolBeltEle);
+    for (let idx = 0; idx < 10; idx++) {
+      let invSlot = document.createElement("div");
+      invSlot.innerHTML = idx;
+
+      let invCanvas = document.createElement("canvas");
+      invCanvas.width = 16;
+      invCanvas.height = 16;
+      invCanvas.class = "invSlot";
+      invCanvas.id = `invSlot-${idx}`;
+      invSlot.append(invCanvas);
+
+      this.toolBeltEle.append(invSlot);
+    };
+
 
 
     this.gameWorld = null;
@@ -28,6 +48,18 @@ class Game {
 
       //clear canvas
       this.ctx.clearRect(0,0, this.canvasEle.width, this.canvasEle.height);
+      // this.ctxToolBelt.clearRect(0, 0, this.ctxToolBelt.width, this.ctxToolBelt.height);
+      // this.ctxHUD.clearRect(0,0, this.canvasEle.width, this.canvasEle.height);
+
+
+      //NEED REFACTORING
+      //update HUD
+      this.hudEleLeft.innerHTML = `Day: ${this.gameWorld.gameDays}`;
+      this.hudEleRight.innerHTML = `$: ${this.player.money}`;
+
+
+      //tool belt
+      // this.toolBeltEle.childNodes.forEach( div => console.log(div));
 
       //draw map
       this.gameWorld.draw(this.ctx);

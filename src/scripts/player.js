@@ -22,6 +22,7 @@ class Player extends GameObject{
       "left": ["x", -1],
       "right": ["x", 1]
     };
+    this.money = 100;
     this.inventory = [Potato, Tomato, Tool];
     this.cropsToSell = [];
   }
