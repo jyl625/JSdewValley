@@ -84,13 +84,13 @@ class Player extends GameObject{
   }
 
   harvest(option) {
-    option.gameWorld.plantObjects.forEach((plantObject, idx) => {
+    option.plantObjects.forEach((plantObject, idx) => {
       if (plantObject.x === this.nearestPos()[0] && plantObject.y === this.nearestPos()[1] && 
       plantObject.isRipe) {
-        this.cropsToSell.push(option.gameWorld.plantObjects[idx]);
+        this.cropsToSell.push(option.plantObjects[idx]);
         console.log(this.cropsToSell);
-        option.gameWorld.plantObjects.splice(idx,1);
-        console.log(option.gameWorld.plantObjects);
+        option.plantObjects.splice(idx,1);
+        console.log(option.plantObjects);
       }
     });
   }

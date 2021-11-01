@@ -13,6 +13,10 @@ class Game {
     this.element = element;
     this.canvasEle = this.element.querySelector("canvas");
     this.ctx = this.canvasEle.getContext("2d");
+
+    
+
+
     this.gameWorld = null;
     this.player = null;
     this.dirInput = new DirInput();
@@ -56,7 +60,7 @@ class Game {
         if (currentItem === Tool) {
           console.log("action tool");
           this.player.harvest({
-            gameWorld: this.gameWorld
+            plantObjects: this.gameWorld.plantObjects
           });
         } else {
           this.player.plantSeed({

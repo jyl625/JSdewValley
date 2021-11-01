@@ -27,6 +27,7 @@ class DirInput {
     document.addEventListener("keydown", e => {
       if (e.code === "Digit1" || e.code === "Digit2" || e.code === "Digit3") {
         this.inventorySelection = this.keyMap[e.code];
+        console.log(this.keyMap[e.code]);
       } else if (e.code === "Space") {
         this.action = this.keyMap[e.code];
       } else {

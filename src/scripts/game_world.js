@@ -10,7 +10,7 @@ class GameWorld {
     this.gameObjects = option.gameObjects;
     this.player = option.player;
 
-    this.gameSpeed = 2; //how many seconds per day
+    this.gameSpeed = 5; //how many seconds per day
 
     this.steps = 0;
     this.seconds = 0;
