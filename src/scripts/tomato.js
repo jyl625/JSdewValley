@@ -1,6 +1,9 @@
 import PlantSprite from "./plant_sprite";
 import PlantObject from "./plant_object";
 
+//test
+const src = '././dist/assets/crops/tomato.png';
+
 class Tomato extends PlantObject {
   constructor(option) {
     super(option);
@@ -17,6 +20,12 @@ class Tomato extends PlantObject {
       src: '././dist/assets/crops/tomato.png'
     });
   }
+
+  //testing
+  static get src() {
+    return src;
+  }
+
 }
 
 export default Tomato;

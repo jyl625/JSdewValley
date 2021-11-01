@@ -63,9 +63,13 @@
   font-family: 'Press Start 2P', cursive;
   font-size: 3px;
   image-rendering: pixelated;
+
+  // testing
+  overflow: hidden;
 }
 
 .invCanvas {
   margin: 0 auto;
   image-rendering: pixelated;
 }
+

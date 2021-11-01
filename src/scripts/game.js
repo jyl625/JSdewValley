@@ -43,8 +43,10 @@ class Game {
 
       //Draw Toolbelt
       //select the toggled toolbelt 
-      this.currentToolSlotEle = this.toolBeltEle.querySelector(`#invSlot-${this.dirInput.inventorySelection}`);
-      this.player.toolBelt.highlight(this.currentToolSlotEle);
+      // this.currentToolSlotEle = this.toolBeltEle.querySelector(`#invSlot-${this.dirInput.inventorySelection}`);
+      this.player.toolBelt.highlight({
+        selectedSlot: this.dirInput.inventorySelection
+      });
 
       //draw map
       this.gameWorld.draw(this.ctx);
@@ -75,7 +77,6 @@ class Game {
         const currentItem = this.player.inventory[this.dirInput.inventorySelection];
  
         if (currentItem === Tool) {
-          console.log("action tool");
           this.player.harvest({
             plantObjects: this.gameWorld.plantObjects
           });

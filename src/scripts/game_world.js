@@ -16,12 +16,12 @@ class GameWorld {
       new Tomato({
         x: utils.gridVal(3), y: utils.gridVal(3)
       })
-    ]
+    ];
 
     this.element = element;
     this.player = new Player({
       x: utils.gridVal(5), y: utils.gridVal(4), element: this.element
-    })
+    });
 
     this.gameSpeed = 5; //how many seconds per day
 

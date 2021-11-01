@@ -70,6 +70,7 @@
   font-family: "Press Start 2P", cursive;
   font-size: 3px;
   image-rendering: pixelated;
+  overflow: hidden;
 }
 
 .invCanvas {
