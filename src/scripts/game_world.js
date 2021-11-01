@@ -1,11 +1,14 @@
 import Player from "./player";
-import PlantObject from "./plant_object";
 import utils from "./utils";
+import Potato from "./potato";
+import Tomato from "./tomato";
 
 
 class GameWorld {
   constructor(option) {
+    this.plantObjects = option.plantObjects;
     this.gameObjects = option.gameObjects;
+    this.player = option.player;
     
     this.farmMap = new Image();
     this.farmMap.src = option.src;
@@ -14,27 +17,44 @@ class GameWorld {
   draw(ctx) {
     ctx.drawImage(this.farmMap, 0, 0);
   }
+
+  isEmptyPlot(pos) {
+    return !this.plantObjects.some( plant => {
+      return (plant.x === pos[0] && plant.y === pos[1]);
+    } );
+  }
 }
 
 window.GameWorldMaps = {
   FarmDefault: {
     src: '././dist/assets/farm_dev.png',
-    gameObjects: {
-      // create play 1
-      potato: new PlantObject({
-        x: utils.gridVal(2), y: utils.gridVal(2), src: '././dist/assets/crops/potato.png'
-      }),
-      
-      // create plant 2
-      tomato: new PlantObject({
-        x: utils.gridVal(3), y: utils.gridVal(3), src: '././dist/assets/crops/tomato.png'
+    plantObjects: [
+      // create plant 1
+      new Potato({
+        x: utils.gridVal(2), y: utils.gridVal(2)
       }),
 
-      // create player
-      player: new Player({
-        x: utils.gridVal(5), y: utils.gridVal(4), src: '././dist/assets/player_1.png'
+      // create plant 2
+      new Tomato({
+        x: utils.gridVal(3), y: utils.gridVal(3)
       })
-    }
+    ],
+    gameObjects: {
+      // // create plant 1
+      // potato: new Potato({
+      //   x: utils.gridVal(2), y: utils.gridVal(2)
+      // }),
+      
+      // // create plant 2
+      // tomato: new Tomato({
+      //   x: utils.gridVal(3), y: utils.gridVal(3)
+      // }),
+
+      // create player
+    },
+    player: new Player({
+      x: utils.gridVal(5), y: utils.gridVal(4)
+    })
   }
 };
 
