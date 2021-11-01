@@ -6,14 +6,14 @@ class PlantSprite {
       this.isLoaded = true;
     };
     this.plantObject = option.plantObject;
+    this.stageFrame = option.currentStage * 16;
   }
 
   draw(ctx) {
     const x = this.plantObject.x;
     const y = this.plantObject.y;
-    const stage = 16 * 6;
 
-    if (this.isLoaded) ctx.drawImage(this.img, stage, 0, 16, 16, x, y, 16, 16);
+    if (this.isLoaded) ctx.drawImage(this.img, this.stageFrame, 0, 16, 16, x, y, 16, 16);
   }
 }
 //load character

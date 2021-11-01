@@ -27,13 +27,17 @@ class Player extends GameObject{
   updatePosition() {
     if (this.movementRemaining > 0) {
       const [direction, delta] = this.directionMap[this.dir];
-      const next_pos_x = this.y + delta;
-      const next_pos_y = this.x + delta;
-      if (direction === "y" && next_pos_x > 0 && next_pos_x < utils.gridVal(9)) {
-        this.y = next_pos_x;
-      }
-      if (direction === "x" && next_pos_y > 0 && next_pos_y < utils.gridVal(13)) {
-        this.x = next_pos_y;
+
+      if (direction === "x") {
+        const next_pos_x = this.x + delta;
+        if (next_pos_x > 0 && next_pos_x < 208) {
+          this.x = next_pos_x;
+        }
+      } else if (direction === "y") {
+        const next_pos_y = this.y + delta;
+        if (next_pos_y > 0 && next_pos_y < 144) {
+          this.y = next_pos_y;
+        }
       }
       this.movementRemaining -= 1;
     }
@@ -65,22 +69,15 @@ class Player extends GameObject{
 
   plantSeed(option) {
     //get nearest location
+
     if (option.gameWorld.isEmptyPlot(this.nearestPos())) {
 
-      console.log(option.inventorySelection);
+      const newCrop = this.inventory[option.inventorySelection].create({
+        x: this.nearestPos()[0], y: this.nearestPos()[1],
+        dayPlanted: option.gameWorld.gameDays
+      });
 
-      //create new instance of plant and push to GameWorld PlantObjects
-      // option.gameWorld.plantObjects.push(new Tomato({
-      //   x: this.nearestPos()[0], y: this.nearestPos()[1]
-      // }));
-      console.log(this.inventory[option.inventorySelection]);
-
-      option.gameWorld.plantObjects.push(this.inventory[option.inventorySelection].create({
-        x: this.nearestPos()[0], y: this.nearestPos()[1]
-      }));
-
-
-      console.log(option.gameWorld.plantObjects.length);
+      option.gameWorld.plantObjects.push(newCrop);
     }
   }
 

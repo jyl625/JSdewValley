@@ -28,11 +28,9 @@ class Game {
       this.gameWorld.draw(this.ctx);
 
       // draw plant objects
-      this.gameWorld.plantObjects.forEach(object => {
-        object.update({
+      this.gameWorld.plantObjects.forEach(plantObject => {
           // will update age here
-        });
-        object.sprite.draw(this.ctx);
+          plantObject.sprite.draw(this.ctx);
       });
 
       //draw game objects
@@ -50,11 +48,25 @@ class Game {
       });
       this.player.sprite.draw(this.ctx);
 
-      //plant tomato
+      //plant seeds
       if (this.dirInput.action) {
         this.player.plantSeed({
           gameWorld: this.gameWorld,
-          inventorySelection: this.dirInput.inventorySelection
+          inventorySelection: this.dirInput.inventorySelection,
+        });
+      }
+
+      // in between day logic
+      if (this.gameWorld.updateDay()) {
+        console.log(`Day: ${this.gameWorld.gameDays}`);
+
+        //update plants age
+        this.gameWorld.plantObjects.forEach(plantObject => {
+          plantObject.update();
+          plantObject.sprite.draw(this.ctx);
+          console.log(`${plantObject.constructor.name}'s Age: ${plantObject.age} Days`);
+          console.log(`${plantObject.constructor.name}'s current stage: ${plantObject.currentStage}`);
+          console.log(`${plantObject.sprite.stageFrame}`);
         });
       }
 
@@ -81,5 +93,7 @@ class Game {
     this.gameLoop();
 
   }
+
+
 }
 export default Game;

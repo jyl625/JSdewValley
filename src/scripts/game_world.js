@@ -9,6 +9,12 @@ class GameWorld {
     this.plantObjects = option.plantObjects;
     this.gameObjects = option.gameObjects;
     this.player = option.player;
+
+    this.steps = 0;
+    this.seconds = 0;
+    this.gameDays = 0;
+    
+    console.log(`Day: ${this.gameDays}`);
     
     this.farmMap = new Image();
     this.farmMap.src = option.src;
@@ -16,6 +22,19 @@ class GameWorld {
 
   draw(ctx) {
     ctx.drawImage(this.farmMap, 0, 0);
+  }
+
+  updateDay() {
+    this.steps++;
+    if (this.steps === 60) {
+      this.steps = 0;
+      this.seconds++;
+      if (this.seconds === 3) {
+        this.seconds = 0;
+        this.gameDays++;
+        return this.gameDays;
+      }
+    }
   }
 
   isEmptyPlot(pos) {

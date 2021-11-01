@@ -4,7 +4,7 @@ const utils = {
   },
 
   rounded(pixel) {
-    return Math.floor(pixel / 16) * 16;
+    return Math.floor((pixel + 8) / 16) * 16;
   }
 };
 
