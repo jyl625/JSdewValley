@@ -25,7 +25,7 @@ class Game {
     this.player = null;
     this.dirInput = new DirInput();
 
-    this.toolBelt = new ToolBelt(this.element);
+    // this.toolBelt = new ToolBelt(this.element);
 
   }
 
@@ -54,13 +54,13 @@ class Game {
       });
 
       //draw game objects
-      Object.values(this.gameWorld.gameObjects).forEach(object => {
+      // Object.values(this.gameWorld.gameObjects).forEach(object => {
         // currently no gameObjects
         // object.update({
           
         // });
         // object.sprite.draw(this.ctx);
-      });
+      // });
 
       // player movement
       this.player.update({
@@ -105,7 +105,7 @@ class Game {
 
   start() {
     //create new instance of GameWorld
-    this.gameWorld = new GameWorld(window.GameWorldMaps.FarmDefault);
+    this.gameWorld = new GameWorld(this.element);
     
     // Set player as an attribute of game
     this.player = this.gameWorld.player;

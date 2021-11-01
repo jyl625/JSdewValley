@@ -3,14 +3,13 @@ import GameObject from "./game_object";
 import utils from "./utils";
 
 //testing only
-import Tomato from "./tomato";
-import Potato from "./potato";
-import Tool from "./tool";
-import ToolBelt from "./tool_belt"
+import ToolBelt from "./tool_belt";
 
 class Player extends GameObject{
   constructor(option) {
     super(option);
+    this.element = option.element;
+
     this.movementRemaining = 0;
     this.dir = "right";
     this.sprite = new Sprite({
@@ -24,9 +23,10 @@ class Player extends GameObject{
       "right": ["x", 1]
     };
     this.money = 100;
-    // this.toolBelt = new ToolBelt();
-    // this.inventory = this.toolBelt.inventory;
-    this.inventory = [Potato, Tomato, Tool];
+
+    //Create toolbelt
+    this.toolBelt = new ToolBelt(this.element);
+    this.inventory = this.toolBelt.inventory;
     this.cropsToSell = [];
   }
 
