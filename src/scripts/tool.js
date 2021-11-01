@@ -1,5 +1,5 @@
 //test
-const src = '././dist/assets/crops/tomato.png';
+const src = '././dist/assets/iron_hoe.png';
 
 class Tool {
   constructor() {}

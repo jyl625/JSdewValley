@@ -41,12 +41,12 @@ class Game {
       this.hudEleLeft.innerHTML = `Day: ${this.gameWorld.gameDays}`;
       this.hudEleRight.innerHTML = `$: ${this.player.money}`;
 
-      //Draw Toolbelt
-      //select the toggled toolbelt 
-      // this.currentToolSlotEle = this.toolBeltEle.querySelector(`#invSlot-${this.dirInput.inventorySelection}`);
+      // Highlight toolbelt based on key input
       this.player.toolBelt.highlight({
         selectedSlot: this.dirInput.inventorySelection
       });
+
+      // this.player.toolBelt.createToolBeltElements();
 
       //draw map
       this.gameWorld.draw(this.ctx);

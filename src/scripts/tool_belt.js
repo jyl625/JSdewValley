@@ -6,32 +6,30 @@ import Tool from "./tool";
 class ToolBelt {
   constructor(element) {
     this.toolBeltEle = element.querySelector(".tool-belt");
-    this.inventory = [Potato, Tomato, Tool];
-    this.invImgSrc = [
-      { Potato: '././dist/assets/crops/potato.png'},
-      { Tomato: '././dist/assets/crops/tomato.png'}
-    ]
+    this.inventory = [Tool, Potato, Tomato];
+
     this.createToolBeltElements();
   }
 
 
   //Create toobelt HTML elements
+  //DONT RUN THIS CONSTANTLY
   createToolBeltElements (){
     for (let idx = 0; idx < 10; idx++) {
       const invSlot = document.createElement("div");
       invSlot.id = `invSlot-${idx}`;
       invSlot.class = 'invSlot';
+
       invSlot.innerHTML = idx + 1;
       if (idx + 1 === 10) invSlot.innerHTML = 0;
 
       const invImg = document.createElement("img")
       if (idx < this.inventory.length) {
-        console.log(this.inventory[idx].src);
-        const src = Potato.src;
         invImg.src = this.inventory[idx].src;
       }
+
       invSlot.append(invImg);
-      invSlot.class = "invCanvas";
+      invSlot.class = "invImg";
       this.toolBeltEle.append(invSlot);
 
     }
