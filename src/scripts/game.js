@@ -74,7 +74,7 @@ class Game {
 
       //plant action
       if (this.dirInput.action) {
-        const currentItem = this.player.inventory[this.dirInput.inventorySelection];
+        const currentItem = this.player.inventory[this.dirInput.inventorySelection][0];
  
         if (currentItem === Tool) {
           this.player.harvest({

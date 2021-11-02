@@ -6,7 +6,11 @@ import Tool from "./tool";
 class ToolBelt {
   constructor(element) {
     this.toolBeltEle = element.querySelector(".tool-belt");
-    this.inventory = [Tool, Potato, Tomato];
+    this.inventory = [
+      [Tool, 1], 
+      [Potato, 1], 
+      [Tomato, 1]
+    ];
 
     this.createToolBeltElements();
   }
@@ -25,7 +29,7 @@ class ToolBelt {
 
       const invImg = document.createElement("img")
       if (idx < this.inventory.length) {
-        invImg.src = this.inventory[idx].src;
+        invImg.src = this.inventory[idx][0].src;
       }
 
       invSlot.append(invImg);
