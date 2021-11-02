@@ -27,7 +27,7 @@ class Player extends GameObject{
     //Create toolbelt
     this.toolBelt = new ToolBelt(this.element);
     this.inventory = this.toolBelt.inventory;
-    this.cropsToSell = [];
+    this.forSale = [];
   }
 
   updatePosition() {
@@ -85,7 +85,7 @@ class Player extends GameObject{
 
       option.gameWorld.plantObjects.push(newCrop);
       this.toolBelt.inventory[option.inventorySelection][1]--;
-      this.toolBelt.removeToolBeltElements();
+      this.toolBelt.updateToolBeltElements();
     }
   }
 
@@ -93,10 +93,10 @@ class Player extends GameObject{
     option.plantObjects.forEach((plantObject, idx) => {
       if (plantObject.x === this.nearestPos()[0] && plantObject.y === this.nearestPos()[1] && 
       plantObject.isRipe) {
-        this.cropsToSell.push(option.plantObjects[idx]);
-        console.log(this.cropsToSell);
+        this.forSale.push(option.plantObjects[idx]);
+        // console.log(this.forSale);
         option.plantObjects.splice(idx,1);
-        console.log(option.plantObjects);
+        // console.log(option.plantObjects);
       }
     });
   }

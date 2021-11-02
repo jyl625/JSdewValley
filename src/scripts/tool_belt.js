@@ -8,8 +8,8 @@ class ToolBelt {
     this.toolBeltEle = element.querySelector(".tool-belt");
     this.inventory = {
       0: [Tool, 1], 
-      1: [Potato, 5], 
-      2: [Tomato, 5],
+      1: [], 
+      2: [],
       3: [],
       4: [],
       5: [],
@@ -71,7 +71,7 @@ class ToolBelt {
     }
   }
 
-  removeToolBeltElements () {
+  updateToolBeltElements () {
     this.toolBeltEle.innerHTML = "";
     this.removeZeroCountTools();
     this.createToolBeltElements();
@@ -90,7 +90,11 @@ class ToolBelt {
     if (toolBeltIdxOfPurchased !== -1) {
       this.inventory[toolBeltIdxOfPurchased][1]++;
       this.toolBeltEle.innerHTML = "";
-      this.createToolBeltElements();
+      this.updateToolBeltElements();
+      console.log("this should create tool belt elements");
+      return true;
+    } else {
+      return this.addNewItemToToolBelt(selectedItem);
     }
   }
 
@@ -101,6 +105,35 @@ class ToolBelt {
       if (tool === item) result = toolBeltKey;
     } );
     return result;
+  }
+
+  addNewItemToToolBelt(item) {
+    //[item, count]
+    if (this.hasEmptySlots()) {
+      console.log(this.emptyToolBeltIdx());
+      this.inventory[this.emptyToolBeltIdx()] = [item, 1];
+      this.updateToolBeltElements();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  emptyToolBeltIdx() {
+    for (let i = 0; i <= 9; i++) {
+      console.log(this.inventory[i].length === 0);
+      if (this.inventory[i].length === 0) return i;
+    }
+
+    return -1;
+  }
+
+  hasEmptySlots() {
+    if (this.emptyToolBeltIdx() === -1) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
 

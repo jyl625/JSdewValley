@@ -23,7 +23,7 @@ class GameWorld {
       x: utils.gridVal(5), y: utils.gridVal(4), element: this.element
     });
 
-    this.gameSpeed = 5; //how many seconds per day
+    this.gameSpeed = 2; //how many seconds per day
 
     this.steps = 0;
     this.seconds = 0;

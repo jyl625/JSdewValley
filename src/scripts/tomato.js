@@ -30,6 +30,10 @@ class Tomato extends PlantObject {
     return price;
   }
 
+  price() {
+    return price;
+  }
+
 }
 
 export default Tomato;

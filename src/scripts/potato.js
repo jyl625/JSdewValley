@@ -29,6 +29,10 @@ class Potato extends PlantObject {
   static get price() {
     return price;
   }
+  
+  price() {
+    return price;
+  }
 
 }
 

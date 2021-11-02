@@ -48,11 +48,21 @@
   font-size: 5px;
 }
 
+.hud-right-blink {
+  animation: blinker 0.5s linear infinite;
+  color: red;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
 .tool-belt {
   display: flex;
   justify-content: center;
   width: 170px;
-  height: 25px;
+  height: 26px;
   margin: 0 auto;
   margin-top: 16px;
   outline: 2px solid black;
@@ -62,11 +72,11 @@
 .tool-belt > div {
   margin-right: 1px;
   width: 16px;
-  height: 25px;
+  height: 26px;
   vertical-align: text-top;
   text-align: left;
   font-family: "Press Start 2P", cursive;
-  font-size: 3px;
+  font-size: 4px;
   image-rendering: pixelated;
   overflow: hidden;
 }
@@ -77,11 +87,11 @@
 }
 
 .itemCount {
-  margin-top: 3px;
+  margin-top: 1px;
   vertical-align: text-bottom;
   text-align: right;
   font-family: "Press Start 2P", cursive;
-  font-size: 3px;
+  font-size: 4x;
   image-rendering: pixelated;
 }
 
@@ -99,13 +109,12 @@
 
 .store {
   display: grid;
-  gap: 8px 0px;
+  gap: 4px 0px;
   width: 40px;
   grid-template-columns: 22px 22px;
-  grid-template-rows: 12px repeate(4, 16px);
+  grid-template-rows: 8px repeat(4, 22px);
   height: 164px;
   outline: 2px solid black;
-  image-rendering: pixelated;
   margin: 0 auto;
 }
 
@@ -119,27 +128,30 @@
   font-size: 4px;
   vertical-align: text-bottom;
   text-align: center;
-  margin-top: 8px;
+  margin: 0px;
 }
 
 #store-buy {
   background-color: green;
+  color: white;
 }
 
 #store-sell {
   background-color: red;
+  color: white;
 }
 
 .store-item {
   width: 16px;
-  height: 18px;
+  height: 20px;
   font-family: "Press Start 2P", cursive;
-  font-size: 3px;
+  font-size: 4px;
   vertical-align: text-bottom;
-  text-align: right;
+  text-align: center;
   overflow: hidden;
+  image-rendering: pixelated;
 }
 
 .store-item img {
-  margin-left: 2px;
+  margin-left: 1px;
 }
