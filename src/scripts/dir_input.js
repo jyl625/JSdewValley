@@ -9,9 +9,16 @@ class DirInput {
       "KeyS": "down",
       "KeyD": "right",
       "Space": "action",
-      "Digit1": 0, //inventory slot
+      "Digit1": 0, //inventory index slot
       "Digit2": 1,
       "Digit3": 2,
+      "Digit4": 3,
+      "Digit5": 4,
+      "Digit6": 5,
+      "Digit7": 6,
+      "Digit8": 7,
+      "Digit9": 8,
+      "Digit0": 9,
     };
   }
 
@@ -25,7 +32,8 @@ class DirInput {
 
   initialize() {
     document.addEventListener("keydown", e => {
-      if (e.code === "Digit1" || e.code === "Digit2" || e.code === "Digit3") {
+      if (e.code.includes("Digit")) {
+      // if (e.code === "Digit1" || e.code === "Digit2" || e.code === "Digit3") {
         this.inventorySelection = this.keyMap[e.code];
       } else if (e.code === "Space") {
         this.action = this.keyMap[e.code];
