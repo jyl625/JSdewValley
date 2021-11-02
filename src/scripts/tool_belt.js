@@ -22,6 +22,23 @@ class ToolBelt {
     this.createToolBeltElements();
   }
 
+  //highlights toolbelt slot based on input
+  highlight(option) {
+    // this.updateToolBeltElements();
+    const toolBeltEleArr = this.toolBeltEle.children;
+    const selectedSlot = option.selectedSlot;
+
+    for (let idx = 0; idx < 10; idx++) {
+      if (idx === selectedSlot) {
+        toolBeltEleArr[idx].style.backgroundColor = "yellow";
+        // toolBeltEleArr[idx].style.outlineColor = "Red";
+      } else {
+        toolBeltEleArr[idx].style.backgroundColor = "";
+        // toolBeltEleArr[idx].style.outlineColor ="";
+      }
+    }
+  }
+
 
   //Create toobelt HTML elements
   //DONT RUN THIS CONSTANTLY
@@ -69,24 +86,26 @@ class ToolBelt {
   }
 
   addToolBeltElements(selectedItem) {
-    
-  }
-
-  highlight(option) {
-    // this.updateToolBeltElements();
-    const toolBeltEleArr = this.toolBeltEle.children;
-    const selectedSlot = option.selectedSlot;
-
-    for (let idx = 0; idx < 10; idx++) {
-      if (idx === selectedSlot) {
-        toolBeltEleArr[idx].style.backgroundColor = "yellow";
-        // toolBeltEleArr[idx].style.outlineColor = "Red";
-      } else {
-        toolBeltEleArr[idx].style.backgroundColor ="";
-        // toolBeltEleArr[idx].style.outlineColor ="";
-      }
+    const toolBeltIdxOfPurchased = this.searchToolBeltIdxByItemName(selectedItem);
+    if (toolBeltIdxOfPurchased !== -1) {
+      this.inventory[toolBeltIdxOfPurchased][1]++;
+      this.toolBeltEle.innerHTML = "";
+      this.createToolBeltElements();
     }
   }
+
+  searchToolBeltIdxByItemName(item) {
+    let result = -1;
+    Object.keys(this.inventory).forEach( toolBeltKey => {
+      const tool = this.inventory[toolBeltKey][0];
+      if (tool === item) result = toolBeltKey;
+    } );
+    return result;
+  }
+
+
+
+
 }
 
 export default ToolBelt;

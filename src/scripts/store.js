@@ -87,11 +87,11 @@ class Store {
   purchaseItem(idx) {
     const selectedItem = masterStoreList[idx]
     console.log(this.player.money);
-    if (this.player.money > selectedItem.price) {
+    if (selectedItem && this.player.money > selectedItem.price) {
       console.log(`Can buy ${selectedItem.name}`);
       this.player.money -= selectedItem.price;
-      
-      this.player.toolbelt.addToolBeltElements(selectedItem);
+
+      this.player.toolBelt.addToolBeltElements(selectedItem);
     }
   }
 }
