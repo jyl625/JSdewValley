@@ -9,7 +9,7 @@ class DirInput {
       "KeyS": "down",
       "KeyD": "right",
       "Space": "action",
-      "Digit1": 0, //inventory index slot
+      "Digit1": 0, //inventory index number
       "Digit2": 1,
       "Digit3": 2,
       "Digit4": 3,
@@ -21,14 +21,6 @@ class DirInput {
       "Digit0": 9,
     };
   }
-
-  // direction() {
-  //   return this.direction;
-  // }
-
-  // action() {
-  //   return this.action;
-  // }
 
   initialize() {
     document.addEventListener("keydown", e => {

@@ -6,11 +6,18 @@ import Tool from "./tool";
 class ToolBelt {
   constructor(element) {
     this.toolBeltEle = element.querySelector(".tool-belt");
-    this.inventory = [
-      [Tool, 1], 
-      [Potato, 5], 
-      [Tomato, 5]
-    ];
+    this.inventory = {
+      0: [Tool, 1], 
+      1: [Potato, 5], 
+      2: [Tomato, 5],
+      3: [],
+      4: [],
+      5: [],
+      6: [],
+      7: [],
+      8: [],
+      9: []
+    };
 
     this.createToolBeltElements();
   }
@@ -32,9 +39,11 @@ class ToolBelt {
       invImg.className = "invImg";
       itemCount.className = "itemCount";
 
-      if (idx < this.inventory.length) {
+
+
+      if (this.inventory[idx].length != 0) {
         invImg.src = this.inventory[idx][0].src;
-        itemCount.innerHTML = `X ${this.inventory[idx][1]}`;
+        itemCount.innerHTML = `x${this.inventory[idx][1]}`;
       }
 
       invSlot.append(invImg);
@@ -52,12 +61,11 @@ class ToolBelt {
   }
 
   removeZeroCountTools () {
-    if (this.inventory.some( toolArr => toolArr[1]===0)){
-      this.inventory = this.inventory.filter( toolArr => {
-        return toolArr[1] >= 1;
-      });
-      console.log(this.inventory);
-    }
+    Object.keys(this.inventory).forEach(key => {
+      if (this.inventory[key][1] === 0) {
+        this.inventory[key] = [];
+      }
+    });
   }
 
   highlight(option) {
