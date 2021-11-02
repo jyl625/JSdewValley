@@ -84,6 +84,9 @@ class Player extends GameObject{
       });
 
       option.gameWorld.plantObjects.push(newCrop);
+      this.toolBelt.inventory[option.inventorySelection][1]--;
+      this.toolBelt.updateToolBeltElements();
+      console.log(this.toolBelt.inventory);
     }
   }
 

@@ -8,8 +8,8 @@ class ToolBelt {
     this.toolBeltEle = element.querySelector(".tool-belt");
     this.inventory = [
       [Tool, 1], 
-      [Potato, 1], 
-      [Tomato, 1]
+      [Potato, 5], 
+      [Tomato, 5]
     ];
 
     this.createToolBeltElements();
@@ -45,7 +45,23 @@ class ToolBelt {
     }
   }
 
+  updateToolBeltElements () {
+    this.toolBeltEle.innerHTML = "";
+    this.removeZeroCountTools();
+    this.createToolBeltElements();
+  }
+
+  removeZeroCountTools () {
+    if (this.inventory.some( toolArr => toolArr[1]===0)){
+      this.inventory = this.inventory.filter( toolArr => {
+        return toolArr[1] >= 1;
+      });
+      console.log(this.inventory);
+    }
+  }
+
   highlight(option) {
+    this.updateToolBeltElements();
     const toolBeltEleArr = this.toolBeltEle.children;
     const selectedSlot = option.selectedSlot;
 

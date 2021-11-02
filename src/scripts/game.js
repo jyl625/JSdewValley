@@ -38,15 +38,15 @@ class Game {
 
       //NEED REFACTORING
       //update HUD
-      this.hudEleLeft.innerHTML = `Day: ${this.gameWorld.gameDays}`;
-      this.hudEleRight.innerHTML = `$: ${this.player.money}`;
+      this.hudEleLeft.innerHTML = `Day: ${this.gameWorld.gameDays} Seconds: ${this.gameWorld.seconds}`;
+      this.hudEleRight.innerHTML = `$ ${this.player.money}`;
 
       // Highlight toolbelt based on key input
       this.player.toolBelt.highlight({
         selectedSlot: this.dirInput.inventorySelection
       });
 
-      // this.player.toolBelt.createToolBeltElements();
+      // this.player.toolBelt.updateToolBeltElements();
 
       //draw map
       this.gameWorld.draw(this.ctx);
@@ -72,22 +72,25 @@ class Game {
       });
       this.player.sprite.draw(this.ctx);
 
+
+      // NEED TO MOVE TO PLAYER#plant
       //plant action
-      if (this.dirInput.action) {
-        const currentItem = this.player.inventory[this.dirInput.inventorySelection][0];
-        let currentItemCount = this.player.inventory[this.dirInput.inventorySelection][1];
+      if (this.dirInput.action && this.player.toolBelt.inventory[this.dirInput.inventorySelection]) {
+        const currentItem = this.player.toolBelt.inventory[this.dirInput.inventorySelection][0];
+        let currentItemCount = this.player.toolBelt.inventory[this.dirInput.inventorySelection][1];
 
         if (currentItem === Tool) {
           this.player.harvest({
             plantObjects: this.gameWorld.plantObjects
           });
-        } else {
+        } else if (currentItem !== undefined){
           if (currentItemCount >= 1) {
             this.player.plantSeed({
               gameWorld: this.gameWorld,
-              plantObject: currentItem
+              plantObject: currentItem,
+              inventorySelection: this.dirInput.inventorySelection
             });
-            this.player.inventory[this.dirInput.inventorySelection][1]--;
+            // this.player.inventory[this.dirInput.inventorySelection][1]--;
           }
         }  
       }
