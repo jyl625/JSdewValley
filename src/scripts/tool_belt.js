@@ -69,7 +69,7 @@ class ToolBelt {
   }
 
   highlight(option) {
-    this.updateToolBeltElements();
+    // this.updateToolBeltElements();
     const toolBeltEleArr = this.toolBeltEle.children;
     const selectedSlot = option.selectedSlot;
 

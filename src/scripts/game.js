@@ -46,6 +46,7 @@ class Game {
         selectedSlot: this.dirInput.inventorySelection
       });
 
+
       // this.player.toolBelt.updateToolBeltElements();
 
       //draw map
