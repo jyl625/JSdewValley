@@ -54,7 +54,7 @@ class ToolBelt {
     }
   }
 
-  updateToolBeltElements () {
+  removeToolBeltElements () {
     this.toolBeltEle.innerHTML = "";
     this.removeZeroCountTools();
     this.createToolBeltElements();
@@ -66,6 +66,10 @@ class ToolBelt {
         this.inventory[key] = [];
       }
     });
+  }
+
+  addToolBeltElements(selectedItem) {
+    
   }
 
   highlight(option) {
@@ -82,8 +86,6 @@ class ToolBelt {
         // toolBeltEleArr[idx].style.outlineColor ="";
       }
     }
-
-
   }
 }
 

@@ -99,33 +99,45 @@
   margin: 0 auto;
 }
 
-.main-right {
+.store {
   display: grid;
-  grid-gap: 8px;
+  gap: 8px 0px;
 
   width: 40px;
-  grid-template-columns: 16px 16px;
-  grid-template-rows: 12px 16px 16px 16px 16px;
-  height: 160px;
+  grid-template-columns: 22px 22px;
+  grid-template-rows: 12px repeate(4, 16px);
+  height: 164px;
   outline: 2px solid black;
   image-rendering: pixelated;
   margin: 0 auto;
 }
 
-.grid-tab {
-  width: 16px;
+.store-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
   height: 8px;
-  outline: 1px solid black;
+  // outline: 1px solid black;
   font-family: 'Press Start 2P', cursive;
   font-size: 4px;
   vertical-align: text-bottom;
   text-align: center;
   margin-top: 8px;
+
 }
 
-.grid-item {
+#store-buy {
+  background-color: green;
+}  
+
+#store-sell {
+  background-color: red;
+}
+
+.store-item {
   width: 16px;
-  height: 16px;
+  height: 18px;
   // outline: 2px solid black;
 
   //testing
@@ -133,4 +145,9 @@
   font-size: 3px;
   vertical-align: text-bottom;
   text-align: right;
+  overflow: hidden;
+}
+
+.store-item img {
+  margin-left: 2px;
 }

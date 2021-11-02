@@ -8,6 +8,7 @@ import utils from "./utils";
 import Tool from "./tool";
 import PlantObject from "./plant_object";
 import ToolBelt from "./tool_belt";
+import Store from "./store";
 
 class Game {
   constructor(element) {
@@ -23,18 +24,36 @@ class Game {
 
     this.gameWorld = null;
     this.player = null;
+    this.store = null;
     this.dirInput = new DirInput();
+
+
+
+
+    // ////////////Development area//////////
+    // this.storeEle = this.element.querySelector(".store");
+    // this.bindEvents();
+    // ////////////Development area//////////
 
   }
 
+
+  // bindEvents() {
+  //   this.storeEle.addEventListener("click", this.handleStoreClick.bind(this));
+  // }
+
+
+
+  // handleStoreClick(e) {
+  //   let clickedItem = e.target;
+
+  //   console.log(clickedItem);
+  // }
+
+
+
   gameLoop() {
     const step = () => {
-
-      //clear canvas
-      this.ctx.clearRect(0,0, this.canvasEle.width, this.canvasEle.height);
-      // this.ctxToolBelt.clearRect(0, 0, this.ctxToolBelt.width, this.ctxToolBelt.height);
-      // this.ctxHUD.clearRect(0,0, this.canvasEle.width, this.canvasEle.height);
-
 
       //NEED REFACTORING
       //update HUD
@@ -120,6 +139,12 @@ class Game {
     
     // Set player as an attribute of game
     this.player = this.gameWorld.player;
+
+    // Create store
+    this.store = new Store({
+      element: this.element,
+      player: this.player
+    });
 
     // Look for keyboard input
     this.dirInput.initialize();
