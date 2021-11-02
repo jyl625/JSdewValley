@@ -54,17 +54,17 @@
   display: flex;
   justify-content: center;
   width: 170px;
-  height: 20px;
+  height: 25px;
   margin: 0 auto;
   margin-top: 4px;
   outline: 2px solid black;
   outline-offset: 1px;
 }
 
-.tool-belt div {
+.tool-belt > div {
   margin-right: 1px;
   width: 16px;
-  height: 20px;
+  height: 25px;
   vertical-align: text-top;
   text-align: left;
   font-family: "Press Start 2P", cursive;
@@ -75,5 +75,14 @@
 
 .invImg {
   margin: 0 auto;
+  image-rendering: pixelated;
+}
+
+.itemCount {
+  margin-top: 3px;
+  vertical-align: text-bottom;
+  text-align: right;
+  font-family: "Press Start 2P", cursive;
+  font-size: 3px;
   image-rendering: pixelated;
 }

@@ -75,16 +75,20 @@ class Game {
       //plant action
       if (this.dirInput.action) {
         const currentItem = this.player.inventory[this.dirInput.inventorySelection][0];
- 
+        let currentItemCount = this.player.inventory[this.dirInput.inventorySelection][1];
+
         if (currentItem === Tool) {
           this.player.harvest({
             plantObjects: this.gameWorld.plantObjects
           });
         } else {
-          this.player.plantSeed({
-            gameWorld: this.gameWorld,
-            plantObject: currentItem
-          });
+          if (currentItemCount >= 1) {
+            this.player.plantSeed({
+              gameWorld: this.gameWorld,
+              plantObject: currentItem
+            });
+            this.player.inventory[this.dirInput.inventorySelection][1]--;
+          }
         }  
       }
 

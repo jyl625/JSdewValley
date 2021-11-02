@@ -22,18 +22,24 @@ class ToolBelt {
     for (let idx = 0; idx < 10; idx++) {
       const invSlot = document.createElement("div");
       invSlot.id = `invSlot-${idx}`;
-      invSlot.class = 'invSlot';
+      invSlot.className = 'invSlot';
 
       invSlot.innerHTML = idx + 1;
       if (idx + 1 === 10) invSlot.innerHTML = 0;
 
-      const invImg = document.createElement("img")
+      const invImg = document.createElement("img");
+      const itemCount = document.createElement("div");
+      invImg.className = "invImg";
+      itemCount.className = "itemCount";
+
       if (idx < this.inventory.length) {
         invImg.src = this.inventory[idx][0].src;
+        itemCount.innerHTML = `X ${this.inventory[idx][1]}`;
       }
 
       invSlot.append(invImg);
-      invSlot.class = "invImg";
+      invSlot.append(itemCount);
+
       this.toolBeltEle.append(invSlot);
 
     }
