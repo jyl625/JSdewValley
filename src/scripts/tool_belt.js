@@ -76,8 +76,10 @@ class ToolBelt {
     for (let idx = 0; idx < 10; idx++) {
       if (idx === selectedSlot) {
         toolBeltEleArr[idx].style.backgroundColor = "yellow";
+        // toolBeltEleArr[idx].style.outlineColor = "Red";
       } else {
         toolBeltEleArr[idx].style.backgroundColor ="";
+        // toolBeltEleArr[idx].style.outlineColor ="";
       }
     }
 
