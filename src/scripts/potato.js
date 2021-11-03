@@ -10,8 +10,8 @@ class Potato extends PlantObject {
   constructor(option) {
     super(option);
     this.growthStages = [1, 2, 3, 4, 6]; //days when they grow
+    this.sellPrice = Potato.price * 2;
   }
-
 
   static create(option) {
     return new Potato(option);
@@ -37,13 +37,13 @@ class Potato extends PlantObject {
   }
 
   static get sellPrice() {
-    return Potato.create({ x: -1, y: -1 }).sellPrice();
+    return Potato.create({ x: -1, y: -1 }).sellPrice;
   }
 
-  //IS THIS NECESSARY!?
-  sellPrice() {
-    return price;
-  }
+  // //IS THIS NECESSARY!?
+  // sellPrice() {
+  //   return this.sellPrice * 2;
+  // }
 
 }
 

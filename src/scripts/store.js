@@ -182,7 +182,7 @@ class Store {
       let i = this.player.forSale.length - 1;
       while (i >= 0) {
         if (this.player.forSale[i].constructor.name === option.cropType) {
-          this.player.money += this.player.forSale[i].sellPrice();
+          this.player.money += this.player.forSale[i].constructor.sellPrice;
           this.player.forSale.splice(i, 1);
 
           utils.makeMoneyBlink("green");
