@@ -1,5 +1,5 @@
 const gameControl = {
-  isPaused: false,
+  isPaused: true,
 
   updateHUD(option) {
     this.hudEleLeft = document.querySelector(".hud-left");

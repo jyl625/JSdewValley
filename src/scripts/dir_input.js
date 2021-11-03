@@ -1,3 +1,6 @@
+import gameControl from "./game_control";
+
+
 class DirInput {
   constructor() {
     this.direction = null;
@@ -24,13 +27,17 @@ class DirInput {
 
   initialize() {
     document.addEventListener("keydown", e => {
-      if (e.code.includes("Digit")) {
-        this.inventorySelection = this.keyMap[e.code];
-      } else if (e.code === "Space") {
-        e.preventDefault();
-        this.action = this.keyMap[e.code];
-      } else {
-        this.direction = this.keyMap[e.code];
+
+      if (e.code === "Space") e.preventDefault();
+      
+      if (!gameControl.isPaused) {
+        if (e.code.includes("Digit")) {
+          this.inventorySelection = this.keyMap[e.code];
+        } else if (e.code === "Space") {
+          this.action = this.keyMap[e.code];
+        } else {
+          this.direction = this.keyMap[e.code];
+        }
       }
     });
 
