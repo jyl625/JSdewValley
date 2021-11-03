@@ -138,9 +138,11 @@ class Store {
 
       if (clickedItem.classList.contains("buy")) {
         this.storeEle.classList.add("buy-selected");
+        this.storeEle.classList.remove("sell-selected");
         this.renderBuyHTMLElements();
       } else {
         this.storeEle.classList.remove("buy-selected");
+        this.storeEle.classList.add("sell-selected");
 
         this.renderSellHTMLElements();
       }

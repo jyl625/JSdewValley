@@ -132,7 +132,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
+  width: 18px;
   height: 8px;
   font-family: "Press Start 2P", cursive;
   font-size: 4px;
@@ -141,14 +141,24 @@
   margin: 0px;
 }
 
-.store-tab.buy {
+.store.sell-selected .store-tab.buy {
   background-color: green;
+  color: white;
+  filter: brightness(50%);
+}
+.store.sell-selected .store-tab.sell {
+  background-color: red;
   color: white;
 }
 
-.store-tab.sell {
+.store.buy-selected .store-tab.buy {
+  background-color: green;
+  color: white;
+}
+.store.buy-selected .store-tab.sell {
   background-color: red;
   color: white;
+  filter: brightness(50%);
 }
 
 .store-item-buy, .store-item-sell {

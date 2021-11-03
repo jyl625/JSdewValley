@@ -136,7 +136,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
+  width: 18px;
   height: 8px;
   // outline: 1px solid black;
   font-family: 'Press Start 2P', cursive;
@@ -147,15 +147,32 @@
 
 }
 
-.store-tab.buy {
-  background-color: green;
-  color: white;
-}  
+.store.sell-selected {
+  .store-tab.buy {
+    background-color: green;
+    color: white;
+    filter: brightness(50%)
+  }  
 
-.store-tab.sell {
-  background-color: red;
-  color: white;
+  .store-tab.sell {
+    background-color: red;
+    color: white;
+  }
 }
+
+.store.buy-selected {
+  .store-tab.buy {
+    background-color: green;
+    color: white;
+  }
+
+  .store-tab.sell {
+    background-color: red;
+    color: white;
+    filter: brightness(50%)
+  }
+}
+
 
 .store-item-buy, .store-item-sell {
   width: 16px;
