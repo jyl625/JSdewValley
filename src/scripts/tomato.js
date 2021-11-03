@@ -4,7 +4,7 @@ import PlantObject from "./plant_object";
 //test
 const src = '././dist/assets/crops/tomato.png';
 const ripeSrc = '././dist/assets/crops/tomato_ripe.png';
-const price = 15;
+// const price = 15;
 
 class Tomato extends PlantObject {
   constructor(option) {
@@ -27,20 +27,21 @@ class Tomato extends PlantObject {
     return src;
   }
 
-  static get price() {
-    return price;
-  }
+  // static get price() {
+  //   return price;
+  // }
 
   static get ripeSrc() {
     return ripeSrc;
   }
 
-  static updateSellPrice() {
-    Tomato.sellCPrice = Tomato.sellCPrice * 2;
-  }
+  // static updateSellPrice() {
+  //   Tomato.sellCPrice = Tomato.sellCPrice * 2;
+  // }
 
 }
 
-Tomato.sellPrice = 15;
+Tomato.seedPrice = 15;
+Tomato.sellPrice = 20;
 
 export default Tomato;

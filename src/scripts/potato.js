@@ -4,13 +4,13 @@ import PlantObject from "./plant_object";
 //test
 const src = '././dist/assets/crops/potato.png';
 const ripeSrc = '././dist/assets/crops/potato_ripe.png';
-const price = 10;
+// const price = 10;
 
 class Potato extends PlantObject {
   constructor(option) {
     super(option);
     this.growthStages = [1, 2, 3, 4, 6]; //days when they grow
-    this.sellPrice = Potato.price;
+    // this.sellPrice = Potato.price;
   }
 
   static create(option) {
@@ -28,23 +28,26 @@ class Potato extends PlantObject {
     return src;
   }
 
-  static get price() {
-    return price;
-  }
+  // static get price() {
+  //   return price;
+  // }
 
   static get ripeSrc() {
     return ripeSrc;
   }
 
-  static get sellPrice() {
-    return Potato.create({ x: -1, y: -1 }).sellPrice;
-  }
+  // static get sellPrice() {
+  //   return Potato.create({ x: -1, y: -1 }).sellPrice;
+  // }
 
-  //IS THIS NECESSARY!?
-  sellPrice() {
-    return this.sellPrice * 2;
-  }
+  // //IS THIS NECESSARY!?
+  // sellPrice() {
+  //   return this.sellPrice * 2;
+  // }
 
 }
+
+Potato.seedPrice = 10;
+Potato.sellPrice = 12;
 
 export default Potato;

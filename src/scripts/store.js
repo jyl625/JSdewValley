@@ -60,7 +60,7 @@ class Store {
 
       if (masterStoreList[i - 2]) {
         storeItem.dataset.listIdx = i - 2;
-        storeItem.innerHTML = `$${masterStoreList[i - 2].price}`;
+        storeItem.innerHTML = `$${masterStoreList[i - 2].seedPrice}`;
 
         const itemImg = document.createElement("img");
         itemImg.src = masterStoreList[i - 2].src;
@@ -208,10 +208,10 @@ class Store {
     const selectedItem = masterStoreList[idx];
     console.log(this.player.money);
     if (selectedItem) {
-      if (this.player.money >= selectedItem.price) {
+      if (this.player.money >= selectedItem.seedPrice) {
         if (this.player.toolBelt.addToolBeltElements(selectedItem)) {
           console.log(`buying ${selectedItem.name}`);
-          this.player.money -= selectedItem.price;
+          this.player.money -= selectedItem.seedPrice;
           if (this.player.money === 0) utils.makeMoneyBlink("red");
         } else {
           console.log("not enough room in toolbelt");
