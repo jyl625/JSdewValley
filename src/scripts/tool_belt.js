@@ -8,8 +8,8 @@ class ToolBelt {
     this.toolBeltEle = element.querySelector(".tool-belt");
     this.inventory = {
       0: [Tool, 1], 
-      1: [], 
-      2: [],
+      1: [Potato, 5], 
+      2: [Tomato, 5],
       3: [],
       4: [],
       5: [],

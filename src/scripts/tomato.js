@@ -3,6 +3,7 @@ import PlantObject from "./plant_object";
 
 //test
 const src = '././dist/assets/crops/tomato.png';
+const ripeSrc = '././dist/assets/crops/tomato_ripe.png';
 const price = 15;
 
 class Tomato extends PlantObject {
@@ -28,6 +29,10 @@ class Tomato extends PlantObject {
 
   static get price() {
     return price;
+  }
+
+  static get ripeSrc() {
+    return ripeSrc;
   }
 
   price() {

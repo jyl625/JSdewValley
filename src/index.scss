@@ -116,7 +116,7 @@
 
   width: 40px;
   grid-template-columns: 22px 22px;
-  grid-template-rows: 8px repeat(4, 22px);
+  grid-template-rows: 8px repeat(4, 26px);
   height: 164px;
   outline: 2px solid black;
   margin: 0 auto;
@@ -137,19 +137,19 @@
 
 }
 
-#store-buy {
+#store-buy-tab {
   background-color: green;
   color: white;
 }  
 
-#store-sell {
+#store-sell-tab {
   background-color: red;
   color: white;
 }
 
-.store-item {
+.store-item-buy, .store-item-sell {
   width: 16px;
-  height: 20px;
+  height: 26px;
   // outline: 2px solid black;
 
   //testing

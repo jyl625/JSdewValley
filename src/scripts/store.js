@@ -3,7 +3,7 @@ import Tomato from "./tomato";
 import Player from "./player";
 
 const masterStoreList = [Potato, Tomato];
-const maxNumItems = 12;
+const maxNumItems = 10;
 
 class Store {
   constructor(option) {
@@ -24,12 +24,12 @@ class Store {
         if (i === 0) {
           storeTab.classList.add("buy");
           // storeTab.classList.add("buy", "selected");
-          storeTab.id = "store-buy";
+          storeTab.id = "store-buy-tab";
           storeTab.innerHTML = "Buy";
         } 
         if (i === 1) { 
           storeTab.classList.add("sell");
-          storeTab.id = "store-sell";
+          storeTab.id = "store-sell-tab";
           storeTab.innerHTML = "Sell";
         }
 
@@ -44,9 +44,9 @@ class Store {
   renderBuyHTMLElements() {
     for (let i = 2; i < maxNumItems + 2; i++) {
       const storeItem = document.createElement("div");
-      storeItem.classList.add("store-item");
-
+      storeItem.classList.add("store-item-buy");
       storeItem.id = `store-item-slot-${i - 1}`;
+
       if (masterStoreList[i - 2]) {
         storeItem.dataset.listIdx = i - 2;
         storeItem.innerHTML = `$${masterStoreList[i - 2].price}`;
@@ -66,19 +66,33 @@ class Store {
   }
 
   renderSellHTMLElements() {
+    this.updateForSaleByCount();
+
     for (let i = 2; i < maxNumItems + 2; i++) {
       const storeItem = document.createElement("div");
-      storeItem.classList.add("store-item");
-
+      storeItem.classList.add("store-item-sell");
       storeItem.id = `store-item-slot-${i - 1}`;
-      if (masterStoreList[i - 2]) {
-        storeItem.dataset.listIdx = i - 2;
-        storeItem.innerHTML = `$${masterStoreList[i - 2].price}`;
+
+      // { Potato: [money, count, PotatoConstructor] }
+      if (i - 2 < Object.keys(this.forSaleCount).length) {
+        const cropKey = Object.keys(this.forSaleCount)[i - 2];
+        // this is really unnecessary, need to refactor later
+        const cropPrice = this.forSaleCount[cropKey][0];
+        const cropCount = this.forSaleCount[cropKey][1];
+        const imgSrc = this.forSaleCount[cropKey][2].ripeSrc;
+        console.log(this.forSaleCount[cropKey][2]);
+        storeItem.innerHTML = `$${cropPrice}`;
 
         const itemImg = document.createElement("img");
-        itemImg.src = masterStoreList[i - 2].src;
+        itemImg.src = imgSrc;
+
+        const itemCount = document.createElement("div"); //might need to change the class name
+        itemCount.className = "itemCount";
+        itemCount.innerHTML = `x${cropCount}`;
 
         storeItem.append(itemImg);
+        storeItem.append(itemCount);
+
       } else {
         storeItem.innerHTML = `XXX`;
       }
@@ -86,6 +100,7 @@ class Store {
       this.bindEvents(storeItem);
 
       this.storeEle.append(storeItem);
+
     }
   }
 
@@ -107,16 +122,25 @@ class Store {
       if (clickedItem.classList.contains("buy")) {
         this.renderBuyHTMLElements();
       } else {
-        this.updateForSaleByCount();
-        console.log("will render sell items");
+        console.log("before sale")
+        console.log(this.player.forSale);
+        console.log(this.forSaleCount);
+
+        //NEED TO SELL HERE
         this.renderSellHTMLElements();
+
+        console.log("after sale")
         console.log(this.player.forSale);
         console.log(this.forSaleCount);
       }
     } else {
-      const idx = parseInt(clickedItem.dataset.listIdx);
-      console.log(`it's slot # ${idx}`);
-      this.purchaseItem(idx);
+      if ( clickedItem.classList.contains("store-item-buy") ) {
+        console.log("We are buying");
+        const idx = parseInt(clickedItem.dataset.listIdx);
+        this.purchaseItem(idx);
+      } else {
+        // I M HERE NOW - NEED TO SELL
+      }
     }
   }
 
@@ -146,8 +170,6 @@ class Store {
 
   updateForSaleByCount() {
     this.player.forSale.forEach( crop => {
-      console.log(crop.constructor.name);
-      console.log(crop.price());
  
       const cropName = crop.constructor.name;
 
@@ -155,10 +177,9 @@ class Store {
       if (!this.forSaleCount[cropName]) {
         const price = crop.price();
 
-        this.forSaleCount[cropName] = [price, 0, crop];
+        this.forSaleCount[cropName] = [price, 0, crop.constructor];
       }
       this.forSaleCount[cropName][1]++;
-
     } );
   }
 }
