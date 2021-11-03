@@ -31,7 +31,7 @@
 }
 
 .canvas {
-  outline: 2px solid black;
+  outline: 1px solid black;
   image-rendering: pixelated;
   margin: 0 auto;
 }
@@ -39,13 +39,27 @@
 .hud-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: relative;
   width: 224px;
-  height: 10px;
+  height: 14px;
   margin: 0 auto;
-  border-top: 16px;
+  border-top: 12px;
   font-family: "Press Start 2P", cursive;
   font-size: 5px;
+}
+.hud-container #time-controller {
+  width: 160px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.hud-container #play-pause {
+  height: 8px;
+  width: 14px;
+}
+.hud-container .hud-left {
+  margin-left: 4px;
 }
 
 .hud-right-blink-red {
@@ -70,13 +84,13 @@
   height: 26px;
   margin: 0 auto;
   margin-top: 16px;
-  outline: 2px solid black;
+  outline: 1px solid black;
   outline-offset: 1px;
 }
 
 .tool-belt-blink-red {
   animation: blinker 0.5s linear infinite;
-  outline: 2px solid red;
+  outline: 1px solid red;
 }
 
 .tool-belt > div {
@@ -115,7 +129,7 @@
 .main-left {
   width: 64px;
   height: 164px;
-  outline: 2px solid black;
+  outline: 1px solid black;
   margin: 0 auto;
 }
 
@@ -126,7 +140,7 @@
   grid-template-columns: 32px 32px;
   grid-template-rows: 8px repeat(4, 26px);
   height: 164px;
-  outline: 2px solid black;
+  outline: 1px solid black;
   margin: 0 auto;
 }
 
@@ -215,7 +229,7 @@
 }
 
 #instructions {
-  background-color: #7e9d55;
+  background-color: #499f7b;
   text-align: right;
   line-height: 20px;
   display: flex;
@@ -235,7 +249,7 @@
 }
 
 #gitHubLink {
-  background-color: #58ac14;
+  background-color: #5dba5c;
   text-align: right;
   line-height: 20px;
   display: flex;
@@ -255,7 +269,7 @@
 }
 
 #linkedIn {
-  background-color: #44a318;
+  background-color: #a4d876;
   text-align: right;
   line-height: 20px;
   display: flex;
@@ -276,7 +290,7 @@
 
 #empty-space {
   height: 84px;
-  background-color: #3d9815;
+  background-color: #ebc69a;
   text-align: right;
   line-height: 20px;
 }
@@ -285,7 +299,7 @@
   display: flex;
   justify-content: right;
   height: 20px;
-  background-color: #328530;
+  background-color: #e5bd85;
   text-align: right;
   line-height: 20px;
   font-size: 3px;

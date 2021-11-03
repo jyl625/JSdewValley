@@ -66,8 +66,6 @@ class Game {
       });
 
 
-      // this.player.toolBelt.updateToolBeltElements();
-
       //draw map
       this.gameWorld.draw(this.ctx);
 
@@ -77,14 +75,6 @@ class Game {
           plantObject.sprite.draw(this.ctx);
       });
 
-      //draw game objects
-      // Object.values(this.gameWorld.gameObjects).forEach(object => {
-        // currently no gameObjects
-        // object.update({
-          
-        // });
-        // object.sprite.draw(this.ctx);
-      // });
 
       // player movement
       this.player.update({
@@ -95,40 +85,14 @@ class Game {
 
       // NEED TO MOVE TO PLAYER#plant
       //plant action
-      if (this.dirInput.action && this.player.toolBelt.inventory[this.dirInput.inventorySelection]) {
-
-        const currentItem = this.player.toolBelt.inventory[this.dirInput.inventorySelection][0];
-        let currentItemCount = this.player.toolBelt.inventory[this.dirInput.inventorySelection][1];
-
-        if (currentItem === Tool) {
-          this.player.harvest({
-            plantObjects: this.gameWorld.plantObjects,
-            store: this.store
-          });
-          // this.dirInput.action = null; //MIGHT NOT BE NECESSARY CHECKING RIGHT NOW
-        } else if (currentItem !== undefined){
-          if (currentItemCount >= 1) {
-            this.player.plantSeed({
-              gameWorld: this.gameWorld,
-              plantObject: currentItem,
-              inventorySelection: this.dirInput.inventorySelection
-            });
-            // this.player.inventory[this.dirInput.inventorySelection][1]--;
-          }
-        }  
-      }
+      this.player.action({
+        dirInput: this.dirInput,
+        gameWorld: this.gameWorld,
+        store: this.store
+      }); 
 
       // in between day logic
-      if (this.gameWorld.updateDay()) {
-
-        //update plants age
-        this.gameWorld.plantObjects.forEach(plantObject => {
-          plantObject.update();
-          plantObject.sprite.draw(this.ctx);
-        });
-
-        this.store.updateSellPrices();
-      }
+      this.progressToNextDay();
 
       requestAnimationFrame(() => {
         step();
@@ -158,6 +122,19 @@ class Game {
     // start game loop
     this.gameLoop();
 
+  }
+
+  progressToNextDay(){
+    if (this.gameWorld.updateDay()) {
+
+      //update plants age
+      this.gameWorld.plantObjects.forEach(plantObject => {
+        plantObject.update();
+        plantObject.sprite.draw(this.ctx);
+      });
+
+      this.store.updateSellPrices();
+    }
   }
 
 

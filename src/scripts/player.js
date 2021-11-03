@@ -4,6 +4,7 @@ import utils from "./utils";
 
 //testing only
 import ToolBelt from "./tool_belt";
+import Tool from "./tool";
 
 class Player extends GameObject{
   constructor(option) {
@@ -101,6 +102,31 @@ class Player extends GameObject{
         // console.log(option.plantObjects);
       }
     });
+  }
+
+  action(option) {
+    if (option.dirInput.action && this.toolBelt.inventory[option.dirInput.inventorySelection]) {
+
+      const currentItem = this.toolBelt.inventory[option.dirInput.inventorySelection][0];
+      let currentItemCount = this.toolBelt.inventory[option.dirInput.inventorySelection][1];
+
+      if (currentItem === Tool) {
+        this.harvest({
+          plantObjects: option.gameWorld.plantObjects,
+          store: option.store
+        });
+        // option.dirInput.action = null; //MIGHT NOT BE NECESSARY CHECKING RIGHT NOW
+      } else if (currentItem !== undefined) {
+        if (currentItemCount >= 1) {
+          this.plantSeed({
+            gameWorld: option.gameWorld,
+            plantObject: currentItem,
+            inventorySelection: option.dirInput.inventorySelection
+          });
+          // this.player.inventory[option.dirInput.inventorySelection][1]--;
+        }
+      }
+    }
   }
 
 
