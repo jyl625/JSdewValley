@@ -154,9 +154,6 @@ class Store {
     e.stopPropagation();
     const clickedItem = e.currentTarget;
 
-    // console.log(clickedItem);
-
-    //Store Tab Selected
     if (clickedItem.classList.contains("store-tab")) {
 
       this.storeEle.innerHTML = "";
@@ -173,7 +170,6 @@ class Store {
         this.renderSellHTMLElements();
       }
 
-    //Item Selected
     } else {
       if (gameControl.isPaused) return;
       if ( clickedItem.classList.contains("store-item-buy") ) {

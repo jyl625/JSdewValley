@@ -28,6 +28,11 @@
   margin: 0 auto;
 }
 
+#overlay {
+  width: auto;
+  height: auto;
+}
+
 .hud-container {
   display:flex;
   justify-content: space-between;
@@ -366,8 +371,6 @@
 }
 
 #created-by{
-  display: flex;
-  justify-content: right;
   height: 20px;
   background-color: #e5bd85;
   text-align: right;
@@ -376,8 +379,10 @@
 }
 
 #created-by div {
-  height: 8px;
+  height: 4px;
+  width: 64px;
   margin-right: 2px;
+  text-align: center;
 }
 
 
