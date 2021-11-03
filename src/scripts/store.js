@@ -84,22 +84,26 @@ class Store {
       storeItem.id = `store-item-slot-${i - 1}`;
 
       // { Potato: [count, PotatoConstructor] }
-      if (i - 2 < Object.keys(this.forSaleCount).length) {
-        const cropKey = Object.keys(this.forSaleCount)[i - 2];
-        // this is really unnecessary, need to refactor later
 
-        storeItem.dataset.cropType = this.forSaleCount[cropKey][1].name;
-
-        //not ideal but works for now
-        const cropPrice = this.forSaleCount[cropKey][1].sellPrice;
-
-        const cropCount = this.forSaleCount[cropKey][0];
-        const imgSrc = this.forSaleCount[cropKey][1].ripeSrc;
-
-        storeItem.innerHTML = `$${cropPrice}`;
+      if (Store.masterStoreList[i - 2]) {
+        storeItem.dataset.listIdx = i - 2;
+        storeItem.innerHTML = `$${Store.masterStoreList[i - 2].sellPrice}`;
+        storeItem.dataset.cropType = Store.masterStoreList[i - 2].name;
 
         const itemImg = document.createElement("img");
-        itemImg.src = imgSrc;
+        itemImg.src = Store.masterStoreList[i - 2].ripeSrc;
+
+
+
+        const cropKey = Store.masterStoreList[i - 2].name;
+
+        // console.log(cropKey);
+        //ex {Potato: [count, PotatoConstructor]}
+
+        let cropCount = 0;
+        if (this.forSaleCount[cropKey]) {
+          cropCount = this.forSaleCount[cropKey][0];
+        }
 
         const itemCount = document.createElement("div"); //might need to change the class name
         itemCount.className = "itemCount";
@@ -112,11 +116,45 @@ class Store {
         storeItem.innerHTML = `---`;
       }
 
+
       this.bindEvents(storeItem);
-
+      
       this.storeEle.append(storeItem);
-
     }
+
+      // if (i - 2 < Object.keys(this.forSaleCount).length) {
+      //   const cropKey = Object.keys(this.forSaleCount)[i - 2];
+      //   // this is really unnecessary, need to refactor later
+
+      //   storeItem.dataset.cropType = this.forSaleCount[cropKey][1].name;
+
+      //   //not ideal but works for now
+      //   const cropPrice = this.forSaleCount[cropKey][1].sellPrice;
+
+      //   const cropCount = this.forSaleCount[cropKey][0];
+      //   const imgSrc = this.forSaleCount[cropKey][1].ripeSrc;
+
+      //   storeItem.innerHTML = `$${cropPrice}`;
+
+      //   const itemImg = document.createElement("img");
+      //   itemImg.src = imgSrc;
+
+      //   const itemCount = document.createElement("div"); //might need to change the class name
+      //   itemCount.className = "itemCount";
+      //   itemCount.innerHTML = `x${cropCount}`;
+
+      //   storeItem.append(itemImg);
+      //   storeItem.append(itemCount);
+
+      // } else {
+      //   storeItem.innerHTML = `---`;
+      // }
+
+      // this.bindEvents(storeItem);
+
+      // this.storeEle.append(storeItem);
+
+    // }
   }
 
 
@@ -175,7 +213,8 @@ class Store {
   }
 
   sellItem(option) {
-    if (option.cropType) {
+    let itemCount = parseInt(option.clickedItem.querySelector(".itemCount").innerHTML.split("x")[1]);
+    if (itemCount >= 1) {
       console.log(option.cropType);
       console.log(option.clickedItem);
 
@@ -191,14 +230,14 @@ class Store {
         }
         i--;
       }
+      option.clickedItem.querySelector(".itemCount").innerHTML = `x${itemCount - 1}`;
 
-      let itemCount = parseInt(option.clickedItem.querySelector(".itemCount").innerHTML.split("x")[1]);
-      if (itemCount <= 1) {
-        option.clickedItem.innerHTML = "---";
-        delete option.clickedItem.dataset.cropType; 
-      } else {
-        option.clickedItem.querySelector(".itemCount").innerHTML = `x${itemCount - 1}`;
-      }
+      // let itemCount = parseInt(option.clickedItem.querySelector(".itemCount").innerHTML.split("x")[1]);
+      // if (itemCount <= 1) {
+      //   option.clickedItem.innerHTML = "---";
+      //   delete option.clickedItem.dataset.cropType; 
+      // } else {
+      // }
       this.updateForSaleByCount();
     }
   }
