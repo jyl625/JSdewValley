@@ -30,6 +30,26 @@ class Player extends GameObject{
     this.forSale = [];
   }
 
+  move(option) {
+  this.update({
+    direction: option.dirInput.direction,
+  });
+  this.sprite.draw(option.ctx);
+  }
+
+
+  update(state) {
+    if (this.movementRemaining > 0) {
+      this.updatePosition();
+    } else {
+      if (state.direction) {
+        this.dir = state.direction;
+        this.movementRemaining = 16;
+      }
+      this.updateSprite();
+    }
+  }
+
   updatePosition() {
     if (this.movementRemaining > 0) {
       const [direction, delta] = this.directionMap[this.dir];
@@ -57,17 +77,7 @@ class Player extends GameObject{
     }
   }
 
-  update(state) {
-    if (this.movementRemaining > 0) {
-      this.updatePosition();
-    } else {
-      if (state.direction) {
-        this.dir = state.direction;
-        this.movementRemaining = 16;
-      }
-      this.updateSprite();
-    }
-  }
+
 
   nearestPos() {
     return [utils.rounded(this.x), utils.rounded(this.y)];

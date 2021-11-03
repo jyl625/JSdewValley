@@ -38,6 +38,12 @@ class GameWorld {
     ctx.drawImage(this.farmMap, 0, 0);
   }
 
+  drawPlants(ctx) {
+    this.plantObjects.forEach(plantObject => {
+      plantObject.sprite.draw(ctx);
+    });
+  }
+
   progressToNextDay(option) {
     if (this.updateDay()) {
 

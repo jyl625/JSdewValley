@@ -27,29 +27,7 @@ class Game {
     this.store = null;
     this.dirInput = new DirInput();
 
-
-
-
-    // ////////////Development area//////////
-    // this.storeEle = this.element.querySelector(".store");
-    // this.bindEvents();
-    // ////////////Development area//////////
-
   }
-
-
-  // bindEvents() {
-  //   this.storeEle.addEventListener("click", this.handleStoreClick.bind(this));
-  // }
-
-
-
-  // handleStoreClick(e) {
-  //   let clickedItem = e.target;
-
-  //   console.log(clickedItem);
-  // }
-
 
 
   gameLoop() {
@@ -70,21 +48,16 @@ class Game {
       this.gameWorld.draw(this.ctx);
 
       // draw plant objects
-      this.gameWorld.plantObjects.forEach(plantObject => {
-          // will update age here
-          plantObject.sprite.draw(this.ctx);
-      });
+      this.gameWorld.drawPlants(this.ctx);
 
 
       // player movement
-      this.player.update({
-        direction: this.dirInput.direction,
+      this.player.move({
+        dirInput: this.dirInput,
+        ctx: this.ctx
       });
-      this.player.sprite.draw(this.ctx);
 
-
-      // NEED TO MOVE TO PLAYER#plant
-      //plant action
+      //Player Action
       this.player.action({
         dirInput: this.dirInput,
         gameWorld: this.gameWorld,
@@ -125,20 +98,5 @@ class Game {
     this.gameLoop();
 
   }
-
-  // progressToNextDay(){
-  //   if (this.gameWorld.updateDay()) {
-
-  //     //update plants age
-  //     this.gameWorld.plantObjects.forEach(plantObject => {
-  //       plantObject.update();
-  //       plantObject.sprite.draw(this.ctx);
-  //     });
-
-  //     this.store.updateSellPrices();
-  //   }
-  // }
-
-
 }
 export default Game;
