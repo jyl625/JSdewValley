@@ -1,5 +1,3 @@
-// const Game = require("./scripts/game.js");
-// // const GameView = require("./scripts/game_view");
 import Game from "./scripts/game";
 
 

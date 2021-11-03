@@ -245,15 +245,10 @@
   font-size: 4px;
 }
 
-#empty-space{
-  height: calc(164px - 3*20px);
-  background-color: #507941;
-  text-align: right;
-  line-height:20px;
-}
+
 
 #instructions {
-  background-color: #a0a554;
+  background-color: #7e9d55;
   text-align: right;
   line-height:20px;
   display:flex;
@@ -273,7 +268,7 @@
 }
 
 #gitHubLink {
-  background-color: #86944d;
+  background-color: #58ac14;
   text-align: right;
   line-height:20px;
   display:flex;
@@ -293,7 +288,7 @@
 }
 
 #linkedIn {
-  background-color: #7e9d55;
+  background-color: #44a318;  
   text-align: right;
   line-height:20px;
   display:flex;
@@ -309,6 +304,29 @@
 }
 
 #linkedIn span {
+  margin-right: 2px;
+}
+
+#empty-space{
+  height: calc(164px - 4*20px);
+    background-color: 	#3d9815;
+
+  text-align: right;
+  line-height:20px;
+}
+
+#created-by{
+  display: flex;
+  justify-content: right;
+  height: 20px;
+  background-color: #328530;
+  text-align: right;
+  line-height:20px;
+  font-size: 3px;
+}
+
+#created-by div {
+  height: 8px;
   margin-right: 2px;
 }
 

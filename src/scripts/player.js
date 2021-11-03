@@ -35,12 +35,12 @@ class Player extends GameObject{
 
       if (direction === "x") {
         const next_pos_x = this.x + delta;
-        if (next_pos_x > 0 && next_pos_x < 208) {
+        if (next_pos_x > 16 && next_pos_x < 192) {
           this.x = next_pos_x;
         }
       } else if (direction === "y") {
         const next_pos_y = this.y + delta;
-        if (next_pos_y > 0 && next_pos_y < 144) {
+        if (next_pos_y > 16 && next_pos_y < 128) {
           this.y = next_pos_y;
         }
       }
