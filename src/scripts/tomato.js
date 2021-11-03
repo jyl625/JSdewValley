@@ -10,7 +10,6 @@ class Tomato extends PlantObject {
   constructor(option) {
     super(option);
     this.growthStages = [1, 2, 3, 4, 6]; //days when they grow
-    this.sellPrice = Tomato.price * 2;
   }
 
   static create(option) {
@@ -36,14 +35,12 @@ class Tomato extends PlantObject {
     return ripeSrc;
   }
 
-  static get sellPrice() {
-    return Tomato.create({ x: -1, y: -1 }).sellPrice;
+  static updateSellPrice() {
+    Tomato.sellCPrice = Tomato.sellCPrice * 2;
   }
 
-  // sellPrice() {
-  //   return this.sellPrice * 2;
-  // }
-
 }
+
+Tomato.sellPrice = 15;
 
 export default Tomato;

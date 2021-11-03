@@ -158,6 +158,7 @@ class Store {
       } else if (clickedItem.classList.contains("store-item-sell")) {
         const cropType = clickedItem.dataset.cropType;
 
+
         // console.log("before sale")
         // console.log(this.player.forSale);
         // console.log(this.forSaleCount);
