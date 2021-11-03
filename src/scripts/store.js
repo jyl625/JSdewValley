@@ -87,6 +87,9 @@ class Store {
       if (i - 2 < Object.keys(this.forSaleCount).length) {
         const cropKey = Object.keys(this.forSaleCount)[i - 2];
         // this is really unnecessary, need to refactor later
+
+        storeItem.dataset.cropType = this.forSaleCount[cropKey][2].name;
+
         const cropPrice = this.forSaleCount[cropKey][0];
         const cropCount = this.forSaleCount[cropKey][1];
         const imgSrc = this.forSaleCount[cropKey][2].ripeSrc;
@@ -104,7 +107,7 @@ class Store {
         storeItem.append(itemCount);
 
       } else {
-        storeItem.innerHTML = `XXX`;
+        storeItem.innerHTML = `---`;
       }
 
       this.bindEvents(storeItem);
@@ -138,27 +141,65 @@ class Store {
         this.renderBuyHTMLElements();
       } else {
         this.storeEle.classList.remove("buy-selected");
-        console.log("before sale")
-        console.log(this.player.forSale);
-        console.log(this.forSaleCount);
 
-        //NEED TO SELL HERE
         this.renderSellHTMLElements();
-
-        console.log("after sale")
-        console.log(this.player.forSale);
-        console.log(this.forSaleCount);
       }
 
     //Item Selected
     } else {
       if ( clickedItem.classList.contains("store-item-buy") ) {
-        console.log("We are buying");
         const idx = parseInt(clickedItem.dataset.listIdx);
         this.purchaseItem(idx);
-      } else {
-        // I M HERE NOW - NEED TO SELL
+      } else if (clickedItem.classList.contains("store-item-sell")) {
+        const cropType = clickedItem.dataset.cropType;
+
+        // console.log("before sale")
+        // console.log(this.player.forSale);
+        // console.log(this.forSaleCount);
+
+        this.sellItem({
+          cropType: cropType,
+          clickedItem: clickedItem
+        });
+
+        // console.log("after sale")
+        // console.log(this.player.forSale);
+        // console.log(this.forSaleCount);
       }
+    }
+  }
+
+  sellItem(option) {
+    if (option.cropType) {
+      console.log(option.cropType);
+      console.log(option.clickedItem);
+
+      let i = this.player.forSale.length - 1;
+      while (i >= 0) {
+        if (this.player.forSale[i].constructor.name === option.cropType) {
+          this.player.money += this.player.forSale[i].price();
+          this.player.forSale.splice(i, 1);
+
+          //make money blink
+          const hudEle = document.querySelector(".hud-right");
+          hudEle.classList.add("hud-right-blink-green");
+          setTimeout(() => {
+            hudEle.classList.remove("hud-right-blink-green");
+          }, 1500);
+
+          break;
+        }
+        i--;
+      }
+
+      let itemCount = parseInt(option.clickedItem.querySelector(".itemCount").innerHTML.split("x")[1]);
+      if (itemCount <= 1) {
+        option.clickedItem.innerHTML = "---";
+        delete option.clickedItem.dataset.cropType; 
+      } else {
+        option.clickedItem.querySelector(".itemCount").innerHTML = `x${itemCount - 1}`;
+      }
+      this.updateForSaleByCount();
     }
   }
 
@@ -172,21 +213,29 @@ class Store {
           this.player.money -= selectedItem.price;
         } else {
           console.log("not enough room in toolbelt");
+
+          const toolBeltEle = document.querySelector(".tool-belt");
+          toolBeltEle.classList.add("tool-belt-blink-red");
+          setTimeout(() => {
+            toolBeltEle.classList.remove("tool-belt-blink-red");
+          }, 1500);
+
         }
       } else {
         console.log("not enough money");
 
         //make money blink
         const hudEle = document.querySelector(".hud-right");
-        hudEle.classList.add("hud-right-blink");
+        hudEle.classList.add("hud-right-blink-red");
         setTimeout( () => {
-          hudEle.classList.remove("hud-right-blink");
+          hudEle.classList.remove("hud-right-blink-red");
         },1500 );
       }
     }
   }
 
   updateForSaleByCount() {
+    this.forSaleCount = {};
     this.player.forSale.forEach( crop => {
  
       const cropName = crop.constructor.name;

@@ -96,6 +96,7 @@ class Game {
       // NEED TO MOVE TO PLAYER#plant
       //plant action
       if (this.dirInput.action && this.player.toolBelt.inventory[this.dirInput.inventorySelection]) {
+
         const currentItem = this.player.toolBelt.inventory[this.dirInput.inventorySelection][0];
         let currentItemCount = this.player.toolBelt.inventory[this.dirInput.inventorySelection][1];
 
@@ -104,6 +105,7 @@ class Game {
             plantObjects: this.gameWorld.plantObjects,
             store: this.store
           });
+          // this.dirInput.action = null; //MIGHT NOT BE NECESSARY CHECKING RIGHT NOW
         } else if (currentItem !== undefined){
           if (currentItemCount >= 1) {
             this.player.plantSeed({

@@ -40,9 +40,14 @@
   font-size: 5px;
 }
 
-.hud-right-blink {
+.hud-right-blink-red {
   animation: blinker 0.5s linear infinite;
   color: red;
+}
+
+.hud-right-blink-green {
+  animation: blinker 0.5s linear infinite;
+  color: green;
 }
 
 @keyframes blinker {
@@ -61,6 +66,11 @@
   margin-top: 16px;
   outline: 2px solid black;
   outline-offset: 1px;
+}
+
+.tool-belt-blink-red {
+  animation: blinker 0.5s linear infinite;
+  outline: 2px solid red;
 }
 
 .tool-belt > div {
