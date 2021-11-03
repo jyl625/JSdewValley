@@ -141,12 +141,12 @@
   margin: 0px;
 }
 
-#store-buy-tab {
+.store-tab.buy {
   background-color: green;
   color: white;
 }
 
-#store-sell-tab {
+.store-tab.sell {
   background-color: red;
   color: white;
 }
