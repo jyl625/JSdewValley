@@ -101,7 +101,8 @@ class Game {
 
         if (currentItem === Tool) {
           this.player.harvest({
-            plantObjects: this.gameWorld.plantObjects
+            plantObjects: this.gameWorld.plantObjects,
+            store: this.store
           });
         } else if (currentItem !== undefined){
           if (currentItemCount >= 1) {

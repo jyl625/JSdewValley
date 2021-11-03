@@ -26,7 +26,6 @@ class Player extends GameObject{
 
     //Create toolbelt
     this.toolBelt = new ToolBelt(this.element);
-    this.inventory = this.toolBelt.inventory;
     this.forSale = [];
   }
 
@@ -93,9 +92,12 @@ class Player extends GameObject{
     option.plantObjects.forEach((plantObject, idx) => {
       if (plantObject.x === this.nearestPos()[0] && plantObject.y === this.nearestPos()[1] && 
       plantObject.isRipe) {
-        this.forSale.push(option.plantObjects[idx]);
-        // console.log(this.forSale);
         option.plantObjects.splice(idx,1);
+        this.forSale.push(plantObject);
+        option.store.renderStore();
+        // this.toolBelt
+        // console.log(this.forSale);
+
         // console.log(option.plantObjects);
       }
     });

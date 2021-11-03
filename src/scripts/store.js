@@ -8,10 +8,20 @@ const maxNumItems = 10;
 class Store {
   constructor(option) {
     this.storeEle = option.element.querySelector(".store");
+    this.storeEle.classList.add("buy-selected");
     this.player = option.player;
     this.forSaleCount = {}; //ex {Potato: [money, count, PotatoConstructor]}
+    this.renderStore();
+  }
+
+  renderStore() {
+    this.storeEle.innerHTML = "";
     this.renderStoreTabHTMLElements();
-    this.renderBuyHTMLElements();
+    if (this.storeEle.classList.contains("buy-selected")){
+      this.renderBuyHTMLElements();
+    } else {
+      this.renderSellHTMLElements();
+    }
   }
 
 
@@ -116,12 +126,18 @@ class Store {
     const clickedItem = e.currentTarget;
 
     console.log(clickedItem);
+
+    //Store Tab Selected
     if (clickedItem.classList.contains("store-tab")) {
+
       this.storeEle.innerHTML = "";
       this.renderStoreTabHTMLElements();
+
       if (clickedItem.classList.contains("buy")) {
+        this.storeEle.classList.add("buy-selected");
         this.renderBuyHTMLElements();
       } else {
+        this.storeEle.classList.remove("buy-selected");
         console.log("before sale")
         console.log(this.player.forSale);
         console.log(this.forSaleCount);
@@ -133,6 +149,8 @@ class Store {
         console.log(this.player.forSale);
         console.log(this.forSaleCount);
       }
+
+    //Item Selected
     } else {
       if ( clickedItem.classList.contains("store-item-buy") ) {
         console.log("We are buying");
