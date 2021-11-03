@@ -87,6 +87,9 @@ class Game {
     // Look for keyboard input
     this.dirInput.initialize();
 
+    // 
+    gameControl.initialize(this.element);
+
     // start game loop
     this.gameLoop();
   }

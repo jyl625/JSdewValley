@@ -141,39 +141,6 @@ class Store {
       this.storeEle.append(storeItem);
     }
 
-      // if (i - 2 < Object.keys(this.forSaleCount).length) {
-      //   const cropKey = Object.keys(this.forSaleCount)[i - 2];
-      //   // this is really unnecessary, need to refactor later
-
-      //   storeItem.dataset.cropType = this.forSaleCount[cropKey][1].name;
-
-      //   //not ideal but works for now
-      //   const cropPrice = this.forSaleCount[cropKey][1].sellPrice;
-
-      //   const cropCount = this.forSaleCount[cropKey][0];
-      //   const imgSrc = this.forSaleCount[cropKey][1].ripeSrc;
-
-      //   storeItem.innerHTML = `$${cropPrice}`;
-
-      //   const itemImg = document.createElement("img");
-      //   itemImg.src = imgSrc;
-
-      //   const itemCount = document.createElement("div"); //might need to change the class name
-      //   itemCount.className = "itemCount";
-      //   itemCount.innerHTML = `x${cropCount}`;
-
-      //   storeItem.append(itemImg);
-      //   storeItem.append(itemCount);
-
-      // } else {
-      //   storeItem.innerHTML = `---`;
-      // }
-
-      // this.bindEvents(storeItem);
-
-      // this.storeEle.append(storeItem);
-
-    // }
   }
 
 

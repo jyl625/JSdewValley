@@ -15,6 +15,14 @@ const utils = {
     }, 1500);
   },
 
+  makeTimeBlink(color) {
+    const hudEle = document.querySelector(".hud-left");
+    hudEle.classList.add(`hud-left-blink-${color.toLowerCase()}`);
+    setTimeout(() => {
+      hudEle.classList.remove(`hud-left-blink-${color.toLowerCase()}`);
+    }, 1500);
+  },
+
   makeToolBeltBlinkRed() {
     const toolBeltEle = document.querySelector(".tool-belt");
     toolBeltEle.classList.add("tool-belt-blink-red");

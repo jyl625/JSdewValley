@@ -48,8 +48,25 @@
     align-items: center;
   }
 
-  #play-pause {
+  #play-pause-container {
+    width: 16px;
+    height: 9px;
+    display: flex;
+    justify-content: center;
+  }
+
+  #play-pause-container:hover {
+    background: lightgray;
+    border-radius: 25px;
+  }
+
+  .pause {
     height: 8px;
+    width: 14px;
+  }
+
+  .play {
+    height: 14px;
     width: 14px;
   }
 
@@ -57,8 +74,20 @@
     margin-left: 4px;
   }
 
+.hud-left-blink-red {
+  animation: blinker 0.5s linear infinite;
+  color: red;
+}
+
+.hud-left-blink-green {
+  animation: blinker 0.5s linear infinite;
+  color: green;
+}
 
 }
+
+
+
 
 .hud-right-blink-red {
   animation: blinker 0.5s linear infinite;
