@@ -15,16 +15,29 @@
 </head>
 
 <body>
-  <h1 class="title-header">JSdew Valley</h1>
+  <h1 class="title-header"></i>JSdew Valley</h1>
 
   <div class="game-container">
     <div class="hud-container">
       <div class="hud-left"></div>
       <div class="hud-right"></div>
-      <!-- <canvas class="hud" width="224" height="16"></canvas> -->
     </div>
     <div class="main-container">
-      <div class="main-left"></div>
+      <div class="main-left">
+        <div class="sidebar-links" id="instructions">
+          <img src="./dist/assets/joystick.png" alt="">
+          <span>How To Play</span>
+        </div>
+        <div class="sidebar-links" id="gitHubLink">
+          <img src="./dist/assets/gitHub_icon.png" alt=""> 
+          <span>GitHub</span>
+        </div>
+        <div class="sidebar-links" id="linkedIn">
+          <img src="./dist/assets/linkedIn.png" alt="">
+          <span>LinkedIn</span>
+        </div>
+        <div class="sidebar-links" id="empty-space">I'm Empty</div>
+      </div>
       <canvas class="canvas" width="224" height="160"></canvas>
       <div class="store"></div>
     </div>

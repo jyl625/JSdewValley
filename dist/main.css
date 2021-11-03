@@ -206,3 +206,77 @@
   animation: blinker 0.5s linear infinite;
   color: red;
 }
+
+.sidebar-links {
+  width: 64px;
+  height: 20px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 4px;
+}
+
+#empty-space {
+  height: 104px;
+  background-color: #507941;
+  text-align: right;
+  line-height: 20px;
+}
+
+#instructions {
+  background-color: #a0a554;
+  text-align: right;
+  line-height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#instructions img {
+  margin-left: 4px;
+  height: 12px;
+  width: 12px;
+  image-rendering: pixelated;
+}
+
+#instructions span {
+  margin-right: 2px;
+}
+
+#gitHubLink {
+  background-color: #86944d;
+  text-align: right;
+  line-height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#gitHubLink img {
+  margin-left: 4px;
+  height: 12px;
+  width: 12px;
+  image-rendering: pixelated;
+}
+
+#gitHubLink span {
+  margin-right: 2px;
+}
+
+#linkedIn {
+  background-color: #7e9d55;
+  text-align: right;
+  line-height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#linkedIn img {
+  margin-left: 4px;
+  height: 12px;
+  width: 12px;
+  image-rendering: pixelated;
+}
+
+#linkedIn span {
+  margin-right: 2px;
+}

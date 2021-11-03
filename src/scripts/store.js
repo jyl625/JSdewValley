@@ -215,7 +215,7 @@ class Store {
         const cropType = clickedItem.dataset.cropType;
 
 
-        console.log("before sale")
+        console.log("before sale");
         console.log(this.player.forSale);
         console.log(this.forSaleCount);
 
@@ -224,7 +224,7 @@ class Store {
           clickedItem: clickedItem
         });
 
-        console.log("after sale")
+        console.log("after sale");
         console.log(this.player.forSale);
         console.log(this.forSaleCount);
       }
@@ -256,7 +256,7 @@ class Store {
       this.updateForSaleByCount();
     } 
     if (itemCount === 0) {
-      console.log("selling item?")
+      console.log("selling item?");
       utils.makeSellCountBlinkRedOn(option.clickedItem.querySelector(".itemCount"));
     }
   }
