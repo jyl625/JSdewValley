@@ -36,7 +36,7 @@ class Potato extends PlantObject {
   }
 
   //IS THIS NECESSARY!?
-  price() {
+  sellPrice() {
     return price;
   }
 

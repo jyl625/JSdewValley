@@ -179,7 +179,7 @@ class Store {
       let i = this.player.forSale.length - 1;
       while (i >= 0) {
         if (this.player.forSale[i].constructor.name === option.cropType) {
-          this.player.money += this.player.forSale[i].price();
+          this.player.money += this.player.forSale[i].sellPrice();
           this.player.forSale.splice(i, 1);
 
           //make money blink
@@ -244,7 +244,7 @@ class Store {
 
       //get the count of crop and update
       if (!this.forSaleCount[cropName]) {
-        const price = crop.price();
+        const price = crop.sellPrice();
 
         this.forSaleCount[cropName] = [price, 0, crop.constructor];
       }

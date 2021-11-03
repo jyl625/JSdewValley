@@ -96,7 +96,7 @@ class Player extends GameObject{
         this.forSale.push(plantObject);
         option.store.renderStore();
         // this.toolBelt
-        // console.log(this.forSale);
+        console.log(this.forSale);
 
         // console.log(option.plantObjects);
       }

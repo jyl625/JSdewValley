@@ -35,7 +35,7 @@ class Tomato extends PlantObject {
     return ripeSrc;
   }
 
-  price() {
+  sellPrice() {
     return price;
   }
 
