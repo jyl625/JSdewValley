@@ -14,7 +14,7 @@
   position: relative;
   // width: 224px;
   // height: 184px; //160+8+16
-  width: 352px;
+  width: 400px;
   height: 240px;
   margin: 0 auto;
   margin-top: 100px;
@@ -22,15 +22,26 @@
 
 }
 
+.canvas-container {
+  position: relative;
+}
+
 .canvas {
   outline: 1px solid black;
   image-rendering: pixelated;
   margin: 0 auto;
+  z-index: 1;
 }
 
 #overlay {
   width: auto;
-  height: auto;
+  height: 160;
+  z-index: 2;
+  background-color: black;
+}
+
+.canvas-container .canvas, #overlay {
+  position: relative;
 }
 
 .hud-container {
@@ -163,15 +174,16 @@
 
 //////////////////////NEED TO FIX THISSSS!!!!!!!!!!!!!!!!!
 .main-container {
+  position: relative;
   display: flex;
   justify-content: center;
   width: 400px;
-  margin-left: -24px; //WHY CANT I GET IT TO CENTER?!
+  height: 160px;
 }
 
 .main-left {
   width: 64px;
-  height: 164px;
+  height: 160px;
   outline: 1px solid black;
   margin: 0 auto;
 }
@@ -183,7 +195,7 @@
   width: 64px;
   grid-template-columns: 32px 32px;
   grid-template-rows: 8px repeat(4, 26px);
-  height: 164px;
+  height: 160px;
   outline: 1px solid black;
   margin: 0 auto;
 }
@@ -363,7 +375,7 @@
 }
 
 #empty-space{
-  height: calc(164px - 4*20px);
+  height: calc(160px - 4*20px);
   background-color: 	#ebc69a;
 
   text-align: right;
