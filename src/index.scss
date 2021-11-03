@@ -111,10 +111,12 @@
 .main-container {
   display: flex;
   justify-content: center;
+  width: 400px;
+  margin-left: -24px; //WHY CANT I GET IT TO CENTER?!
 }
 
 .main-left {
-  width: 40px;
+  width: 64px;
   height: 164px;
   outline: 2px solid black;
   margin: 0 auto;
@@ -124,8 +126,8 @@
   display: grid;
   gap: 4px 0px;
 
-  width: 40px;
-  grid-template-columns: 22px 22px;
+  width: 64px;
+  grid-template-columns: 32px 32px;
   grid-template-rows: 8px repeat(4, 26px);
   height: 164px;
   outline: 2px solid black;
@@ -136,7 +138,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 18px;
+  width: 32px;
   height: 8px;
   // outline: 1px solid black;
   font-family: 'Press Start 2P', cursive;
@@ -175,24 +177,51 @@
 
 
 .store-item-buy, .store-item-sell {
-  width: 16px;
+  width: 32px;
   height: 26px;
-  // outline: 2px solid black;
-
-  //testing
   font-family: 'Press Start 2P', cursive;
   font-size: 4px;
   vertical-align: text-bottom;
   text-align: center;
   overflow: hidden;
   image-rendering: pixelated;
+
 }
 
-.store-item img {
-  margin-left: 1px;
+.imgContainer {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  overflow: hidden;
+
 }
 
-.sell-count-blink-red {
+.store-item-buy img {
+  margin: 0px 0px 0px 0px
+}
+
+
+.green-price {
+  color: green;
+  .itemCount {
+    color: black;
+  }
+
+  .sell-count-blink-red {
   animation: blinker 0.5s linear infinite;
   color: red;
+  }
 }
+
+.red-price {
+  color: red;
+  .itemCount {
+    color: black;
+  }
+
+  .sell-count-blink-red {
+  animation: blinker 0.5s linear infinite;
+  color: red;
+  }
+}
+

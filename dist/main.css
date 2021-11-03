@@ -108,10 +108,12 @@
 .main-container {
   display: flex;
   justify-content: center;
+  width: 400px;
+  margin-left: -24px;
 }
 
 .main-left {
-  width: 40px;
+  width: 64px;
   height: 164px;
   outline: 2px solid black;
   margin: 0 auto;
@@ -120,8 +122,8 @@
 .store {
   display: grid;
   gap: 4px 0px;
-  width: 40px;
-  grid-template-columns: 22px 22px;
+  width: 64px;
+  grid-template-columns: 32px 32px;
   grid-template-rows: 8px repeat(4, 26px);
   height: 164px;
   outline: 2px solid black;
@@ -132,7 +134,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 18px;
+  width: 32px;
   height: 8px;
   font-family: "Press Start 2P", cursive;
   font-size: 4px;
@@ -162,7 +164,7 @@
 }
 
 .store-item-buy, .store-item-sell {
-  width: 16px;
+  width: 32px;
   height: 26px;
   font-family: "Press Start 2P", cursive;
   font-size: 4px;
@@ -172,11 +174,35 @@
   image-rendering: pixelated;
 }
 
-.store-item img {
-  margin-left: 1px;
+.imgContainer {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  overflow: hidden;
 }
 
-.sell-count-blink-red {
+.store-item-buy img {
+  margin: 0px 0px 0px 0px;
+}
+
+.green-price {
+  color: green;
+}
+.green-price .itemCount {
+  color: black;
+}
+.green-price .sell-count-blink-red {
+  animation: blinker 0.5s linear infinite;
+  color: red;
+}
+
+.red-price {
+  color: red;
+}
+.red-price .itemCount {
+  color: black;
+}
+.red-price .sell-count-blink-red {
   animation: blinker 0.5s linear infinite;
   color: red;
 }

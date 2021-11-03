@@ -61,10 +61,15 @@ class Store {
         storeItem.dataset.listIdx = i - 2;
         storeItem.innerHTML = `$${Store.masterStoreList[i - 2].seedPrice}`;
 
+        const imgContainer = document.createElement("div");
+        imgContainer.classList.add("imgContainer");
+
         const itemImg = document.createElement("img");
         itemImg.src = Store.masterStoreList[i - 2].src;
 
-        storeItem.append(itemImg);
+        imgContainer.append(itemImg);
+        storeItem.append(imgContainer);
+        // storeItem.append(itemImg);
       } else {
         storeItem.innerHTML = `??`;
       }
@@ -87,7 +92,21 @@ class Store {
 
       if (Store.masterStoreList[i - 2]) {
         storeItem.dataset.listIdx = i - 2;
-        storeItem.innerHTML = `$${Store.masterStoreList[i - 2].sellPrice}`;
+
+        const currentSellPrice = Store.masterStoreList[i - 2].sellPrice;
+        const deltaPrice = currentSellPrice - Store.masterStoreList[i - 2].seedPrice;
+
+        if (deltaPrice > 0) {
+          storeItem.innerHTML = `$${currentSellPrice}(+${deltaPrice})`;
+          storeItem.classList.add("green-price");
+        } else if (deltaPrice === 0) {
+          storeItem.innerHTML = `$${currentSellPrice}(-)`;
+        } else {
+          storeItem.innerHTML = `$${currentSellPrice}(${deltaPrice})`;
+          storeItem.classList.add("red-price");
+        }
+
+
         storeItem.dataset.cropType = Store.masterStoreList[i - 2].name;
 
         const itemImg = document.createElement("img");
