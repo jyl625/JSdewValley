@@ -2,10 +2,32 @@ import Player from "./player";
 import utils from "./utils";
 import Potato from "./potato";
 import Tomato from "./tomato";
+import Store from "./store";
 
+import gameControl from "./game_control";
 
 class GameWorld {
   constructor(element) {
+    this.element = element;
+
+    this.gameSpeed = 3; //how many seconds per day; 2 sec is fun
+
+    this.steps = 0;
+    this.seconds = 0;
+    this.gameDays = 0;
+
+    this.player = new Player({
+      x: utils.gridVal(5), y: utils.gridVal(4), element: this.element
+    });
+
+    this.farmMap = new Image();
+    this.farmMap.src = '././dist/assets/farm_dev.png';
+
+    this.store = new Store({
+      element: this.element,
+      player: this.player
+    });
+
     this.plantObjects = [
       // create plant 1
       new Potato({
@@ -18,23 +40,9 @@ class GameWorld {
       })
     ];
 
-    this.element = element;
-    this.player = new Player({
-      x: utils.gridVal(5), y: utils.gridVal(4), element: this.element
-    });
-
-    this.gameSpeed = 3; //how many seconds per day; 2 sec is fun
-
-    this.steps = 0;
-    this.seconds = 0;
-    this.gameDays = 0;
-    
-    
-    this.farmMap = new Image();
-    this.farmMap.src = '././dist/assets/farm_dev.png';
   }
 
-  draw(ctx) {
+  drawFarm(ctx) {
     ctx.drawImage(this.farmMap, 0, 0);
   }
 

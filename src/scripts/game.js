@@ -2,13 +2,9 @@
 // import PlantObject from "./plant_object";
 import GameWorld from "./game_world";
 import DirInput from "./dir_input";
-import utils from "./utils";
+import gameControl from "./game_control";
 
-//testing only
-import Tool from "./tool";
-import PlantObject from "./plant_object";
-import ToolBelt from "./tool_belt";
-import Store from "./store";
+
 
 class Game {
   constructor(element) {
@@ -16,17 +12,13 @@ class Game {
     this.canvasEle = this.element.querySelector(".canvas");
     this.ctx = this.canvasEle.getContext("2d");
 
-    this.toolBeltEle = this.element.querySelector(".tool-belt");
-
-
-    this.hudEleLeft = this.element.querySelector(".hud-left");
-    this.hudEleRight = this.element.querySelector(".hud-right");
+    // this.hudEleLeft = this.element.querySelector(".hud-left");
+    // this.hudEleRight = this.element.querySelector(".hud-right");
 
     this.gameWorld = null;
     this.player = null;
     this.store = null;
     this.dirInput = new DirInput();
-
   }
 
 
@@ -35,17 +27,19 @@ class Game {
 
       //NEED REFACTORING
       //update HUD
-      this.hudEleLeft.innerHTML = `Day: ${this.gameWorld.gameDays} Seconds: ${this.gameWorld.seconds}`;
-      this.hudEleRight.innerHTML = `$ ${this.player.money}`;
+      gameControl.updateHUD({
+        gameWorld: this.gameWorld,
+        player: this.player
+      });
 
-      // Highlight toolbelt based on key input
+      // Highlight toolbelt selection based on input
       this.player.toolBelt.highlight({
         selectedSlot: this.dirInput.inventorySelection
       });
 
 
       //draw map
-      this.gameWorld.draw(this.ctx);
+      this.gameWorld.drawFarm(this.ctx);
 
       // draw plant objects
       this.gameWorld.drawPlants(this.ctx);
@@ -69,10 +63,13 @@ class Game {
         store: this.store
       });
 
+
       requestAnimationFrame(() => {
         step();
       });
+      
     };
+
 
     step();
   }
@@ -85,18 +82,13 @@ class Game {
     this.player = this.gameWorld.player;
 
     // Create store
-    this.store = new Store({
-      element: this.element,
-      player: this.player
-    });
+    this.store = this.gameWorld.store;
 
     // Look for keyboard input
     this.dirInput.initialize();
 
-
     // start game loop
     this.gameLoop();
-
   }
 }
 export default Game;
