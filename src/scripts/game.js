@@ -126,6 +126,8 @@ class Game {
           plantObject.update();
           plantObject.sprite.draw(this.ctx);
         });
+
+        this.store.updateSellPrices();
       }
 
       requestAnimationFrame(() => {

@@ -1,5 +1,7 @@
 import PlantSprite from "./plant_sprite";
 import PlantObject from "./plant_object";
+import utils from "./utils";
+
 
 //test
 const src = '././dist/assets/crops/tomato.png';
@@ -35,13 +37,13 @@ class Tomato extends PlantObject {
     return ripeSrc;
   }
 
-  // static updateSellPrice() {
-  //   Tomato.sellCPrice = Tomato.sellCPrice * 2;
-  // }
+  static updateSellPrice() {
+    Tomato.sellPrice = utils.randomGuassian(Tomato.seedPrice);
+  }
 
 }
 
 Tomato.seedPrice = 15;
-Tomato.sellPrice = 20;
+Tomato.sellPrice = 15;
 
 export default Tomato;

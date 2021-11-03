@@ -21,7 +21,19 @@ const utils = {
     setTimeout(() => {
       toolBeltEle.classList.remove("tool-belt-blink-red");
     }, 1500);
+  },
+
+
+  randomGuassian(num) {
+    let numLoops = 10;
+    let sum = 0;
+    for(let i = 0; i < numLoops; i++ ) {
+      sum += Math.random();
+    }
+    return Math.round(sum / numLoops * 2 * num);
   }
+
+
 };
 
 export default utils;

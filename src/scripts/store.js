@@ -3,7 +3,7 @@ import Tomato from "./tomato";
 import Player from "./player";
 import utils from "./utils";
 
-const masterStoreList = [Potato, Tomato];
+
 const maxNumItems = 10;
 
 class Store {
@@ -27,7 +27,6 @@ class Store {
 
 
   renderStoreTabHTMLElements() {
-    console.log("creating");
     for(let i = 0; i < maxNumItems + 2; i++) {
       if (i < 2) {
         const storeTab = document.createElement("div");
@@ -58,12 +57,12 @@ class Store {
       storeItem.classList.add("store-item-buy");
       storeItem.id = `store-item-slot-${i - 1}`;
 
-      if (masterStoreList[i - 2]) {
+      if (Store.masterStoreList[i - 2]) {
         storeItem.dataset.listIdx = i - 2;
-        storeItem.innerHTML = `$${masterStoreList[i - 2].seedPrice}`;
+        storeItem.innerHTML = `$${Store.masterStoreList[i - 2].seedPrice}`;
 
         const itemImg = document.createElement("img");
-        itemImg.src = masterStoreList[i - 2].src;
+        itemImg.src = Store.masterStoreList[i - 2].src;
 
         storeItem.append(itemImg);
       } else {
@@ -96,7 +95,7 @@ class Store {
 
         const cropCount = this.forSaleCount[cropKey][0];
         const imgSrc = this.forSaleCount[cropKey][1].ripeSrc;
-        console.log(this.forSaleCount[cropKey][1]);
+
         storeItem.innerHTML = `$${cropPrice}`;
 
         const itemImg = document.createElement("img");
@@ -205,7 +204,7 @@ class Store {
   }
 
   purchaseItem(idx) {
-    const selectedItem = masterStoreList[idx];
+    const selectedItem = Store.masterStoreList[idx];
     console.log(this.player.money);
     if (selectedItem) {
       if (this.player.money >= selectedItem.seedPrice) {
@@ -238,6 +237,15 @@ class Store {
       this.forSaleCount[cropName][0]++;
     } );
   }
+
+  updateSellPrices() {
+    Store.masterStoreList.forEach(plantClass => {
+      plantClass.updateSellPrice();
+    });
+    this.renderStore();
+  }
 }
+
+Store.masterStoreList = [Potato, Tomato];
 
 export default Store;

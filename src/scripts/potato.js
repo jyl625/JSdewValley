@@ -1,5 +1,6 @@
 import PlantSprite from "./plant_sprite";
 import PlantObject from "./plant_object";
+import utils from "./utils";
 
 //test
 const src = '././dist/assets/crops/potato.png';
@@ -45,9 +46,13 @@ class Potato extends PlantObject {
   //   return this.sellPrice * 2;
   // }
 
+  static updateSellPrice() {
+    Potato.sellPrice = utils.randomGuassian(Potato.seedPrice);
+  }
+
 }
 
 Potato.seedPrice = 10;
-Potato.sellPrice = 12;
+Potato.sellPrice = 10;
 
 export default Potato;
