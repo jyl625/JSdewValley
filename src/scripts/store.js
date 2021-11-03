@@ -1,7 +1,7 @@
 import Potato from "./potato";
 import Tomato from "./tomato";
-import Player from "./player";
 import utils from "./utils";
+import gameControl from "./game_control";
 
 
 const maxNumItems = 10;
@@ -208,6 +208,7 @@ class Store {
 
     //Item Selected
     } else {
+      if (gameControl.isPaused) return;
       if ( clickedItem.classList.contains("store-item-buy") ) {
         const idx = parseInt(clickedItem.dataset.listIdx);
         this.purchaseItem(idx);

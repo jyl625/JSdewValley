@@ -52,7 +52,7 @@ class GameWorld {
     });
   }
 
-  progressToNextDay(option) {
+  progressInGameTime(option) {
     if (this.updateDay()) {
 
       //update plants age
@@ -66,6 +66,7 @@ class GameWorld {
   }
 
   updateDay() {
+    if (gameControl.isPaused) return false;
     this.steps++;
     if (this.steps === 60) {
       this.steps = 0;

@@ -59,7 +59,7 @@ class Game {
       }); 
 
       // in between day logic
-      this.gameWorld.progressToNextDay({
+      this.gameWorld.progressInGameTime({
         store: this.store
       });
 
