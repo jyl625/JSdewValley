@@ -38,6 +38,19 @@ class GameWorld {
     ctx.drawImage(this.farmMap, 0, 0);
   }
 
+  progressToNextDay(option) {
+    if (this.updateDay()) {
+
+      //update plants age
+      this.plantObjects.forEach(plantObject => {
+        plantObject.update();
+        plantObject.sprite.draw(this.ctx);
+      });
+
+      option.store.updateSellPrices();
+    }
+  }
+
   updateDay() {
     this.steps++;
     if (this.steps === 60) {

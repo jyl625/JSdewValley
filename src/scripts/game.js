@@ -92,7 +92,9 @@ class Game {
       }); 
 
       // in between day logic
-      this.progressToNextDay();
+      this.gameWorld.progressToNextDay({
+        store: this.store
+      });
 
       requestAnimationFrame(() => {
         step();
@@ -124,18 +126,18 @@ class Game {
 
   }
 
-  progressToNextDay(){
-    if (this.gameWorld.updateDay()) {
+  // progressToNextDay(){
+  //   if (this.gameWorld.updateDay()) {
 
-      //update plants age
-      this.gameWorld.plantObjects.forEach(plantObject => {
-        plantObject.update();
-        plantObject.sprite.draw(this.ctx);
-      });
+  //     //update plants age
+  //     this.gameWorld.plantObjects.forEach(plantObject => {
+  //       plantObject.update();
+  //       plantObject.sprite.draw(this.ctx);
+  //     });
 
-      this.store.updateSellPrices();
-    }
-  }
+  //     this.store.updateSellPrices();
+  //   }
+  // }
 
 
 }
