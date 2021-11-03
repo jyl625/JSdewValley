@@ -168,7 +168,7 @@ class Store {
     e.stopPropagation();
     const clickedItem = e.currentTarget;
 
-    console.log(clickedItem);
+    // console.log(clickedItem);
 
     //Store Tab Selected
     if (clickedItem.classList.contains("store-tab")) {
@@ -196,23 +196,24 @@ class Store {
         const cropType = clickedItem.dataset.cropType;
 
 
-        // console.log("before sale")
-        // console.log(this.player.forSale);
-        // console.log(this.forSaleCount);
+        console.log("before sale")
+        console.log(this.player.forSale);
+        console.log(this.forSaleCount);
 
         this.sellItem({
           cropType: cropType,
           clickedItem: clickedItem
         });
 
-        // console.log("after sale")
-        // console.log(this.player.forSale);
-        // console.log(this.forSaleCount);
+        console.log("after sale")
+        console.log(this.player.forSale);
+        console.log(this.forSaleCount);
       }
     }
   }
 
   sellItem(option) {
+    
     let itemCount = parseInt(option.clickedItem.querySelector(".itemCount").innerHTML.split("x")[1]);
     if (itemCount >= 1) {
       console.log(option.cropType);
@@ -230,15 +231,14 @@ class Store {
         }
         i--;
       }
-      option.clickedItem.querySelector(".itemCount").innerHTML = `x${itemCount - 1}`;
+      itemCount--;
+      option.clickedItem.querySelector(".itemCount").innerHTML = `x${itemCount}`;
 
-      // let itemCount = parseInt(option.clickedItem.querySelector(".itemCount").innerHTML.split("x")[1]);
-      // if (itemCount <= 1) {
-      //   option.clickedItem.innerHTML = "---";
-      //   delete option.clickedItem.dataset.cropType; 
-      // } else {
-      // }
       this.updateForSaleByCount();
+    } 
+    if (itemCount === 0) {
+      console.log("selling item?")
+      utils.makeSellCountBlinkRedOn(option.clickedItem.querySelector(".itemCount"));
     }
   }
 

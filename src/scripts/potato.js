@@ -10,7 +10,7 @@ const ripeSrc = '././dist/assets/crops/potato_ripe.png';
 class Potato extends PlantObject {
   constructor(option) {
     super(option);
-    this.growthStages = [1, 2, 3, 4, 6]; //days when they grow
+    this.growthStages = [1, 2, 3, 4, 5]; //days when they grow
     // this.sellPrice = Potato.price;
   }
 

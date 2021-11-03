@@ -23,6 +23,14 @@ const utils = {
     }, 1500);
   },
 
+  makeSellCountBlinkRedOn(element) {
+    element.classList.add("sell-count-blink-red");
+    console.log(element);
+    setTimeout(() => {
+      element.classList.remove("sell-count-blink-red");
+    }, 1500);
+  },
+
 
   randomGuassian(num) {
     let numLoops = 10;

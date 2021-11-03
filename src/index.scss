@@ -191,3 +191,8 @@
 .store-item img {
   margin-left: 1px;
 }
+
+.sell-count-blink-red {
+  animation: blinker 0.5s linear infinite;
+  color: red;
+}
