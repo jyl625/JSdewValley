@@ -1,6 +1,7 @@
 import Potato from "./potato";
 import Tomato from "./tomato";
 import Player from "./player";
+import utils from "./utils";
 
 const masterStoreList = [Potato, Tomato];
 const maxNumItems = 10;
@@ -10,7 +11,7 @@ class Store {
     this.storeEle = option.element.querySelector(".store");
     this.storeEle.classList.add("buy-selected");
     this.player = option.player;
-    this.forSaleCount = {}; //ex {Potato: [money, count, PotatoConstructor]}
+    this.forSaleCount = {}; //ex {Potato: [count, PotatoConstructor]}
     this.renderStore();
   }
 
@@ -26,7 +27,7 @@ class Store {
 
 
   renderStoreTabHTMLElements() {
-    console.log("creating")
+    console.log("creating");
     for(let i = 0; i < maxNumItems + 2; i++) {
       if (i < 2) {
         const storeTab = document.createElement("div");
@@ -83,17 +84,19 @@ class Store {
       storeItem.classList.add("store-item-sell");
       storeItem.id = `store-item-slot-${i - 1}`;
 
-      // { Potato: [money, count, PotatoConstructor] }
+      // { Potato: [count, PotatoConstructor] }
       if (i - 2 < Object.keys(this.forSaleCount).length) {
         const cropKey = Object.keys(this.forSaleCount)[i - 2];
         // this is really unnecessary, need to refactor later
 
-        storeItem.dataset.cropType = this.forSaleCount[cropKey][2].name;
+        storeItem.dataset.cropType = this.forSaleCount[cropKey][1].name;
 
-        const cropPrice = this.forSaleCount[cropKey][0];
-        const cropCount = this.forSaleCount[cropKey][1];
-        const imgSrc = this.forSaleCount[cropKey][2].ripeSrc;
-        console.log(this.forSaleCount[cropKey][2]);
+        //not ideal but works for now
+        const cropPrice = this.forSaleCount[cropKey][1].sellPrice;
+
+        const cropCount = this.forSaleCount[cropKey][0];
+        const imgSrc = this.forSaleCount[cropKey][1].ripeSrc;
+        console.log(this.forSaleCount[cropKey][1]);
         storeItem.innerHTML = `$${cropPrice}`;
 
         const itemImg = document.createElement("img");
@@ -182,12 +185,7 @@ class Store {
           this.player.money += this.player.forSale[i].sellPrice();
           this.player.forSale.splice(i, 1);
 
-          //make money blink
-          const hudEle = document.querySelector(".hud-right");
-          hudEle.classList.add("hud-right-blink-green");
-          setTimeout(() => {
-            hudEle.classList.remove("hud-right-blink-green");
-          }, 1500);
+          utils.makeMoneyBlink("green");
 
           break;
         }
@@ -206,32 +204,21 @@ class Store {
   }
 
   purchaseItem(idx) {
-    const selectedItem = masterStoreList[idx]
+    const selectedItem = masterStoreList[idx];
     console.log(this.player.money);
     if (selectedItem) {
       if (this.player.money >= selectedItem.price) {
         if (this.player.toolBelt.addToolBeltElements(selectedItem)) {
           console.log(`buying ${selectedItem.name}`);
           this.player.money -= selectedItem.price;
+          if (this.player.money === 0) utils.makeMoneyBlink("red");
         } else {
           console.log("not enough room in toolbelt");
-
-          const toolBeltEle = document.querySelector(".tool-belt");
-          toolBeltEle.classList.add("tool-belt-blink-red");
-          setTimeout(() => {
-            toolBeltEle.classList.remove("tool-belt-blink-red");
-          }, 1500);
-
+          utils.makeToolBeltBlinkRed();
         }
       } else {
-        console.log("not enough money");
 
-        //make money blink
-        const hudEle = document.querySelector(".hud-right");
-        hudEle.classList.add("hud-right-blink-red");
-        setTimeout( () => {
-          hudEle.classList.remove("hud-right-blink-red");
-        },1500 );
+        utils.makeMoneyBlink("red");
       }
     }
   }
@@ -244,11 +231,10 @@ class Store {
 
       //get the count of crop and update
       if (!this.forSaleCount[cropName]) {
-        const price = crop.sellPrice();
 
-        this.forSaleCount[cropName] = [price, 0, crop.constructor];
+        this.forSaleCount[cropName] = [0, crop.constructor];
       }
-      this.forSaleCount[cropName][1]++;
+      this.forSaleCount[cropName][0]++;
     } );
   }
 }

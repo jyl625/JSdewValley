@@ -35,6 +35,10 @@ class Tomato extends PlantObject {
     return ripeSrc;
   }
 
+  static get sellPrice() {
+    return Tomato.create({ x: -1, y: -1 }).sellPrice();
+  }
+
   sellPrice() {
     return price;
   }

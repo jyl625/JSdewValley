@@ -12,6 +12,7 @@ class Potato extends PlantObject {
     this.growthStages = [1, 2, 3, 4, 6]; //days when they grow
   }
 
+
   static create(option) {
     return new Potato(option);
   }
@@ -33,6 +34,10 @@ class Potato extends PlantObject {
 
   static get ripeSrc() {
     return ripeSrc;
+  }
+
+  static get sellPrice() {
+    return Potato.create({ x: -1, y: -1 }).sellPrice();
   }
 
   //IS THIS NECESSARY!?
