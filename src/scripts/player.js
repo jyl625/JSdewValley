@@ -108,7 +108,6 @@ class Player extends GameObject{
         this.forSale.push(plantObject);
         option.store.renderStore();
 
-
       }
     });
   }
@@ -124,7 +123,6 @@ class Player extends GameObject{
           plantObjects: option.gameWorld.plantObjects,
           store: option.store
         });
-        // option.dirInput.action = null; //MIGHT NOT BE NECESSARY CHECKING RIGHT NOW
       } else if (currentItem !== undefined) {
         if (currentItemCount >= 1) {
           this.plantSeed({
@@ -132,7 +130,6 @@ class Player extends GameObject{
             plantObject: currentItem,
             inventorySelection: option.dirInput.inventorySelection
           });
-          // this.player.inventory[option.dirInput.inventorySelection][1]--;
         }
       }
     }

@@ -123,7 +123,7 @@ class Store {
           cropCount = this.forSaleCount[cropKey][0];
         }
 
-        const itemCount = document.createElement("div"); //might need to change the class name
+        const itemCount = document.createElement("div"); 
         itemCount.className = "itemCount";
         itemCount.innerHTML = `x${cropCount}`;
 

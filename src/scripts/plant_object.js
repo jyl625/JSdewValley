@@ -4,7 +4,6 @@ import GameObject from "./game_object";
 class PlantObject extends GameObject {
   constructor(option) {
     super(option);
-    // this.dayPlanted = option.dayPlanted || 0;
     this.age = 0; //in days
     this.currentStage = 1;
     this.updateSprite();
