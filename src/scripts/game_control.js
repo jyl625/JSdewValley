@@ -102,31 +102,34 @@ const gameControl = {
       e.stopPropagation();
       // gameControl.isPaused = true;
       const canvasContainerEle = element.querySelector(".canvas-container");
+      if (canvasContainerEle.children.length === 2) {
+        console.log(canvasContainerEle.children.length);
 
-      const gameInstructionOne = document.createElement("div");
-      const gameInstructionTwo = document.createElement("div");
-      const gameInstructionThree = document.createElement("div");
-      const gameInstructionFour = document.createElement("div");
-      const gameInstructionClose = document.createElement("div");
+        const gameInstructionOne = document.createElement("div");
+        const gameInstructionTwo = document.createElement("div");
+        const gameInstructionThree = document.createElement("div");
+        const gameInstructionFour = document.createElement("div");
+        const gameInstructionClose = document.createElement("div");
 
-      gameInstructionOne.innerHTML = "Press W,A,S,D to MOVE around";
-      gameInstructionTwo.innerHTML = "Press any of 1~0 NUM KEYS to select SEEDS/TOOL";
-      gameInstructionThree.innerHTML = "Press SPACE BAR to either PLANT/HARVEST";
-      gameInstructionFour.innerHTML = "CLICK on Store to BUY seeds or SELL crops!";
-      gameInstructionClose.innerHTML = "CLOSE";
-      gameInstructionClose.id = "close-instructions";
+        gameInstructionOne.innerHTML = "Press W,A,S,D to MOVE around";
+        gameInstructionTwo.innerHTML = "Press any of 1~0 NUM KEYS to select SEEDS/TOOL";
+        gameInstructionThree.innerHTML = "Press SPACE BAR to either PLANT/HARVEST";
+        gameInstructionFour.innerHTML = "CLICK on Store to BUY seeds or SELL crops!";
+        gameInstructionClose.innerHTML = "CLOSE";
+        gameInstructionClose.id = "close-instructions";
 
-      const gameInstructions = document.createElement("div");
-      gameInstructions.id = "game-instructions";
+        const gameInstructions = document.createElement("div");
+        gameInstructions.id = "game-instructions";
 
-      gameInstructions.append(gameInstructionOne, gameInstructionTwo, gameInstructionThree, gameInstructionFour, gameInstructionClose);
-      canvasContainerEle.append(gameInstructions);
+        gameInstructions.append(gameInstructionOne, gameInstructionTwo, gameInstructionThree, gameInstructionFour, gameInstructionClose);
+        canvasContainerEle.append(gameInstructions);
 
-      gameInstructionClose.addEventListener("click", e => {
-        e.stopPropagation();
-        // gameControl.isPaused = false;
-        gameInstructions.remove();
-      });
+        gameInstructionClose.addEventListener("click", e => {
+          e.stopPropagation();
+          // gameControl.isPaused = false;
+          gameInstructions.remove();
+        });
+      }
     });
   },
 
