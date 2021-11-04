@@ -4,8 +4,8 @@ import utils from "./utils";
 
 
 //test
-const src = '././dist/assets/crops/tomato.png';
-const ripeSrc = '././dist/assets/crops/tomato_ripe.png';
+const src = './dist/assets/crops/tomato.png';
+const ripeSrc = './dist/assets/crops/tomato_ripe.png';
 // const price = 15;
 
 class Tomato extends PlantObject {
@@ -21,7 +21,8 @@ class Tomato extends PlantObject {
   updateSprite() {
     this.sprite = new PlantSprite({
       plantObject: this,
-      src: '././dist/assets/crops/tomato.png'
+      src: './dist/assets/crops/tomato.png'
+
     });
   }
 

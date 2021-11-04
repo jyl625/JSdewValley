@@ -21,7 +21,7 @@ class GameWorld {
     });
 
     this.farmMap = new Image();
-    this.farmMap.src = '././dist/assets/farm.png';
+    this.farmMap.src = './dist/assets/farm.png';
 
     this.store = new Store({
       element: this.element,

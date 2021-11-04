@@ -2,10 +2,10 @@ import PlantSprite from "./plant_sprite";
 import PlantObject from "./plant_object";
 import utils from "./utils";
 
-//test
-const src = '././dist/assets/crops/potato.png';
-const ripeSrc = '././dist/assets/crops/potato_ripe.png';
-// const price = 10;
+
+const src = './dist/assets/crops/potato.png';
+const ripeSrc = './dist/assets/crops/potato_ripe.png';
+
 
 class Potato extends PlantObject {
   constructor(option) {
@@ -21,7 +21,8 @@ class Potato extends PlantObject {
   updateSprite() {
     this.sprite = new PlantSprite({
       plantObject: this,
-      src: '././dist/assets/crops/potato.png'
+      src: './dist/assets/crops/potato.png'
+
     });
   }
 

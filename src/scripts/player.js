@@ -15,7 +15,7 @@ class Player extends GameObject{
     this.dir = "right";
     this.sprite = new Sprite({
       gameObject: this,
-      src: '././dist/assets/player_1.png'
+      src: './dist/assets/player_1.png'
     });
     this.directionMap = {
       "up": ["y", -1],
