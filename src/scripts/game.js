@@ -92,12 +92,12 @@ class Game {
   }
 
   restart() {
-    this.totalMoneyCollected = this.player.money;
+    this.totalProfitCollected = this.player.money - 100;
     this.totalDaySpent = this.gameWorld.gameDays;
 
-    const totalCashEle = document.createElement("div");
-    totalCashEle.innerHTML = `Total Cash: $${this.totalMoneyCollected}`;
-    totalCashEle.id = "totalCash";
+    const totalProfitEle = document.createElement("div");
+    totalProfitEle.innerHTML = `Total Profit: $${this.totalProfitCollected}`;
+    totalProfitEle.id = "totalProfit";
     const totalDaysEle = document.createElement("div");
     totalDaysEle.innerHTML = `Game Duration: ${this.totalDaySpent} days`;
     totalDaysEle.id = "totalDays";
@@ -106,14 +106,14 @@ class Game {
     if (this.totalDaySpent === 0) {
       this.totalScore = "INFINITE";
     } else {
-      this.totalScore = Math.round(this.totalMoneyCollected / this.totalDaySpent);
+      this.totalScore = (this.totalProfitCollected / this.totalDaySpent).toFixed(2);
     }
     totalScoreEle.innerHTML = `Final Score: $${this.totalScore}/day`;
     totalScoreEle.id = "toatlScoreEle";
 
     const canvasOverlayEle = this.element.querySelector("#canvas-overlay");
 
-    canvasOverlayEle.append(totalCashEle, totalDaysEle, totalScoreEle);
+    canvasOverlayEle.append(totalProfitEle, totalDaysEle, totalScoreEle);
 
     //reset world
     this.gameWorld.reset();

@@ -63,11 +63,7 @@ const gameControl = {
 
           game.restart();
 
-          // if (game.totalDaySpent >= 0) {
-          //   game.totalMoneyCollected = -1;
-          //   game.totalDaySpent = -1;
-          //   game.totalscore = -1;
-          // }
+    
         });
 
       }
@@ -89,7 +85,7 @@ const gameControl = {
 
         //remove previous score buttons
         if (element.querySelector("#toatlScoreEle")) {
-          element.querySelector("#totalCash").remove();
+          element.querySelector("#totalProfit").remove();
           element.querySelector("#totalDays").remove();
           element.querySelector("#toatlScoreEle").remove();
         }
