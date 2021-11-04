@@ -99,6 +99,7 @@ const gameControl = {
     //add pop-up instructions
     const howToPlayEle = element.querySelector("#instructions");
     howToPlayEle.addEventListener("click", e => {
+      e.stopPropagation();
       // gameControl.isPaused = true;
       const canvasContainerEle = element.querySelector(".canvas-container");
 
@@ -122,6 +123,7 @@ const gameControl = {
       canvasContainerEle.append(gameInstructions);
 
       gameInstructionClose.addEventListener("click", e => {
+        e.stopPropagation();
         // gameControl.isPaused = false;
         gameInstructions.remove();
       });
