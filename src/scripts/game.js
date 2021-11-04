@@ -92,6 +92,29 @@ class Game {
   }
 
   restart() {
+    this.totalMoneyCollected = this.player.money;
+    this.totalDaySpent = this.gameWorld.gameDays;
+
+    const totalCashEle = document.createElement("div");
+    totalCashEle.innerHTML = `Total Cash: $${this.totalMoneyCollected}`;
+    totalCashEle.id = "totalCash";
+    const totalDaysEle = document.createElement("div");
+    totalDaysEle.innerHTML = `Game Duration: ${this.totalDaySpent} days`;
+    totalDaysEle.id = "totalDays";
+    
+    const totalScoreEle = document.createElement("div");
+    if (this.totalDaySpent === 0) {
+      this.totalScore = "INFINITE";
+    } else {
+      this.totalScore = Math.round(this.totalMoneyCollected / this.totalDaySpent);
+    }
+    totalScoreEle.innerHTML = `Final Score: $${this.totalScore}/day`;
+    totalScoreEle.id = "toatlScoreEle";
+
+    const canvasOverlayEle = this.element.querySelector("#canvas-overlay");
+
+    canvasOverlayEle.append(totalCashEle, totalDaysEle, totalScoreEle);
+
     //reset world
     this.gameWorld.reset();
 

@@ -141,7 +141,7 @@ class Player extends GameObject{
   }
 
   reset() {
-    this.x = utils.gridVal(5);
+    this.x = utils.gridVal(6);
     this.y = utils.gridVal(4);
     this.money = 100;
     this.forSale = [];

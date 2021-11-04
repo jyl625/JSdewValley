@@ -52,11 +52,20 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-flow: column;
   width: 224px;
   height: 160px;
   z-index: 2;
   background-color: #969191;
-  opacity: 80%;
+  opacity: 95%;
+  font-family: "Press Start 2P", cursive;
+  font-size: 5px;
+}
+
+#canvas-overlay div {
+  font-family: "Press Start 2P", cursive;
+  font-size: 6px;
+  height: 10px;
 }
 
 #canvas-overlay button {
@@ -140,11 +149,11 @@ body {
 }
 .tool-belt-container {
   position: relative;
-  background: white;
+  background: #ceb466;
   margin: 8px auto;
   width: 170px;
   height: 26px;
-  outline: 1px solid white;
+  outline: 1px solid #ceb466;
 }
 
 .tool-belt {
@@ -162,7 +171,7 @@ body {
   height: 28px;
   z-index: 2;
   background-color: #969191;
-  opacity: 80%;
+  opacity: 95%;
   transform: translate(-1px, -1px);
 }
 
@@ -188,8 +197,8 @@ body {
 }
 
 .tool-belt > div.selected {
-  background-color: #d85757;
-  outline: 1px solid #d85757;
+  background-color: #c07451;
+  outline: 1px solid #c07451;
 }
 
 .invImg {
@@ -223,7 +232,7 @@ body {
 
 .store {
   position: relative;
-  background-color: white;
+  background-color: #e8e3ee;
   display: grid;
   gap: 4px 0px;
   width: 64px;
@@ -248,21 +257,21 @@ body {
 }
 
 .store.sell-selected .store-tab.buy {
-  background-color: green;
+  background-color: #e7a946;
   color: white;
   filter: brightness(50%);
 }
 .store.sell-selected .store-tab.sell {
-  background-color: red;
+  background-color: #5079f5;
   color: white;
 }
 
 .store.buy-selected .store-tab.buy {
-  background-color: green;
+  background-color: #e7a946;
   color: white;
 }
 .store.buy-selected .store-tab.sell {
-  background-color: red;
+  background-color: #5079f5;
   color: white;
   filter: brightness(50%);
 }

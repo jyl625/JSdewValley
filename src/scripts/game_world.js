@@ -17,11 +17,11 @@ class GameWorld {
     this.gameDays = 0;
 
     this.player = new Player({
-      x: utils.gridVal(5), y: utils.gridVal(4), element: this.element
+      x: utils.gridVal(6), y: utils.gridVal(4), element: this.element
     });
 
     this.farmMap = new Image();
-    this.farmMap.src = '././dist/assets/farm_dev.png';
+    this.farmMap.src = '././dist/assets/farm.png';
 
     this.store = new Store({
       element: this.element,

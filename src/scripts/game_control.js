@@ -18,6 +18,8 @@ const gameControl = {
     playPauseContainerEle.addEventListener("click", e => {
       e.stopPropagation();
       const playPauseButton = playPauseContainerEle.querySelector("img");
+
+      //if Play is clicked
       if (gameControl.isPaused === true) {
   
         playPauseButton.src = "./dist/assets/pause.png";
@@ -28,31 +30,46 @@ const gameControl = {
         canvasOverlayEle.style.opacity = "0";
         toolBeltOverlayEle.style.opacity = "0";
         
-      } else {
+      } else { //if Pause if clicked
+
 
         playPauseButton.src = "./dist/assets/play.png";
 
         gameControl.isPaused = true;
         utils.makeTimeBlink("red");
 
-        canvasOverlayEle.style.opacity = "0.80";
-        toolBeltOverlayEle.style.opacity = "1";
+        canvasOverlayEle.style.opacity = "0.95";
+        toolBeltOverlayEle.style.opacity = "0.95";
 
       }
       playPauseButton.classList.toggle(".play");
       playPauseButton.classList.toggle(".pause");
 
       //rename start button as resume game and adding restart/quit button after game has started
-      if (element.querySelector("#canvas-overlay").children.length === 1) {
-        const restartQuitButtonEle =this.createRestartQuitButton()
+      
+      const canvasOverlayEleChildrenLength = element.querySelector("#canvas-overlay").children.length;
+      if (canvasOverlayEleChildrenLength === 1 || canvasOverlayEleChildrenLength === 4) {
+        const restartQuitButtonEle =this.createRestartQuitButton();
         canvasOverlayEle.append(restartQuitButtonEle);
 
+        resumeButtonEle.innerHTML = "RESUME GAME";
+
+        //if restart button is clicked
         restartQuitButtonEle.addEventListener("click", e => {
           e.stopPropagation();
+
+          restartQuitButtonEle.remove();
+          resumeButtonEle.innerHTML = "START GAME";
+
           game.restart();
+
+          // if (game.totalDaySpent >= 0) {
+          //   game.totalMoneyCollected = -1;
+          //   game.totalDaySpent = -1;
+          //   game.totalscore = -1;
+          // }
         });
 
-        resumeButtonEle.innerHTML = "RESUME GAME";
       }
     });
 
@@ -68,6 +85,13 @@ const gameControl = {
 
         canvasOverlayEle.style.opacity = "0";
         toolBeltOverlayEle.style.opacity = "0";
+
+        //remove previous score buttons
+        if (element.querySelector("#toatlScoreEle")) {
+          element.querySelector("#totalCash").remove();
+          element.querySelector("#totalDays").remove();
+          element.querySelector("#toatlScoreEle").remove();
+        }
       } 
     });
 
