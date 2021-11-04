@@ -32,24 +32,28 @@
 
 .canvas-container {
   position: relative;
+  margin: 0px;
+  width: 224px;
+  height: 160px;
 }
 
 .canvas {
   outline: 1px solid black;
   image-rendering: pixelated;
-  margin: 0 auto;
+  margin: 0px;
   z-index: 1;
 }
 
 #overlay {
-  width: auto;
-  height: 160;
+  width: 224px;
+  height: 160px;
   z-index: 2;
-  background-color: black;
+  background-color: gray;
+  opacity: 50%;
 }
 
 .canvas-container .canvas, #overlay {
-  position: relative;
+  position: absolute;
 }
 
 .hud-container {
@@ -160,7 +164,7 @@
 .main-container {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 400px;
   height: 160px;
 }
@@ -169,7 +173,7 @@
   width: 64px;
   height: 160px;
   outline: 1px solid black;
-  margin: 0 auto;
+  margin: 0px;
 }
 
 .store {
@@ -180,7 +184,7 @@
   grid-template-rows: 8px repeat(4, 26px);
   height: 160px;
   outline: 1px solid black;
-  margin: 0 auto;
+  margin: 0px;
 }
 
 .store-tab {
