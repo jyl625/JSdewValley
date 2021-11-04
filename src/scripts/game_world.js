@@ -10,7 +10,7 @@ class GameWorld {
   constructor(element) {
     this.element = element;
 
-    this.gameSpeed = 1; //how many seconds per day; 2 sec is fun
+    this.gameSpeed = 3; //how many seconds per day; 2 sec is fun
 
     this.steps = 0;
     this.seconds = 0;

@@ -11,6 +11,16 @@
   margin: 0;
 }
 
+a, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: inherit;
+}
+
 body {
   background-color: #d8efff;
 }
@@ -325,6 +335,11 @@ body {
   height: 20px;
   font-family: "Press Start 2P", cursive;
   font-size: 4px;
+}
+
+.sidebar-links a {
+  height: 12px;
+  width: 12px;
 }
 
 #instructions {

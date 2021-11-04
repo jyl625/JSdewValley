@@ -71,6 +71,10 @@ const gameControl = {
         });
 
       }
+
+      //add pop-up instructions
+
+
     });
 
     resumeButtonEle.addEventListener("click", e => {
@@ -114,7 +118,10 @@ const gameControl = {
     this.hudEleLeft = document.querySelector(".hud-left");
     this.hudEleRight = document.querySelector(".hud-right");
 
-    this.hudEleLeft.innerHTML = `Day: ${option.gameWorld.gameDays} Seconds: ${option.gameWorld.seconds}`;
+    // For Development Only: show seconds
+    // this.hudEleLeft.innerHTML = `Day: ${option.gameWorld.gameDays} Seconds: ${option.gameWorld.seconds}`;
+
+    this.hudEleLeft.innerHTML = `Day: ${option.gameWorld.gameDays}`;
     this.hudEleRight.innerHTML = `$ ${option.player.money}`;
   },
 };
