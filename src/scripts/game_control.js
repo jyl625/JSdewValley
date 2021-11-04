@@ -13,7 +13,7 @@ const gameControl = {
     const toolBeltOverlayEle = element.querySelector("#tool-belt-overlay");
 
     const resumeButtonEle = element.querySelector("#resume-button");
-    // const restartQuitButtonEle = element.querySelector("#restart-button");
+  
 
     playPauseContainerEle.addEventListener("click", e => {
       e.stopPropagation();

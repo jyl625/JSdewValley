@@ -43,7 +43,6 @@ class ToolBelt {
 
 
   //Create toobelt HTML elements
-  //DONT RUN THIS CONSTANTLY
   createToolBeltElements (){
     for (let idx = 0; idx < 10; idx++) {
       const invSlot = document.createElement("div");
