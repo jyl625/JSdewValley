@@ -98,7 +98,6 @@ const gameControl = {
 
     //add pop-up instructions
     const howToPlayEle = element.querySelector("#instructions");
-    console.log(howToPlayEle)
     howToPlayEle.addEventListener("click", e => {
       // gameControl.isPaused = true;
       const canvasContainerEle = element.querySelector(".canvas-container");
@@ -117,15 +116,14 @@ const gameControl = {
       gameInstructionClose.id = "close-instructions";
 
       const gameInstructions = document.createElement("div");
-      gameInstructions.id = "game-instructions"
+      gameInstructions.id = "game-instructions";
 
       gameInstructions.append(gameInstructionOne, gameInstructionTwo, gameInstructionThree, gameInstructionFour, gameInstructionClose);
       canvasContainerEle.append(gameInstructions);
 
-      const closeInstructionEle = element.querySelector("#game-instructions");
-      closeInstructionEle.addEventListener("click", e => {
+      gameInstructionClose.addEventListener("click", e => {
         // gameControl.isPaused = false;
-        element.querySelector("#game-instructions").remove();
+        gameInstructions.remove();
       });
     });
   },
