@@ -1,5 +1,3 @@
-// import GameObject from "./game_object";
-// import PlantObject from "./plant_object";
 import GameWorld from "./game_world";
 import DirInput from "./dir_input";
 import gameControl from "./game_control";
@@ -25,7 +23,6 @@ class Game {
   gameLoop() {
     const step = () => {
 
-      //NEED REFACTORING
       //update HUD
       gameControl.updateHUD({
         gameWorld: this.gameWorld,
@@ -88,10 +85,27 @@ class Game {
     this.dirInput.initialize();
 
     // 
-    gameControl.initialize(this.element);
+    gameControl.initialize({
+      element: this.element,
+      game: this
+    });
 
     // start game loop
     this.gameLoop();
+  }
+
+  restart() {
+    //reset world
+    this.gameWorld.reset();
+
+    // Reset Player
+    this.player.reset();
+
+    //reset ToolBelt
+    this.player.toolBelt.reset();
+
+    //reset Store
+    this.store.reset();
   }
 }
 export default Game;

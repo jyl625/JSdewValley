@@ -5,6 +5,7 @@ import Tool from "./tool";
 
 class ToolBelt {
   constructor(element) {
+
     this.toolBeltEle = element.querySelector(".tool-belt");
     this.inventory = {
       0: [Tool, 1], 
@@ -19,6 +20,7 @@ class ToolBelt {
       9: []
     };
 
+    this.toolBeltEle.innerHTML = "";
     this.createToolBeltElements();
   }
 
@@ -28,13 +30,15 @@ class ToolBelt {
     const toolBeltEleArr = this.toolBeltEle.children;
     const selectedSlot = option.selectedSlot;
 
-    for (let idx = 0; idx < 10; idx++) {
-      if (idx === selectedSlot) {
-        toolBeltEleArr[idx].style.backgroundColor = "yellow";
-        // toolBeltEleArr[idx].style.outlineColor = "Red";
-      } else {
-        toolBeltEleArr[idx].style.backgroundColor = "";
-        // toolBeltEleArr[idx].style.outlineColor ="";
+    if (toolBeltEleArr) {// really just here for game-restart
+      for (let idx = 0; idx < 10; idx++) {
+        if (idx === selectedSlot) {
+          toolBeltEleArr[idx].style.backgroundColor = "yellow";
+          // toolBeltEleArr[idx].style.outlineColor = "Red";
+        } else {
+          toolBeltEleArr[idx].style.backgroundColor = "";
+          // toolBeltEleArr[idx].style.outlineColor ="";
+        }
       }
     }
   }
@@ -91,7 +95,7 @@ class ToolBelt {
       this.inventory[toolBeltIdxOfPurchased][1]++;
       this.toolBeltEle.innerHTML = "";
       this.updateToolBeltElements();
-      console.log("this should create tool belt elements");
+
       return true;
     } else {
       return this.addNewItemToToolBelt(selectedItem);
@@ -110,7 +114,7 @@ class ToolBelt {
   addNewItemToToolBelt(item) {
     //[item, count]
     if (this.hasEmptySlots()) {
-      console.log(this.emptyToolBeltIdx());
+
       this.inventory[this.emptyToolBeltIdx()] = [item, 1];
       this.updateToolBeltElements();
       return true;
@@ -121,7 +125,7 @@ class ToolBelt {
 
   emptyToolBeltIdx() {
     for (let i = 0; i <= 9; i++) {
-      console.log(this.inventory[i].length === 0);
+
       if (this.inventory[i].length === 0) return i;
     }
 
@@ -136,7 +140,22 @@ class ToolBelt {
     }
   }
 
-
+  reset() {
+    this.inventory = {
+      0: [Tool, 1],
+      1: [Potato, 5],
+      2: [Tomato, 5],
+      3: [],
+      4: [],
+      5: [],
+      6: [],
+      7: [],
+      8: [],
+      9: []
+    };
+    this.toolBeltEle.innerHTML = "";
+    this.createToolBeltElements();
+  }
 
 
 }

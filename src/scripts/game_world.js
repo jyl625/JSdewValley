@@ -10,7 +10,7 @@ class GameWorld {
   constructor(element) {
     this.element = element;
 
-    this.gameSpeed = 3; //how many seconds per day; 2 sec is fun
+    this.gameSpeed = 1; //how many seconds per day; 2 sec is fun
 
     this.steps = 0;
     this.seconds = 0;
@@ -28,17 +28,7 @@ class GameWorld {
       player: this.player
     });
 
-    this.plantObjects = [
-      // create plant 1
-      new Potato({
-        x: utils.gridVal(2), y: utils.gridVal(2)
-      }),
-
-      // create plant 2
-      new Tomato({
-        x: utils.gridVal(3), y: utils.gridVal(3)
-      })
-    ];
+    this.plantObjects = [];
 
   }
 
@@ -83,6 +73,13 @@ class GameWorld {
     return !this.plantObjects.some( plant => {
       return (plant.x === pos[0] && plant.y === pos[1]);
     } );
+  }
+
+  reset() {
+    this.steps = 0;
+    this.seconds = 0;
+    this.gameDays = 0;
+    this.plantObjects = [];
   }
 }
 

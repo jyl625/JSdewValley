@@ -44,15 +44,23 @@
   z-index: 1;
 }
 
-#overlay {
+#canvas-overlay {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 224px;
   height: 160px;
   z-index: 2;
   background-color: gray;
-  opacity: 50%;
+  opacity: 80%;
 }
 
-.canvas-container .canvas, #overlay {
+#canvas-overlay button {
+  font-family: "Press Start 2P", cursive;
+  font-size: 5px;
+}
+
+.canvas-container .canvas, #canvas-overlay {
   position: absolute;
 }
 
@@ -119,15 +127,34 @@
     opacity: 0;
   }
 }
+.tool-belt-container {
+  position: relative;
+  margin: 8px auto;
+  width: 170px;
+  height: 40px;
+}
+
 .tool-belt {
   display: flex;
   justify-content: center;
   width: 170px;
   height: 26px;
-  margin: 0 auto;
-  margin-top: 16px;
+  margin: 0;
   outline: 1px solid black;
   outline-offset: 1px;
+}
+
+#tool-belt-overlay {
+  width: 172px;
+  height: 28px;
+  z-index: 2;
+  background-color: white;
+  opacity: 100%;
+  transform: translate(-1px, -1px);
+}
+
+.tool-belt-container .tool-belt, #tool-belt-overlay {
+  position: absolute;
 }
 
 .tool-belt-blink-red {
@@ -139,8 +166,8 @@
   margin-right: 1px;
   width: 16px;
   height: 26px;
-  vertical-align: text-top;
   text-align: left;
+  line-height: -3px;
   font-family: "Press Start 2P", cursive;
   font-size: 4px;
   image-rendering: pixelated;
@@ -177,6 +204,7 @@
 }
 
 .store {
+  position: relative;
   display: grid;
   gap: 4px 0px;
   width: 64px;

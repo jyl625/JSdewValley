@@ -179,18 +179,12 @@ class Store {
         const cropType = clickedItem.dataset.cropType;
 
 
-        console.log("before sale");
-        console.log(this.player.forSale);
-        console.log(this.forSaleCount);
-
         this.sellItem({
           cropType: cropType,
           clickedItem: clickedItem
         });
 
-        console.log("after sale");
-        console.log(this.player.forSale);
-        console.log(this.forSaleCount);
+  
       }
     }
   }
@@ -199,8 +193,7 @@ class Store {
     
     let itemCount = parseInt(option.clickedItem.querySelector(".itemCount").innerHTML.split("x")[1]);
     if (itemCount >= 1) {
-      console.log(option.cropType);
-      console.log(option.clickedItem);
+
 
       let i = this.player.forSale.length - 1;
       while (i >= 0) {
@@ -220,22 +213,22 @@ class Store {
       this.updateForSaleByCount();
     } 
     if (itemCount === 0) {
-      console.log("selling item?");
+  
       utils.makeSellCountBlinkRedOn(option.clickedItem.querySelector(".itemCount"));
     }
   }
 
   purchaseItem(idx) {
     const selectedItem = Store.masterStoreList[idx];
-    console.log(this.player.money);
+
     if (selectedItem) {
       if (this.player.money >= selectedItem.seedPrice) {
         if (this.player.toolBelt.addToolBeltElements(selectedItem)) {
-          console.log(`buying ${selectedItem.name}`);
+
           this.player.money -= selectedItem.seedPrice;
           if (this.player.money === 0) utils.makeMoneyBlink("red");
         } else {
-          console.log("not enough room in toolbelt");
+    
           utils.makeToolBeltBlinkRed();
         }
       } else {
@@ -265,6 +258,23 @@ class Store {
       plantClass.updateSellPrice();
     });
     this.renderStore();
+  }
+
+  resetSellPrices() {
+    Store.masterStoreList.forEach(plantClass => {
+      plantClass.resetSellPrice();
+    });
+  }
+
+  reset() {
+    this.storeEle.innerHTML = "";
+    this.resetSellPrices();
+    this.forSaleCount = {};
+
+    //rending store with buy tab selected
+    this.renderStoreTabHTMLElements();
+    this.storeEle.classList.add("buy-selected");
+    this.renderBuyHTMLElements();
   }
 }
 

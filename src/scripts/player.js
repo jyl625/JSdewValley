@@ -26,6 +26,7 @@ class Player extends GameObject{
     this.money = 100;
 
     //Create toolbelt
+ 
     this.toolBelt = new ToolBelt(this.element);
     this.forSale = [];
   }
@@ -137,6 +138,13 @@ class Player extends GameObject{
         }
       }
     }
+  }
+
+  reset() {
+    this.x = utils.gridVal(5);
+    this.y = utils.gridVal(4);
+    this.money = 100;
+    this.forSale = [];
   }
 
 

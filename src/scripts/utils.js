@@ -33,7 +33,7 @@ const utils = {
 
   makeSellCountBlinkRedOn(element) {
     element.classList.add("sell-count-blink-red");
-    console.log(element);
+
     setTimeout(() => {
       element.classList.remove("sell-count-blink-red");
     }, 1500);

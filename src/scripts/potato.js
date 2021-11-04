@@ -50,6 +50,10 @@ class Potato extends PlantObject {
     Potato.sellPrice = utils.randomGuassian(Potato.seedPrice);
   }
 
+  static resetSellPrice() {
+    Potato.sellPrice = Potato.seedPrice;
+  }
+
 }
 
 Potato.seedPrice = 10;
