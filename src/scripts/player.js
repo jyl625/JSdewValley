@@ -107,10 +107,8 @@ class Player extends GameObject{
         option.plantObjects.splice(idx,1);
         this.forSale.push(plantObject);
         option.store.renderStore();
-        // this.toolBelt
-        console.log(this.forSale);
 
-        // console.log(option.plantObjects);
+
       }
     });
   }

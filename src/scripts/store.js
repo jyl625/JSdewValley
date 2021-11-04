@@ -116,8 +116,7 @@ class Store {
 
         const cropKey = Store.masterStoreList[i - 2].name;
 
-        // console.log(cropKey);
-        //ex {Potato: [count, PotatoConstructor]}
+ 
 
         let cropCount = 0;
         if (this.forSaleCount[cropKey]) {

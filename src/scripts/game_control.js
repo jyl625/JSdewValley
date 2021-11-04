@@ -99,7 +99,6 @@ const gameControl = {
       // gameControl.isPaused = true;
       const canvasContainerEle = element.querySelector(".canvas-container");
       if (canvasContainerEle.children.length === 2) {
-        console.log(canvasContainerEle.children.length);
 
         const gameInstructionOne = document.createElement("div");
         const gameInstructionTwo = document.createElement("div");
