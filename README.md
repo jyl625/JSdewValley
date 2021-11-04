@@ -1,3 +1,8 @@
+# Link to Game
+https://jyl625.github.io/JSdewValley/
+
+---
+
 # Background
 
 JSdewValley is a lite clone of Stardew Valley. The original Stardew Valley is a simulation role-playing video where players can grow crops, raise livestock, craft goods, and engage in other activities around the town of Stardew Valley. This game, JSdewValley, will feature a simple farming simulation where players can plant seeds, water plants, harvest crops, and sell produce to collect as much profit as possible.
