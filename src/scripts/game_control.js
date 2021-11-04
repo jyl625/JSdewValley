@@ -13,7 +13,7 @@ const gameControl = {
     const toolBeltOverlayEle = element.querySelector("#tool-belt-overlay");
 
     const resumeButtonEle = element.querySelector("#resume-button");
-    const restartQuitButtonEle = element.querySelector("#restart-button");
+    // const restartQuitButtonEle = element.querySelector("#restart-button");
 
     playPauseContainerEle.addEventListener("click", e => {
       e.stopPropagation();
@@ -41,6 +41,19 @@ const gameControl = {
       }
       playPauseButton.classList.toggle(".play");
       playPauseButton.classList.toggle(".pause");
+
+      //rename start button as resume game and adding restart/quit button after game has started
+      if (element.querySelector("#canvas-overlay").children.length === 1) {
+        const restartQuitButtonEle =this.createRestartQuitButton()
+        canvasOverlayEle.append(restartQuitButtonEle);
+
+        restartQuitButtonEle.addEventListener("click", e => {
+          e.stopPropagation();
+          game.restart();
+        });
+
+        resumeButtonEle.innerHTML = "RESUME GAME";
+      }
     });
 
     resumeButtonEle.addEventListener("click", e => {
@@ -58,19 +71,20 @@ const gameControl = {
       } 
     });
 
-    restartQuitButtonEle.addEventListener("click", e=> {
-      e.stopPropagation();
-      // Game.restart();
-      game.restart();
-    });
+    // if (restartQuitButtonEle) {
+    //   restartQuitButtonEle.addEventListener("click", e=> {
+    //     e.stopPropagation();
+    //     game.restart();
+    //   });
+    // }
   },
 
-  // restart(game) {
-  //   console.log(game);
-  //   game.restart();
-  // },
-
-  // handleGamePausePlay(e, )
+  createRestartQuitButton() {
+    const newRestartQuitButton = document.createElement("button");
+    newRestartQuitButton.id = "restart-button";
+    newRestartQuitButton.innerHTML = "RESTART/QUIT";
+    return newRestartQuitButton;
+  },
 
   updateHUD(option) {
     this.hudEleLeft = document.querySelector(".hud-left");

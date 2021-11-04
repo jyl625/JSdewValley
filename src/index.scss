@@ -1,5 +1,9 @@
 @import "./styles/base.scss";
 
+body {
+  background-color: #d8efff;
+}
+
 .title-header {
   position: relative;
   margin: 0 auto;
@@ -43,13 +47,20 @@
   width: 224px;
   height: 160px;
   z-index: 2;
-  background-color: gray;
+  background-color: rgb(150, 145, 145);
   opacity: 80%;
 }
 
 #canvas-overlay button {
   font-family: 'Press Start 2P', cursive;
   font-size: 5px;
+  height: 25px;
+  background-color: white;
+  opacity: 1;
+}
+
+#canvas-overlay button:hover {
+  background-color: #d8efff;
 }
 
 
@@ -141,9 +152,12 @@
 
 .tool-belt-container {
   position: relative;
+  background: white;
   margin: 8px auto ;
   width: 170px;
-  height: 40px;
+  height: 26px;
+  outline: 1px solid white;
+  
 }
 
 .tool-belt {
@@ -160,8 +174,8 @@
   width: 172px;
   height: 28px;
   z-index: 2;
-  background-color:white;
-  opacity: 100%;
+  background-color:rgb(150, 145, 145);
+  opacity: 80%;
   transform: translate(-1px, -1px)
   
 }
@@ -187,6 +201,11 @@
 
   // testing
   overflow: hidden;
+}
+
+.tool-belt > div.selected {
+  background-color: #d85757;
+  outline: 1px solid #d85757;
 }
 
 .invImg {
@@ -227,10 +246,10 @@
 
 .store {
   position: relative;
+  background-color: white;
 
   display: grid;
   gap: 4px 0px;
-
   width: 64px;
   grid-template-columns: 32px 32px;
   grid-template-rows: 8px repeat(4, 26px);

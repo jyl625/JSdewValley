@@ -10,9 +10,6 @@ class Game {
     this.canvasEle = this.element.querySelector(".canvas");
     this.ctx = this.canvasEle.getContext("2d");
 
-    // this.hudEleLeft = this.element.querySelector(".hud-left");
-    // this.hudEleRight = this.element.querySelector(".hud-right");
-
     this.gameWorld = null;
     this.player = null;
     this.store = null;
@@ -84,7 +81,7 @@ class Game {
     // Look for keyboard input
     this.dirInput.initialize();
 
-    // 
+    // Adds event listeners to left menu and other game control buttons
     gameControl.initialize({
       element: this.element,
       game: this

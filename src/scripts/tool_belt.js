@@ -33,11 +33,9 @@ class ToolBelt {
     if (toolBeltEleArr) {// really just here for game-restart
       for (let idx = 0; idx < 10; idx++) {
         if (idx === selectedSlot) {
-          toolBeltEleArr[idx].style.backgroundColor = "yellow";
-          // toolBeltEleArr[idx].style.outlineColor = "Red";
+          toolBeltEleArr[idx].classList.add("selected");
         } else {
-          toolBeltEleArr[idx].style.backgroundColor = "";
-          // toolBeltEleArr[idx].style.outlineColor ="";
+          toolBeltEleArr[idx].classList.remove("selected");
         }
       }
     }
