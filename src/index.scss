@@ -56,6 +56,7 @@ body {
   font-size: 5px;
 }
 
+//for the final scores
 #canvas-overlay div {
   font-family: 'Press Start 2P', cursive;
   font-size: 6px;
@@ -75,9 +76,50 @@ body {
 }
 
 
-.canvas-container .canvas, #canvas-overlay {
+.canvas-container .canvas, #canvas-overlay, #game-instructions {
   position: absolute;
 }
+
+//// Instructions /// 
+#game-instructions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  // align-items: left;
+  // flex-wrap: wrap;
+  // flex-flow: column;
+  width: 224px;
+  height: 160px;
+  z-index: 3;
+  background-color: rgb(237, 226, 207);
+  opacity: 100%;
+
+  font-family: 'Press Start 2P', cursive;
+  font-size: 5px;
+  line-height: 10px;
+
+  outline: 1px solid black;
+  outline-offset: -2px;
+}
+
+#game-instructions div {
+  height: 10px;
+  margin-left: 8px;
+}
+
+#close-instructions {
+  height: 10px;
+  margin-right: 8px;
+  text-align: right;
+  font-size: 4px;
+  color: red;
+}
+
+
+
+
+
+///// hud things
 
 .hud-container {
   display:flex;

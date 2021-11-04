@@ -72,9 +72,6 @@ const gameControl = {
 
       }
 
-      //add pop-up instructions
-
-
     });
 
     resumeButtonEle.addEventListener("click", e => {
@@ -99,12 +96,38 @@ const gameControl = {
       } 
     });
 
-    // if (restartQuitButtonEle) {
-    //   restartQuitButtonEle.addEventListener("click", e=> {
-    //     e.stopPropagation();
-    //     game.restart();
-    //   });
-    // }
+    //add pop-up instructions
+    const howToPlayEle = element.querySelector("#instructions");
+    console.log(howToPlayEle)
+    howToPlayEle.addEventListener("click", e => {
+      // gameControl.isPaused = true;
+      const canvasContainerEle = element.querySelector(".canvas-container");
+
+      const gameInstructionOne = document.createElement("div");
+      const gameInstructionTwo = document.createElement("div");
+      const gameInstructionThree = document.createElement("div");
+      const gameInstructionFour = document.createElement("div");
+      const gameInstructionClose = document.createElement("div");
+
+      gameInstructionOne.innerHTML = "Press W,A,S,D to MOVE around";
+      gameInstructionTwo.innerHTML = "Press any of 1~0 NUM KEYS to select SEEDS/TOOL";
+      gameInstructionThree.innerHTML = "Press SPACE BAR to either PLANT/HARVEST";
+      gameInstructionFour.innerHTML = "CLICK on Store to BUY seeds or SELL crops!";
+      gameInstructionClose.innerHTML = "CLOSE";
+      gameInstructionClose.id = "close-instructions";
+
+      const gameInstructions = document.createElement("div");
+      gameInstructions.id = "game-instructions"
+
+      gameInstructions.append(gameInstructionOne, gameInstructionTwo, gameInstructionThree, gameInstructionFour, gameInstructionClose);
+      canvasContainerEle.append(gameInstructions);
+
+      const closeInstructionEle = element.querySelector("#game-instructions");
+      closeInstructionEle.addEventListener("click", e => {
+        // gameControl.isPaused = false;
+        element.querySelector("#game-instructions").remove();
+      });
+    });
   },
 
   createRestartQuitButton() {
