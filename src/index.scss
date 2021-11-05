@@ -146,9 +146,12 @@ body {
     height: 9px;
     display: flex;
     justify-content: center;
+    
   }
 
   #play-pause-container:hover {
+    width: 16px;
+    height: 9px;
     background: lightgray;
     border-radius: 25px;
   }
@@ -156,11 +159,13 @@ body {
   .pause {
     height: 8px;
     width: 14px;
+    image-rendering: pixelated;
   }
 
   .play {
     height: 14px;
     width: 14px;
+    image-rendering: pixelated;
   }
 
   .hud-left {
