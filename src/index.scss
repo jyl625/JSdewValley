@@ -150,8 +150,8 @@ body {
   }
 
   #play-pause-container:hover {
-    width: 16px;
-    height: 9px;
+    width: 14px;
+    height: 14px;
     background: lightgray;
     border-radius: 25px;
   }
@@ -159,12 +159,14 @@ body {
   .pause {
     height: 8px;
     width: 14px;
+    max-height: 100%;
     image-rendering: pixelated;
   }
 
   .play {
     height: 14px;
     width: 14px;
+    max-height: 100%;
     image-rendering: pixelated;
   }
 
