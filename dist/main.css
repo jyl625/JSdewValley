@@ -1,3 +1,454 @@
-*{box-sizing:border-box}.body{background-color:#d3d3d3;padding:0;margin:0}a,a:focus,a:active{text-decoration:none;color:inherit}a:hover{text-decoration:underline;color:inherit}body{background-color:#d8efff}.title-header{position:relative;margin:0 auto;margin-top:30px;height:64px;text-align:center;font-family:"Press Start 2P",cursive;font-size:x-large}.game-container{position:relative;width:400px;height:240px;margin:0 auto;margin-top:100px;transform:scale(3) translateY(20%)}.canvas-container{position:relative;margin:0px;width:224px;height:160px}.canvas{outline:1px solid #000;image-rendering:pixelated;margin:0px;z-index:1}#canvas-overlay{display:flex;justify-content:space-around;align-items:center;flex-flow:column;width:224px;height:160px;z-index:2;background-color:#969191;opacity:95%;font-family:"Press Start 2P",cursive;font-size:5px}#canvas-overlay div{font-family:"Press Start 2P",cursive;font-size:6px;height:10px}#canvas-overlay button{font-family:"Press Start 2P",cursive;font-size:5px;height:25px;background-color:#fff;opacity:1}#canvas-overlay button:hover{background-color:#d8efff}.canvas-container .canvas,#canvas-overlay,#game-instructions{position:absolute}#game-instructions{display:flex;flex-direction:column;justify-content:space-around;width:224px;height:160px;z-index:3;background-color:#ede2cf;opacity:100%;font-family:"Press Start 2P",cursive;font-size:5px;line-height:10px;outline:1px solid #000;outline-offset:-2px}#game-instructions div{height:10px;margin-left:8px}#close-instructions{height:10px;margin-right:8px;text-align:right;font-size:4px;color:red}.hud-container{display:flex;justify-content:space-between;align-items:center;position:relative;width:224px;height:14px;margin:0 auto;border-top:12px;font-family:"Press Start 2P",cursive;font-size:5px}.hud-container #time-controller{width:160px;display:flex;justify-content:left;align-items:center}.hud-container #play-pause-container{width:16px;height:9px;display:flex;justify-content:center}.hud-container #play-pause-container:hover{background:#d3d3d3;border-radius:25px}.hud-container .pause{height:8px;width:14px}.hud-container .play{height:14px;width:14px}.hud-container .hud-left{margin-left:4px}.hud-container .hud-left-blink-red{animation:blinker .5s linear infinite;color:red}.hud-container .hud-left-blink-green{animation:blinker .5s linear infinite;color:green}.hud-right-blink-red{animation:blinker .5s linear infinite;color:red}.hud-right-blink-green{animation:blinker .5s linear infinite;color:green}@keyframes blinker{50%{opacity:0}}.tool-belt-container{position:relative;background:#ceb466;margin:8px auto;width:170px;height:26px;outline:1px solid #ceb466}.tool-belt{display:flex;justify-content:center;width:170px;height:26px;margin:0;outline:1px solid #000;outline-offset:1px}#tool-belt-overlay{width:172px;height:28px;z-index:2;background-color:#969191;opacity:95%;transform:translate(-1px, -1px)}.tool-belt-container .tool-belt,#tool-belt-overlay{position:absolute}.tool-belt-blink-red{animation:blinker .5s linear infinite;outline:1px solid red}.tool-belt>div{margin-right:1px;width:16px;height:26px;text-align:left;line-height:-3px;font-family:"Press Start 2P",cursive;font-size:4px;image-rendering:pixelated;overflow:hidden}.tool-belt>div.selected{background-color:#c07451;outline:1px solid #c07451}.invImg{margin:0 auto;image-rendering:pixelated}.itemCount{margin-top:1px;vertical-align:text-bottom;text-align:right;font-family:"Press Start 2P",cursive;font-size:4x;image-rendering:pixelated}.main-container{position:relative;display:flex;justify-content:space-evenly;width:400px;height:160px}.main-left{width:64px;height:160px;outline:1px solid #000;margin:0px}.store{position:relative;background-color:#e8e3ee;display:grid;gap:4px 0px;width:64px;grid-template-columns:32px 32px;grid-template-rows:8px repeat(4, 26px);height:160px;outline:1px solid #000;margin:0px}.store-tab{display:flex;justify-content:center;align-items:center;width:32px;height:8px;font-family:"Press Start 2P",cursive;font-size:4px;vertical-align:text-bottom;text-align:center;margin:0px}.store.sell-selected .store-tab.buy{background-color:#e7a946;color:#fff;filter:brightness(50%)}.store.sell-selected .store-tab.sell{background-color:#5079f5;color:#fff}.store.buy-selected .store-tab.buy{background-color:#e7a946;color:#fff}.store.buy-selected .store-tab.sell{background-color:#5079f5;color:#fff;filter:brightness(50%)}.store-item-buy,.store-item-sell{width:32px;height:26px;font-family:"Press Start 2P",cursive;font-size:4px;vertical-align:text-bottom;text-align:center;overflow:hidden;image-rendering:pixelated}.imgContainer{width:16px;height:16px;margin-left:8px;overflow:hidden}.store-item-buy img{margin:0px 0px 0px 0px}.green-price{color:green}.green-price .itemCount{color:#000}.green-price .sell-count-blink-red{animation:blinker .5s linear infinite;color:red}.red-price{color:red}.red-price .itemCount{color:#000}.red-price .sell-count-blink-red{animation:blinker .5s linear infinite;color:red}.sidebar-links{width:64px;height:20px;font-family:"Press Start 2P",cursive;font-size:4px}.sidebar-links a{height:12px;width:12px}#instructions{background-color:#499f7b;text-align:right;line-height:20px;display:flex;justify-content:space-between;align-items:center}#instructions img{margin-left:4px;height:12px;width:12px;image-rendering:pixelated}#instructions span{margin-right:2px}#gitHubLink{background-color:#5dba5c;text-align:right;line-height:20px;display:flex;justify-content:space-between;align-items:center}#gitHubLink img{margin-left:4px;height:12px;width:12px;image-rendering:pixelated}#gitHubLink span{margin-right:2px}#linkedIn{background-color:#a4d876;text-align:right;line-height:20px;display:flex;justify-content:space-between;align-items:center}#linkedIn img{margin-left:4px;height:12px;width:12px;image-rendering:pixelated}#linkedIn span{margin-right:2px}#empty-space{height:80px;background-color:#ebc69a;text-align:right;line-height:20px}#created-by{height:20px;background-color:#e5bd85;text-align:right;line-height:20px;font-size:3px}#created-by div{height:4px;width:64px;margin-right:2px;text-align:center}
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+* {
+  box-sizing: border-box;
+}
 
-/*# sourceMappingURL=main.css.map*/
+.body {
+  background-color: lightgrey;
+  padding: 0;
+  margin: 0;
+}
+
+a, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: inherit;
+}
+
+body {
+  background-color: #d8efff;
+}
+
+.title-header {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 30px;
+  height: 64px;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  font-size: x-large;
+}
+
+.game-container {
+  position: relative;
+  width: 400px;
+  height: 240px;
+  margin: 0 auto;
+  margin-top: 100px;
+  transform: scale(3) translateY(20%);
+}
+
+.canvas-container {
+  position: relative;
+  margin: 0px;
+  width: 224px;
+  height: 160px;
+}
+
+.canvas {
+  outline: 1px solid black;
+  image-rendering: pixelated;
+  margin: 0px;
+  z-index: 1;
+}
+
+#canvas-overlay {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: column;
+  width: 224px;
+  height: 160px;
+  z-index: 2;
+  background-color: #969191;
+  opacity: 95%;
+  font-family: "Press Start 2P", cursive;
+  font-size: 5px;
+}
+
+#canvas-overlay div {
+  font-family: "Press Start 2P", cursive;
+  font-size: 6px;
+  height: 10px;
+}
+
+#canvas-overlay button {
+  font-family: "Press Start 2P", cursive;
+  font-size: 5px;
+  height: 25px;
+  background-color: white;
+  opacity: 1;
+}
+
+#canvas-overlay button:hover {
+  background-color: #d8efff;
+}
+
+.canvas-container .canvas, #canvas-overlay, #game-instructions {
+  position: absolute;
+}
+
+#game-instructions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 224px;
+  height: 160px;
+  z-index: 3;
+  background-color: #ede2cf;
+  opacity: 100%;
+  font-family: "Press Start 2P", cursive;
+  font-size: 5px;
+  line-height: 10px;
+  outline: 1px solid black;
+  outline-offset: -2px;
+}
+
+#game-instructions div {
+  height: 10px;
+  margin-left: 8px;
+}
+
+#close-instructions {
+  height: 10px;
+  margin-right: 8px;
+  text-align: right;
+  font-size: 4px;
+  color: red;
+}
+
+.hud-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 224px;
+  height: 14px;
+  margin: 0 auto;
+  border-top: 12px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 5px;
+}
+.hud-container #time-controller {
+  width: 160px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.hud-container #play-pause-container {
+  width: 16px;
+  height: 9px;
+  display: flex;
+  justify-content: center;
+}
+.hud-container #play-pause-container:hover {
+  background: lightgray;
+  border-radius: 25px;
+}
+.hud-container .pause {
+  height: 8px;
+  width: 14px;
+}
+.hud-container .play {
+  height: 14px;
+  width: 14px;
+}
+.hud-container .hud-left {
+  margin-left: 4px;
+}
+.hud-container .hud-left-blink-red {
+  animation: blinker 0.5s linear infinite;
+  color: red;
+}
+.hud-container .hud-left-blink-green {
+  animation: blinker 0.5s linear infinite;
+  color: green;
+}
+
+.hud-right-blink-red {
+  animation: blinker 0.5s linear infinite;
+  color: red;
+}
+
+.hud-right-blink-green {
+  animation: blinker 0.5s linear infinite;
+  color: green;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+.tool-belt-container {
+  position: relative;
+  background: #ceb466;
+  margin: 8px auto;
+  width: 170px;
+  height: 26px;
+  outline: 1px solid #ceb466;
+}
+
+.tool-belt {
+  display: flex;
+  justify-content: center;
+  width: 170px;
+  height: 26px;
+  margin: 0;
+  outline: 1px solid black;
+  outline-offset: 1px;
+}
+
+#tool-belt-overlay {
+  width: 172px;
+  height: 28px;
+  z-index: 2;
+  background-color: #969191;
+  opacity: 95%;
+  transform: translate(-1px, -1px);
+}
+
+.tool-belt-container .tool-belt, #tool-belt-overlay {
+  position: absolute;
+}
+
+.tool-belt-blink-red {
+  animation: blinker 0.5s linear infinite;
+  outline: 1px solid red;
+}
+
+.tool-belt > div {
+  margin-right: 1px;
+  width: 16px;
+  height: 26px;
+  text-align: left;
+  line-height: -3px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 4px;
+  image-rendering: pixelated;
+  overflow: hidden;
+}
+
+.tool-belt > div.selected {
+  background-color: #c07451;
+  outline: 1px solid #c07451;
+}
+
+.invImg {
+  margin: 0 auto;
+  image-rendering: pixelated;
+}
+
+.itemCount {
+  margin-top: 1px;
+  vertical-align: text-bottom;
+  text-align: right;
+  font-family: "Press Start 2P", cursive;
+  font-size: 4x;
+  image-rendering: pixelated;
+}
+
+.main-container {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  width: 400px;
+  height: 160px;
+}
+
+.main-left {
+  width: 64px;
+  height: 160px;
+  outline: 1px solid black;
+  margin: 0px;
+}
+
+.store {
+  position: relative;
+  background-color: #e8e3ee;
+  display: grid;
+  gap: 4px 0px;
+  width: 64px;
+  grid-template-columns: 32px 32px;
+  grid-template-rows: 8px repeat(4, 26px);
+  height: 160px;
+  outline: 1px solid black;
+  margin: 0px;
+}
+
+.store-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 8px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 4px;
+  vertical-align: text-bottom;
+  text-align: center;
+  margin: 0px;
+}
+
+.store.sell-selected .store-tab.buy {
+  background-color: #e7a946;
+  color: white;
+  filter: brightness(50%);
+}
+.store.sell-selected .store-tab.sell {
+  background-color: #5079f5;
+  color: white;
+}
+
+.store.buy-selected .store-tab.buy {
+  background-color: #e7a946;
+  color: white;
+}
+.store.buy-selected .store-tab.sell {
+  background-color: #5079f5;
+  color: white;
+  filter: brightness(50%);
+}
+
+.store-item-buy, .store-item-sell {
+  width: 32px;
+  height: 26px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 4px;
+  vertical-align: text-bottom;
+  text-align: center;
+  overflow: hidden;
+  image-rendering: pixelated;
+}
+
+.imgContainer {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  overflow: hidden;
+}
+
+.store-item-buy img {
+  margin: 0px 0px 0px 0px;
+}
+
+.green-price {
+  color: green;
+}
+.green-price .itemCount {
+  color: black;
+}
+.green-price .sell-count-blink-red {
+  animation: blinker 0.5s linear infinite;
+  color: red;
+}
+
+.red-price {
+  color: red;
+}
+.red-price .itemCount {
+  color: black;
+}
+.red-price .sell-count-blink-red {
+  animation: blinker 0.5s linear infinite;
+  color: red;
+}
+
+.sidebar-links {
+  width: 64px;
+  height: 20px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 4px;
+}
+
+.sidebar-links a {
+  height: 12px;
+  width: 12px;
+}
+
+#instructions {
+  background-color: #499f7b;
+  text-align: right;
+  line-height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#instructions img {
+  margin-left: 4px;
+  height: 12px;
+  width: 12px;
+  image-rendering: pixelated;
+}
+
+#instructions span {
+  margin-right: 2px;
+}
+
+#gitHubLink {
+  background-color: #5dba5c;
+  text-align: right;
+  line-height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#gitHubLink img {
+  margin-left: 4px;
+  height: 12px;
+  width: 12px;
+  image-rendering: pixelated;
+}
+
+#gitHubLink span {
+  margin-right: 2px;
+}
+
+#linkedIn {
+  background-color: #a4d876;
+  text-align: right;
+  line-height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#linkedIn img {
+  margin-left: 4px;
+  height: 12px;
+  width: 12px;
+  image-rendering: pixelated;
+}
+
+#linkedIn span {
+  margin-right: 2px;
+}
+
+#empty-space {
+  height: 80px;
+  background-color: #ebc69a;
+  text-align: right;
+  line-height: 20px;
+}
+
+#created-by {
+  height: 20px;
+  background-color: #e5bd85;
+  text-align: right;
+  line-height: 20px;
+  font-size: 3px;
+}
+
+#created-by div {
+  height: 4px;
+  width: 64px;
+  margin-right: 2px;
+  text-align: center;
+}

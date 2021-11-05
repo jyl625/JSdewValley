@@ -104,19 +104,21 @@ const gameControl = {
         const gameInstructionTwo = document.createElement("div");
         const gameInstructionThree = document.createElement("div");
         const gameInstructionFour = document.createElement("div");
+        const gameInstructionFive = document.createElement("div");
         const gameInstructionClose = document.createElement("div");
 
         gameInstructionOne.innerHTML = "Press W,A,S,D to MOVE around";
         gameInstructionTwo.innerHTML = "Press any of 1~0 NUM KEYS to select SEEDS/TOOL";
         gameInstructionThree.innerHTML = "Press SPACE BAR to either PLANT/HARVEST";
         gameInstructionFour.innerHTML = "CLICK on Store to BUY seeds or SELL crops!";
+        gameInstructionFive.innerHTML = "But ACT FAST because crop prices change DAILY!";
         gameInstructionClose.innerHTML = "CLOSE";
         gameInstructionClose.id = "close-instructions";
 
         const gameInstructions = document.createElement("div");
         gameInstructions.id = "game-instructions";
 
-        gameInstructions.append(gameInstructionOne, gameInstructionTwo, gameInstructionThree, gameInstructionFour, gameInstructionClose);
+        gameInstructions.append(gameInstructionOne, gameInstructionTwo, gameInstructionThree, gameInstructionFour, gameInstructionFive, gameInstructionClose);
         canvasContainerEle.append(gameInstructions);
 
         gameInstructionClose.addEventListener("click", e => {
