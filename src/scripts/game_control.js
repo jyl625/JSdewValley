@@ -111,7 +111,7 @@ const gameControl = {
         gameInstructionTwo.innerHTML = "Press any of 1~0 NUM KEYS to select SEEDS/TOOL";
         gameInstructionThree.innerHTML = "Press SPACE BAR to either PLANT/HARVEST";
         gameInstructionFour.innerHTML = "CLICK on Store to BUY seeds or SELL crops!";
-        gameInstructionFive.innerHTML = "But ACT FAST because crop prices change DAILY!";
+        gameInstructionFive.innerHTML = "But ACT FAST because crop prices change DAILY and a day in the life of a farmer goes by QUICKER than you think! ";
         gameInstructionClose.innerHTML = "CLOSE";
         gameInstructionClose.id = "close-instructions";
 
