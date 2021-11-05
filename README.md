@@ -35,7 +35,8 @@ In JSdewValley, users will be able to:
 # Technologies, Libraries, APIs
 
 - Canvas API to render game view
-- Webpack to bundle JavaScript code
+- Webpack to bundle and transpile JavaScript code
+- npm to manage project dependencies
 
 ---
 
