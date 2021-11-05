@@ -148,16 +148,20 @@ body {
   justify-content: center;
 }
 .hud-container #play-pause-container:hover {
+  width: 16px;
+  height: 9px;
   background: lightgray;
   border-radius: 25px;
 }
 .hud-container .pause {
   height: 8px;
   width: 14px;
+  image-rendering: pixelated;
 }
 .hud-container .play {
   height: 14px;
   width: 14px;
+  image-rendering: pixelated;
 }
 .hud-container .hud-left {
   margin-left: 4px;
