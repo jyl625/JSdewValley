@@ -107,6 +107,12 @@ const gameControl = {
         const gameInstructionFive = document.createElement("div");
         const gameInstructionClose = document.createElement("div");
 
+        gameInstructionOne.classList.add("instruction")
+        gameInstructionTwo.classList.add("instruction")
+        gameInstructionThree.classList.add("instruction")
+        gameInstructionFour.classList.add("instruction")
+        gameInstructionFive.classList.add("instruction")
+
         gameInstructionOne.innerHTML = "Press W,A,S,D to MOVE around";
         gameInstructionTwo.innerHTML = "Press any of 1~0 NUM KEYS to select SEEDS/TOOL";
         gameInstructionThree.innerHTML = "Press SPACE BAR to either PLANT/HARVEST";
