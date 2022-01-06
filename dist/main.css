@@ -110,21 +110,17 @@ body {
   outline-offset: -2px;
 }
 
-#game-instructions .instruction {
+#game-instructions div {
   height: 10px;
   margin-left: 8px;
 }
 
 #close-instructions {
   height: 10px;
-  width: fit-content;
-  margin-top: 8px;
-  /* margin-right: 8px; */
-  margin-left: 190px;
+  margin-right: 8px;
   text-align: right;
   font-size: 4px;
   color: red;
-  cursor: pointer;
 }
 
 .hud-container {
